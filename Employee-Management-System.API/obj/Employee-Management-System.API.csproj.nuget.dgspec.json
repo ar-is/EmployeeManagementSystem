@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\e62824\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj": {}
+    "C:\\Users\\arist\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\e62824\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj": {
+    "C:\\Users\\arist\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj",
+        "projectUniqueName": "C:\\Users\\arist\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj",
         "projectName": "Employee-Management-System.API",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj",
-        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\obj\\",
+        "projectPath": "C:\\Users\\arist\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\Employee-Management-System.API.csproj",
+        "packagesPath": "C:\\Users\\arist\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arist\\source\\repos\\Employee-Management-System\\Employee-Management-System.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
