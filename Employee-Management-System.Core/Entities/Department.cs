@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Employee_Management_System.Core.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Employee_Management_System.API.Core.Entities
+namespace Employee_Management_System.Core.Entities
 {
-    public class Department
+    public class Department : IContact
     {
         public short Id { get; set; }
         public Guid Guid { get; set; } = Guid.NewGuid();
@@ -15,7 +15,7 @@ namespace Employee_Management_System.API.Core.Entities
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
-        public int ManagerId { get; set; }
+        public int? ManagerId { get; set; }
         public Employee Manager { get; set; }
     }
 }

@@ -20,5 +20,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Employee-Management-System.Infrastructure\Employee-Management-System.Infrastructure.csproj" />
+  </ItemGroup>
+
 
 </Project>

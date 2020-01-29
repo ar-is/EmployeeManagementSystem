@@ -100,3 +100,17 @@ C:\Users\arist\source\repos\Employee-Management-System\Employee-Management-Syste
 C:\Users\arist\source\repos\Employee-Management-System\Employee-Management-System.API\obj\Debug\netcoreapp3.1\Employee-Management-System.API.csproj.CopyComplete
 C:\Users\arist\source\repos\Employee-Management-System\Employee-Management-System.API\obj\Debug\netcoreapp3.1\Employee-Management-System.API.dll
 C:\Users\arist\source\repos\Employee-Management-System\Employee-Management-System.API\obj\Debug\netcoreapp3.1\Employee-Management-System.API.pdb
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\obj\Debug\netcoreapp3.1\Employee-Management-System.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\obj\Debug\netcoreapp3.1\Employee-Management-System.API.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\obj\Debug\netcoreapp3.1\Employee-Management-System.API.pdb
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.API.deps.json
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.API.runtimeconfig.json
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.API.runtimeconfig.dev.json
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.API.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.API.pdb
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.Core.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.pdb
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.API\bin\Debug\netcoreapp3.1\Employee-Management-System.Core.pdb

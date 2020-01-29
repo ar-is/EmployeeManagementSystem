@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace Employee_Management_System.API.Core.Entities
+namespace Employee_Management_System.Core.Entities
 {
     public class Job
     {
@@ -11,6 +10,9 @@ namespace Employee_Management_System.API.Core.Entities
         public Guid Guid { get; set; } = Guid.NewGuid();
 
         public string Title { get; set; }
+        public JobSeniorityLevel SeniorityLevel { get; set; }
         public string Description { get; set; }
+
+        public ICollection<JobSkill> JobSkills { get; set; }
     }
 }

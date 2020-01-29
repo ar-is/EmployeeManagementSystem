@@ -1,0 +1,13 @@
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.deps.json
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\obj\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.csprojAssemblyReference.cache
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\obj\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\obj\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.AssemblyInfo.cs
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Core.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.runtimeconfig.json
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.runtimeconfig.dev.json
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.pdb
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\bin\Debug\netcoreapp3.1\Employee-Management-System.Core.pdb
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\obj\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.csproj.CopyComplete
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\obj\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.dll
+C:\Users\e62824\source\repos\Employee-Management-System\Employee-Management-System.Infrastructure\obj\Debug\netcoreapp3.1\Employee-Management-System.Infrastructure.pdb

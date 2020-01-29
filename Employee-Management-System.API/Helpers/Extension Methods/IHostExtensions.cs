@@ -1,4 +1,4 @@
-﻿using Employee_Management_System.API.Persistence.DbContexts;
+﻿using Employee_Management_System.Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
