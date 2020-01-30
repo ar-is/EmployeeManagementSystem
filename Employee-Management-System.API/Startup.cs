@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Employee_Management_System.API.Helpers.Extension_Methods;
 using Employee_Management_System.Infrastructure.DbContexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -62,7 +63,7 @@ namespace Employee_Management_System.API
 
                         return new UnprocessableEntityObjectResult(problemDetails)
                         {
-                            ContentTypes = { "" }
+                            //ContentTypes = { "" }
                         };
                     };
                 });
@@ -72,14 +73,15 @@ namespace Employee_Management_System.API
                 var newtonsoftJsonOutputFormatter = config.OutputFormatters
                       .OfType<NewtonsoftJsonOutputFormatter>()?.FirstOrDefault();
 
-                if (newtonsoftJsonOutputFormatter != null)
-                    newtonsoftJsonOutputFormatter.SupportedMediaTypes
-                                                 .Add("");
+                //if (newtonsoftJsonOutputFormatter != null)
+                //    newtonsoftJsonOutputFormatter.SupportedMediaTypes
+                //                                 .Add("");
             });
+            
+            services.AddAutoMapper(typeof(Core.Helpers.MappingProfiles.SkillsProfile).Assembly);            
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-            //services.AddCustomServices(Configuration);
+            services.AddCustomServices(Configuration);
 
             services.AddDbContext<EMSDbContext>(options =>
             {

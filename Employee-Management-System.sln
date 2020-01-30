@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee-Management-System.API", "Employee-Management-System.API\Employee-Management-System.API.csproj", "{5201D9EE-BC0B-4D56-9C79-56D956D2C48F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee-Management-System.Core", "Employee-Management-System.Core\Employee-Management-System.Core.csproj", "{F8C437F0-1833-4815-A6FB-35F9A55CC596}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee-Management-System.Core", "Employee-Management-System.Core\Employee-Management-System.Core.csproj", "{F8C437F0-1833-4815-A6FB-35F9A55CC596}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee-Management-System.Infrastructure", "Employee-Management-System.Infrastructure\Employee-Management-System.Infrastructure.csproj", "{CDE4D734-51A5-4911-8A7A-CE74B44F0685}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employee-Management-System.Infrastructure", "Employee-Management-System.Infrastructure\Employee-Management-System.Infrastructure.csproj", "{CDE4D734-51A5-4911-8A7A-CE74B44F0685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
