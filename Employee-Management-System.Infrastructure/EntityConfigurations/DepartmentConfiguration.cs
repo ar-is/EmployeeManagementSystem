@@ -41,7 +41,7 @@ namespace Employee_Management_System.Infrastructure.EntityConfigurations
 
             builder.Property(d => d.Email)
                 .IsRequired()
-                .HasMaxLength(30);
+                .HasMaxLength(254);
         }
 
         private void ConfigureEntityRelationships(EntityTypeBuilder<Department> builder)
@@ -63,7 +63,7 @@ namespace Employee_Management_System.Infrastructure.EntityConfigurations
                      Name = "Logistics",
                      Description = "Logistics management is that part of the supply chain which plans, implements and controls the efficient, effective forward and reverse flow and storage of goods, services and related information between the point of origin and the point of consumption in order to meet customers' requirements.",
                      PhoneNumber = "2101111111",
-                     ManagerId = 1
+                     Email = "logistics@company.com"
                  },
                  new Department
                  {
@@ -72,7 +72,7 @@ namespace Employee_Management_System.Infrastructure.EntityConfigurations
                      Name = "Software Development",
                      Description = "Software Development team specializes in the development of custom software applications and offshore software outsourcing services.",
                      PhoneNumber = "2102222222",
-                     ManagerId = 2
+                     Email = "swdev@company.com"
                  },
                  new Department
                  {
@@ -80,6 +80,7 @@ namespace Employee_Management_System.Infrastructure.EntityConfigurations
                      Guid = Guid.Parse("8a113a93-2051-490d-9329-bad2920e9b97"),
                      Name = "Human Resources (HR)",
                      Description = "Human resources or HR is the department charged with finding, screening, recruiting, and training job applicants, and administering employee-benefit programs",
+                     Email = "hr@company.com",
                      PhoneNumber = "2103333333"
                  }                
                  );

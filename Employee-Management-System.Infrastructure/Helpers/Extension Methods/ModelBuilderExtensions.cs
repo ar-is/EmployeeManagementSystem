@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Linq;
+using Employee_Management_System.Infrastructure.EntityConfigurations;
 
 namespace Employee_Management_System.Infrastructure.Helpers.Extension_Methods
 {

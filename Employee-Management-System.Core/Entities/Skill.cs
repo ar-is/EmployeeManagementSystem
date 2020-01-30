@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Employee_Management_System.Core.Entities
@@ -15,6 +16,10 @@ namespace Employee_Management_System.Core.Entities
         public DateTime CreationDate { get; set; } = DateTime.Now;
         
         public ICollection<JobSkill> JobSkills { get; set; }
+            = new Collection<JobSkill>();
+
+        public ICollection<EmployeeSkill> EmployeeSkills { get; set; }
+            = new Collection<EmployeeSkill>();
 
         public Skill()
         {}

@@ -1,6 +1,7 @@
 ﻿using Employee_Management_System.Core.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Employee_Management_System.Core.Entities
@@ -17,5 +18,8 @@ namespace Employee_Management_System.Core.Entities
 
         public int? ManagerId { get; set; }
         public Employee Manager { get; set; }
+
+        public ICollection<Job> Jobs { get; set; }
+            = new Collection<Job>();
     }
 }

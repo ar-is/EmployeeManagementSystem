@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Employee_Management_System.Core.Entities
@@ -13,6 +14,13 @@ namespace Employee_Management_System.Core.Entities
         public JobSeniorityLevel SeniorityLevel { get; set; }
         public string Description { get; set; }
 
+        public short DepartmentId { get; set; }
+        public Department Department { get; set; }
+
         public ICollection<JobSkill> JobSkills { get; set; }
+            = new Collection<JobSkill>();
+
+        public ICollection<Employee> Employees { get; set; }
+            = new Collection<Employee>();
     }
 }
