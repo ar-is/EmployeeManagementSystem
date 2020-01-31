@@ -1,0 +1,8 @@
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.deps.json
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.dll
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.csprojAssemblyReference.cache
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.AssemblyInfoInputs.cache
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.AssemblyInfo.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.pdb
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.dll
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.Utils\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.Utils.pdb
