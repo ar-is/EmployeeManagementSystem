@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EmployeeManagementSystem.API.Helpers.Extension_Methods;
-using EmployeeManagementSystem.Infrastructure.DbContexts;
-using EmployeeManagementSystem.Core.Helpers.MappingProfiles;
+using EmployeeManagementSystem.API.Infrastructure.DbContexts;
+using EmployeeManagementSystem.API.Core.Helpers.MappingProfiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,7 +19,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using EmployeeManagementSystem.Utils.VendorMediaTypes;
+using EmployeeManagementSystem.API.Utils.VendorMediaTypes;
 
 namespace EmployeeManagementSystem.API
 {

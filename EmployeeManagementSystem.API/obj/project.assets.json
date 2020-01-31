@@ -1800,49 +1800,49 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "EmployeeManagementSystem.Core/1.0.0": {
+      "EmployeeManagementSystem.API.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
-          "EmployeeManagementSystem.Utils": "1.0.0",
+          "EmployeeManagementSystem.API.Utils": "1.0.0",
           "Newtonsoft.Json": "12.0.3"
         },
         "compile": {
-          "bin/placeholder/EmployeeManagementSystem.Core.dll": {}
+          "bin/placeholder/EmployeeManagementSystem.API.Core.dll": {}
         },
         "runtime": {
-          "bin/placeholder/EmployeeManagementSystem.Core.dll": {}
+          "bin/placeholder/EmployeeManagementSystem.API.Core.dll": {}
         }
       },
-      "EmployeeManagementSystem.Infrastructure/1.0.0": {
+      "EmployeeManagementSystem.API.Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "EmployeeManagementSystem.Core": "1.0.0",
-          "EmployeeManagementSystem.Utils": "1.0.0",
+          "EmployeeManagementSystem.API.Core": "1.0.0",
+          "EmployeeManagementSystem.API.Utils": "1.0.0",
           "Microsoft.EntityFrameworkCore": "3.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.1",
           "System.Linq.Dynamic.Core": "1.0.20"
         },
         "compile": {
-          "bin/placeholder/EmployeeManagementSystem.Infrastructure.dll": {}
+          "bin/placeholder/EmployeeManagementSystem.API.Infrastructure.dll": {}
         },
         "runtime": {
-          "bin/placeholder/EmployeeManagementSystem.Infrastructure.dll": {}
+          "bin/placeholder/EmployeeManagementSystem.API.Infrastructure.dll": {}
         }
       },
-      "EmployeeManagementSystem.Utils/1.0.0": {
+      "EmployeeManagementSystem.API.Utils/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "compile": {
-          "bin/placeholder/EmployeeManagementSystem.Utils.dll": {}
+          "bin/placeholder/EmployeeManagementSystem.API.Utils.dll": {}
         },
         "runtime": {
-          "bin/placeholder/EmployeeManagementSystem.Utils.dll": {}
+          "bin/placeholder/EmployeeManagementSystem.API.Utils.dll": {}
         }
       }
     }
@@ -6321,27 +6321,27 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "EmployeeManagementSystem.Core/1.0.0": {
+    "EmployeeManagementSystem.API.Core/1.0.0": {
       "type": "project",
-      "path": "../EmployeeManagementSystem.Core/EmployeeManagementSystem.Core.csproj",
-      "msbuildProject": "../EmployeeManagementSystem.Core/EmployeeManagementSystem.Core.csproj"
+      "path": "../EmployeeManagementSystem.API.Core/EmployeeManagementSystem.API.Core.csproj",
+      "msbuildProject": "../EmployeeManagementSystem.API.Core/EmployeeManagementSystem.API.Core.csproj"
     },
-    "EmployeeManagementSystem.Infrastructure/1.0.0": {
+    "EmployeeManagementSystem.API.Infrastructure/1.0.0": {
       "type": "project",
-      "path": "../EmployeeManagementSystem.Infrastructure/EmployeeManagementSystem.Infrastructure.csproj",
-      "msbuildProject": "../EmployeeManagementSystem.Infrastructure/EmployeeManagementSystem.Infrastructure.csproj"
+      "path": "../EmployeeManagementSystem.API.Infrastructure/EmployeeManagementSystem.API.Infrastructure.csproj",
+      "msbuildProject": "../EmployeeManagementSystem.API.Infrastructure/EmployeeManagementSystem.API.Infrastructure.csproj"
     },
-    "EmployeeManagementSystem.Utils/1.0.0": {
+    "EmployeeManagementSystem.API.Utils/1.0.0": {
       "type": "project",
-      "path": "../EmployeeManagementSystem.Utils/EmployeeManagementSystem.Utils.csproj",
-      "msbuildProject": "../EmployeeManagementSystem.Utils/EmployeeManagementSystem.Utils.csproj"
+      "path": "../EmployeeManagementSystem.API.Utils/EmployeeManagementSystem.API.Utils.csproj",
+      "msbuildProject": "../EmployeeManagementSystem.API.Utils/EmployeeManagementSystem.API.Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 7.0.0",
-      "EmployeeManagementSystem.Infrastructure >= 1.0.0",
-      "EmployeeManagementSystem.Utils >= 1.0.0",
+      "EmployeeManagementSystem.API.Infrastructure >= 1.0.0",
+      "EmployeeManagementSystem.API.Utils >= 1.0.0",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.1",
       "Microsoft.EntityFrameworkCore >= 3.1.1",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.1",
@@ -6378,11 +6378,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj"
+            "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj"
             },
-            "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj": {
-              "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj"
+            "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
+              "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj"
             }
           }
         }

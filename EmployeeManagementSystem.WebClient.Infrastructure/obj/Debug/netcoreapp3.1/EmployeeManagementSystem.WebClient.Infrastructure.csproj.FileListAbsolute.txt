@@ -1,0 +1,11 @@
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.deps.json
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.dll
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.pdb
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.csprojAssemblyReference.cache
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.AssemblyInfo.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.dll
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.pdb
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.dll
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.pdb
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.csproj.CopyComplete

@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>EmployeeManagementSystem.API.Infrastructure</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200130095905_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130095905_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130100311_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130100311_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130100413_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130100413_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130100702_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130100702_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130100835_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130100835_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130103052_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130103052_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130103357_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130103357_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130103800_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130103800_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130104022_PopulateManagersOfDepartments.cs" />
+    <Compile Remove="Migrations\20200130104022_PopulateManagersOfDepartments.Designer.cs" />
+    <Compile Remove="Migrations\20200130104905_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200130104905_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200130104934_ujdhfkd.cs" />
+    <Compile Remove="Migrations\20200130104934_ujdhfkd.Designer.cs" />
+    <Compile Remove="Migrations\20200130105008_PopulateManagersOfDepartments.cs" />
+    <Compile Remove="Migrations\20200130105008_PopulateManagersOfDepartments.Designer.cs" />
+    <Compile Remove="Migrations\20200131071832_ChangeDateTimesToDateTimesOffset.cs" />
+    <Compile Remove="Migrations\20200131071832_ChangeDateTimesToDateTimesOffset.Designer.cs" />
+    <Compile Remove="Migrations\20200131072115_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200131072115_CreateEntities.Designer.cs" />
+    <Compile Remove="Migrations\20200131072626_CreateEntities.cs" />
+    <Compile Remove="Migrations\20200131072626_CreateEntities.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeManagementSystem.API.Core\EmployeeManagementSystem.API.Core.csproj" />
+    <ProjectReference Include="..\EmployeeManagementSystem.API.Utils\EmployeeManagementSystem.API.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

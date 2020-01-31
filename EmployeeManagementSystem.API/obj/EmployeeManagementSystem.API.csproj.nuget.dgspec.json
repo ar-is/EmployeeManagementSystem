@@ -4,14 +4,14 @@
     "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj": {
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj",
-        "projectName": "EmployeeManagementSystem.API",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj",
+        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj",
+        "projectName": "EmployeeManagementSystem.API.Core",
+        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj",
         "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\obj\\",
+        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -30,97 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj"
-              },
-              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj": {
-                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp3.1": {
-          "dependencies": {
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
-            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.1, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Core\\EmployeeManagementSystem.Core.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Core\\EmployeeManagementSystem.Core.csproj",
-        "projectName": "EmployeeManagementSystem.Core",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Core\\EmployeeManagementSystem.Core.csproj",
-        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Core\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp3.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp3.1": {
-            "projectReferences": {
-              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj": {
-                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj"
+              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
+                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj"
               }
             }
           }
@@ -162,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj": {
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj",
-        "projectName": "EmployeeManagementSystem.Infrastructure",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\EmployeeManagementSystem.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj",
+        "projectName": "EmployeeManagementSystem.API.Infrastructure",
+        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -188,11 +99,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Core\\EmployeeManagementSystem.Core.csproj": {
-                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Core\\EmployeeManagementSystem.Core.csproj"
+              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj": {
+                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj"
               },
-              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj": {
-                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj"
+              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
+                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj"
               }
             }
           }
@@ -244,14 +155,14 @@
         }
       }
     },
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj": {
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj",
-        "projectName": "EmployeeManagementSystem.Utils",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\EmployeeManagementSystem.Utils.csproj",
+        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj",
+        "projectName": "EmployeeManagementSystem.API.Utils",
+        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj",
         "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.Utils\\obj\\",
+        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -297,6 +208,95 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj",
+        "projectName": "EmployeeManagementSystem.API",
+        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\EmployeeManagementSystem.API.csproj",
+        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Infrastructure\\EmployeeManagementSystem.API.Infrastructure.csproj"
+              },
+              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
+                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
