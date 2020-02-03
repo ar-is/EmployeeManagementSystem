@@ -89,6 +89,17 @@ namespace EmployeeManagementSystem.API
             {
                 options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EMSApiDb;Trusted_Connection=True;");
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("LocalHostPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("https://localhost:44375")
+                               .AllowAnyHeader()
+                               .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -113,6 +124,8 @@ namespace EmployeeManagementSystem.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("LocalHostPolicy");
 
             app.UseAuthorization();
 

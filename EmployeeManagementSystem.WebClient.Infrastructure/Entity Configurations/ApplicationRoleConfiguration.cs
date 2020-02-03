@@ -8,7 +8,7 @@ using System.Text;
 
 namespace EmployeeManagementSystem.WebClient.Infrastructure.Entity_Configurations
 {
-    public class RoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
+    public class ApplicationRoleConfiguration : IEntityTypeConfiguration<ApplicationRole>
     {
         public void Configure(EntityTypeBuilder<ApplicationRole> builder)
         {
@@ -26,18 +26,21 @@ namespace EmployeeManagementSystem.WebClient.Infrastructure.Entity_Configuration
 
         private void SeedData(EntityTypeBuilder<ApplicationRole> builder)
         {
-            builder
-                .HasData(
-            new IdentityRole
-            {
-                Name = "Scheduler",
-                NormalizedName = "SCHEDULER"
-            },
-            new IdentityRole
-            {
-                Name = "Administrator",
-                NormalizedName = "ADMINISTRATOR"
-            });
+            builder.HasData(
+                new ApplicationRole
+                {
+                    Id = 1,
+                    Guid = Guid.Parse("a81e61ce-607f-43fd-ad39-fd6c6d784730"),
+                    Name = "Administrator",
+                    NormalizedName = "ADMINISTRATOR"
+                },
+                new ApplicationRole
+                {
+                    Id = 2,
+                    Guid = Guid.Parse("62714b07-3dd0-4a27-9a76-b13fb1815451"),
+                    Name = "Scheduler",
+                    NormalizedName = "SCHEDULER"
+                });
         }
     }
 }

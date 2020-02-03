@@ -7,6 +7,6 @@ namespace EmployeeManagementSystem.WebClient.Core.Entities
 {
     public class ApplicationRole : IdentityRole<int>
     {
-        public Guid Guid { get; private set; } = Guid.NewGuid();
+        public Guid Guid { get; set; } = Guid.NewGuid();
     }
 }

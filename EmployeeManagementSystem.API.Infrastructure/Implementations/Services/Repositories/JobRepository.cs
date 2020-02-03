@@ -1,4 +1,5 @@
-﻿using EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories;
+﻿using EmployeeManagementSystem.API.Core.Entities;
+using EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories;
 using EmployeeManagementSystem.API.Infrastructure.DbContexts;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,16 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 throw new ArgumentNullException(nameof(jobId));
 
             return _context.Jobs.Any(j => j.Guid == jobId);
+        }
+
+        public IEnumerable<Job> GetJobs()
+        {
+            return _context.Jobs.ToList();
+        }
+
+        public Job GetFirstJob()
+        {
+            return _context.Jobs.FirstOrDefault(j => j.Id == 1);
         }
     }
 }

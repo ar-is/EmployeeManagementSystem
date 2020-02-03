@@ -20,6 +20,7 @@ namespace EmployeeManagementSystem.WebClient.Infrastructure.DbContexts
             base.OnModelCreating(builder);
 
             builder.ApplyConfiguration(new ApplicationUserConfiguration());
+            builder.ApplyConfiguration(new ApplicationRoleConfiguration());
         }
     }
 }

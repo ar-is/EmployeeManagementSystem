@@ -17,6 +17,8 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace EmployeeManagementSystem.WebClient
 {
@@ -38,6 +40,7 @@ namespace EmployeeManagementSystem.WebClient
             });
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<ApplicationRole>()
                 .AddEntityFrameworkStores<EMSWebClientDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
@@ -77,6 +80,17 @@ namespace EmployeeManagementSystem.WebClient
                     };
                 });
 
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("LocalHostPolicy",
+            //        builder =>
+            //        {
+            //            builder.WithOrigins("https://localhost:5001")
+            //                   .AllowAnyHeader()
+            //                   .AllowAnyMethod();
+            //        });
+            //});
+
             services.AddRazorPages();
         }
 
@@ -95,9 +109,19 @@ namespace EmployeeManagementSystem.WebClient
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
+            //app.UseStaticFiles(new StaticFileOptions
+            //{
+            //    FileProvider = new PhysicalFileProvider(
+            //    Path.Combine(Directory.GetCurrentDirectory(), "ScriptModules")),
+            //    RequestPath = "/StaticFiles"
+            //});
+
             app.UseRouting();
+
+            //app.UseCors("LocalHostPolicy");
 
             app.UseAuthentication();
             app.UseAuthorization();
