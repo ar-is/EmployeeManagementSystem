@@ -50,6 +50,7 @@ namespace EmployeeManagementSystem.API.Controllers
                 ?? throw new ArgumentNullException(nameof(dataShapingService));
         }
 
+
         [Produces(MediaTypes.Json,
             MediaTypes.HateoasPlusJson,
             SkillMediaTypes.FullSkillJson,
@@ -82,8 +83,8 @@ namespace EmployeeManagementSystem.API.Controllers
 
             var skills = _unitOfWork.Skills.GetSkills(jobId, parameters);
 
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(
-                    _paginationService.CreatePaginationMetadata(skills, parameters)));
+            //Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(
+            //        _paginationService.CreatePaginationMetadata(skills, parameters)));
 
             return Ok(_dataShapingService.GetShapedCollection(skills, parameters, parsedMediaType));
         }

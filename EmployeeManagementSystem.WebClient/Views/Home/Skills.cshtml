@@ -4,6 +4,10 @@
     ViewData["Title"] = "Skills";
 }
 
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
+</head>
+
 <h1>Skills</h1>
 
 <form asp-controller="Home" asp-action="Skills">
@@ -28,17 +32,43 @@
     <tbody>
     </tbody>
 </table>
-
+ 
 @section Scripts {
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
     <script src="~/js/app/services/jobService.js"></script>
     <script src="~/js/app/services/skillService.js"></script>
     <script src="~/js/app/controllers/skillsController.js"></script>
     <script>
         $(document).ready(function () {
+            debugger;
             var jobId = '@Model.JobId';
 
             SkillsController.jobsInit("#searchJob", jobId);
-            SkillsController.skillsForJobInit("#skills", jobId);
+            //SkillsController.skillsForJobInit("#skills", jobId);
+
+            $("#skills").DataTable({
+                ajax: {
+                    url: "http://localhost:5001/api/jobs/" + jobId + "/skills",
+                    dataSrc: "",
+                    headers: {
+                        "Accept" : "application/json"
+                    }
+                },
+                columns: [
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "type"
+                    },
+                    {
+                        data: "description"
+                    },
+                    {
+                        data: "creationDate"
+                    }
+                ]
+            });
 
             $("#jobId").css('display', 'none');
 
