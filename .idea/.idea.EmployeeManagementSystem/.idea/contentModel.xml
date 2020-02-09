@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\arist\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\arist\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_EmployeeManagementSystem.-1357745168.00" t="ExcludeRecursive" />
+    <e p="C:\Users\arist\source\repos\EmployeeManagementSystem" t="IncludeFlat">
+      <e p="EmployeeManagementSystem.API" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="JobsController.cs" t="Include" />
+          <e p="SkillsController.cs" t="Include" />
+        </e>
+        <e p="EmployeeManagementSystem.API.csproj" t="IncludeRecursive" />
+        <e p="Helpers" t="Include">
+          <e p="ActionConstraints" t="Include">
+            <e p="RequestHeaderMatchesMediaType.cs" t="Include" />
+          </e>
+          <e p="Extension Methods" t="Include">
+            <e p="IHostExtensions.cs" t="Include" />
+            <e p="ServiceCollectionExtensions.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.API.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="EmployeeManagementSystem.API.Core" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Dtos" t="Include">
+          <e p="Links" t="Include">
+            <e p="LinkDto.cs" t="Include" />
+          </e>
+          <e p="Skills" t="Include">
+            <e p="JobDto.cs" t="Include" />
+            <e p="SkillDto.cs" t="Include" />
+            <e p="SkillFullDto.cs" t="Include" />
+          </e>
+        </e>
+        <e p="EmployeeManagementSystem.API.Core.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="Department.cs" t="Include" />
+          <e p="Employee.cs" t="Include" />
+          <e p="EmployeeSkill.cs" t="Include" />
+          <e p="Job.cs" t="Include" />
+          <e p="JobSeniorityLevel.cs" t="Include" />
+          <e p="JobSkill.cs" t="Include" />
+          <e p="Skill.cs" t="Include" />
+          <e p="SkillType.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="MappingProfiles" t="Include">
+            <e p="JobsProfile.cs" t="Include" />
+            <e p="SkillsProfile.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IContact.cs" t="Include" />
+          <e p="Services" t="Include">
+            <e p="Data Shaping" t="Include">
+              <e p="IDataShapingService.cs" t="Include" />
+              <e p="IPropertyCheckerService.cs" t="Include" />
+            </e>
+            <e p="IUnitOfWork.cs" t="Include" />
+            <e p="Pagination" t="Include">
+              <e p="IDependentEntityPaginationService.cs" t="Include" />
+              <e p="IPaginationService.cs" t="Include" />
+              <e p="IRootPaginationService.cs" t="Include" />
+            </e>
+            <e p="Repositories" t="Include">
+              <e p="IJobRepository.cs" t="Include" />
+              <e p="IJobSkillRepository.cs" t="Include" />
+              <e p="ISkillRepository.cs" t="Include" />
+            </e>
+            <e p="Sorting" t="Include">
+              <e p="IPropertyMapping.cs" t="Include" />
+              <e p="IPropertyMappingService.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.API.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="EmployeeManagementSystem.API.Infrastructure" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DbContexts" t="Include">
+          <e p="EMSDbContext.cs" t="Include" />
+        </e>
+        <e p="EmployeeManagementSystem.API.Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="EntityConfigurations" t="Include">
+          <e p="DepartmentConfiguration.cs" t="Include" />
+          <e p="EmployeeConfiguration.cs" t="Include" />
+          <e p="EmployeeSkillConfiguration.cs" t="Include" />
+          <e p="JobConfiguration.cs" t="Include" />
+          <e p="JobSkillConfiguration.cs" t="Include" />
+          <e p="SkillConfiguration.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="Extension Methods" t="Include">
+            <e p="IEnumerableExtensions.cs" t="Include" />
+            <e p="IQuerableExtensions.cs" t="Include" />
+            <e p="ModelBuilderExtensions.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Implementations" t="Include">
+          <e p="Services" t="Include">
+            <e p="Data Shaping" t="Include">
+              <e p="PropertyCheckerService.cs" t="Include" />
+              <e p="SkillShapingService.cs" t="Include" />
+            </e>
+            <e p="Pagination" t="Include">
+              <e p="RootPaginationService.cs" t="Include" />
+              <e p="SkillPaginationService.cs" t="Include" />
+            </e>
+            <e p="Repositories" t="Include">
+              <e p="JobRepository.cs" t="Include" />
+              <e p="JobSkillRepository.cs" t="Include" />
+              <e p="SkillRepository.cs" t="Include" />
+            </e>
+            <e p="Sorting" t="Include">
+              <e p="PropertyMapping.cs" t="Include" />
+              <e p="PropertyMappingService.cs" t="Include" />
+            </e>
+            <e p="UnitOfWork.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20200131072852_CreateEntities.cs" t="Include" />
+          <e p="20200131072852_CreateEntities.Designer.cs" t="Include" />
+          <e p="20200131073003_PopulateManagersOfDepartments.cs" t="Include" />
+          <e p="20200131073003_PopulateManagersOfDepartments.Designer.cs" t="Include" />
+          <e p="EMSDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.API.Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="EmployeeManagementSystem.API.Utils" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EmployeeManagementSystem.API.Utils.csproj" t="IncludeRecursive" />
+        <e p="Extension Methods" t="Include">
+          <e p="ObjectExtensions.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.API.Utils.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Paging" t="Include">
+          <e p="PagedList.cs" t="Include" />
+          <e p="ResourceUriType.cs" t="Include" />
+        </e>
+        <e p="ResourceFilters" t="Include">
+          <e p="ResourceParameters.cs" t="Include" />
+          <e p="Skills" t="Include">
+            <e p="SkillsFilter.cs" t="Include" />
+            <e p="SkillsResourceParameters.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Sorting" t="Include">
+          <e p="PropertyMappingValue.cs" t="Include" />
+        </e>
+        <e p="VendorMediaTypes" t="Include">
+          <e p="MediaTypes.cs" t="Include" />
+          <e p="SkillMediaTypes.cs" t="Include" />
+        </e>
+      </e>
+      <e p="EmployeeManagementSystem.sln" t="IncludeFlat" />
+      <e p="EmployeeManagementSystem.WebClient" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="Areas" t="Include">
+          <e p="Identity" t="Include">
+            <e p="IdentityHostingStartup.cs" t="Include" />
+            <e p="Pages" t="Include">
+              <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+              <e p="_ViewImports.cshtml" t="Include" />
+              <e p="_ViewStart.cshtml" t="Include" />
+              <e p="Account" t="Include">
+                <e p="_StatusMessage.cshtml" t="Include" />
+                <e p="_ViewImports.cshtml" t="Include" />
+                <e p="AccessDenied.cshtml" t="Include" />
+                <e p="AccessDenied.cshtml.cs" t="Include" />
+                <e p="ConfirmEmail.cshtml" t="Include" />
+                <e p="ConfirmEmail.cshtml.cs" t="Include" />
+                <e p="ConfirmEmailChange.cshtml" t="Include" />
+                <e p="ConfirmEmailChange.cshtml.cs" t="Include" />
+                <e p="ExternalLogin.cshtml" t="Include" />
+                <e p="ExternalLogin.cshtml.cs" t="Include" />
+                <e p="ForgotPassword.cshtml" t="Include" />
+                <e p="ForgotPassword.cshtml.cs" t="Include" />
+                <e p="ForgotPasswordConfirmation.cshtml" t="Include" />
+                <e p="ForgotPasswordConfirmation.cshtml.cs" t="Include" />
+                <e p="Lockout.cshtml" t="Include" />
+                <e p="Lockout.cshtml.cs" t="Include" />
+                <e p="Login.cshtml" t="Include" />
+                <e p="Login.cshtml.cs" t="Include" />
+                <e p="LoginWith2fa.cshtml" t="Include" />
+                <e p="LoginWith2fa.cshtml.cs" t="Include" />
+                <e p="LoginWithRecoveryCode.cshtml" t="Include" />
+                <e p="LoginWithRecoveryCode.cshtml.cs" t="Include" />
+                <e p="Logout.cshtml" t="Include" />
+                <e p="Logout.cshtml.cs" t="Include" />
+                <e p="Manage" t="Include">
+                  <e p="_Layout.cshtml" t="Include" />
+                  <e p="_ManageNav.cshtml" t="Include" />
+                  <e p="_StatusMessage.cshtml" t="Include" />
+                  <e p="_ViewImports.cshtml" t="Include" />
+                  <e p="ChangePassword.cshtml" t="Include" />
+                  <e p="ChangePassword.cshtml.cs" t="Include" />
+                  <e p="DeletePersonalData.cshtml" t="Include" />
+                  <e p="DeletePersonalData.cshtml.cs" t="Include" />
+                  <e p="Disable2fa.cshtml" t="Include" />
+                  <e p="Disable2fa.cshtml.cs" t="Include" />
+                  <e p="DownloadPersonalData.cshtml" t="Include" />
+                  <e p="DownloadPersonalData.cshtml.cs" t="Include" />
+                  <e p="Email.cshtml" t="Include" />
+                  <e p="Email.cshtml.cs" t="Include" />
+                  <e p="EnableAuthenticator.cshtml" t="Include" />
+                  <e p="EnableAuthenticator.cshtml.cs" t="Include" />
+                  <e p="ExternalLogins.cshtml" t="Include" />
+                  <e p="ExternalLogins.cshtml.cs" t="Include" />
+                  <e p="GenerateRecoveryCodes.cshtml" t="Include" />
+                  <e p="GenerateRecoveryCodes.cshtml.cs" t="Include" />
+                  <e p="Index.cshtml" t="Include" />
+                  <e p="Index.cshtml.cs" t="Include" />
+                  <e p="ManageNavPages.cs" t="Include" />
+                  <e p="PersonalData.cshtml" t="Include" />
+                  <e p="PersonalData.cshtml.cs" t="Include" />
+                  <e p="ResetAuthenticator.cshtml" t="Include" />
+                  <e p="ResetAuthenticator.cshtml.cs" t="Include" />
+                  <e p="SetPassword.cshtml" t="Include" />
+                  <e p="SetPassword.cshtml.cs" t="Include" />
+                  <e p="ShowRecoveryCodes.cshtml" t="Include" />
+                  <e p="ShowRecoveryCodes.cshtml.cs" t="Include" />
+                  <e p="TwoFactorAuthentication.cshtml" t="Include" />
+                  <e p="TwoFactorAuthentication.cshtml.cs" t="Include" />
+                </e>
+                <e p="Register.cshtml" t="Include" />
+                <e p="Register.cshtml.cs" t="Include" />
+                <e p="RegisterConfirmation.cshtml" t="Include" />
+                <e p="RegisterConfirmation.cshtml.cs" t="Include" />
+                <e p="ResetPassword.cshtml" t="Include" />
+                <e p="ResetPassword.cshtml.cs" t="Include" />
+                <e p="ResetPasswordConfirmation.cshtml" t="Include" />
+                <e p="ResetPasswordConfirmation.cshtml.cs" t="Include" />
+              </e>
+              <e p="Error.cshtml" t="Include" />
+              <e p="Error.cshtml.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="bundleconfig.json" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="HomeController.cs" t="Include" />
+        </e>
+        <e p="EmployeeManagementSystem.WebClient.csproj" t="IncludeRecursive" />
+        <e p="Helpers" t="Include">
+          <e p="Extension Methods" t="Include">
+            <e p="IHostExtensions.cs" t="Include" />
+          </e>
+        </e>
+        <e p="libman.json" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.WebClient.AssemblyInfo.cs" t="Include" />
+              <e p="EmployeeManagementSystem.WebClient.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="ScaffoldingReadMe.txt" t="Include" />
+        <e p="Startup.cs" t="Include" />
+        <e p="Views" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Home" t="Include">
+            <e p="Index.cshtml" t="Include" />
+            <e p="Privacy.cshtml" t="Include" />
+            <e p="Skills.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="_LoginPartial.cshtml" t="Include" />
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="site.css" t="Include" />
+            <e p="site.min.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="js" t="Include">
+            <e p="app" t="Include">
+              <e p="Controllers" t="Include">
+                <e p="skillsController.js" t="Include" />
+              </e>
+              <e p="Services" t="Include">
+                <e p="jobService.js" t="Include" />
+                <e p="skillService.js" t="Include" />
+              </e>
+            </e>
+            <e p="site.js" t="Include" />
+            <e p="site.min.js" t="Include" />
+          </e>
+          <e p="lib" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="dist" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap-grid.css" t="Include" />
+                  <e p="bootstrap-grid.css.map" t="Include" />
+                  <e p="bootstrap-grid.min.css" t="Include" />
+                  <e p="bootstrap-grid.min.css.map" t="Include" />
+                  <e p="bootstrap-reboot.css" t="Include" />
+                  <e p="bootstrap-reboot.css.map" t="Include" />
+                  <e p="bootstrap-reboot.min.css" t="Include" />
+                  <e p="bootstrap-reboot.min.css.map" t="Include" />
+                  <e p="bootstrap.css" t="Include" />
+                  <e p="bootstrap.css.map" t="Include" />
+                  <e p="bootstrap.min.css" t="Include" />
+                  <e p="bootstrap.min.css.map" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="bootstrap.bundle.js" t="Include" />
+                  <e p="bootstrap.bundle.js.map" t="Include" />
+                  <e p="bootstrap.bundle.min.js" t="Include" />
+                  <e p="bootstrap.bundle.min.js.map" t="Include" />
+                  <e p="bootstrap.js" t="Include" />
+                  <e p="bootstrap.js.map" t="Include" />
+                  <e p="bootstrap.min.js" t="Include" />
+                  <e p="bootstrap.min.js.map" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE" t="Include" />
+            </e>
+            <e p="jquery" t="Include">
+              <e p="dist" t="Include">
+                <e p="core.js" t="Include" />
+                <e p="jquery.js" t="Include" />
+                <e p="jquery.min.js" t="Include" />
+                <e p="jquery.min.map" t="Include" />
+                <e p="jquery.slim.js" t="Include" />
+                <e p="jquery.slim.min.js" t="Include" />
+                <e p="jquery.slim.min.map" t="Include" />
+              </e>
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+            <e p="jquery-validation" t="Include">
+              <e p="dist" t="Include">
+                <e p="additional-methods.js" t="Include" />
+                <e p="additional-methods.min.js" t="Include" />
+                <e p="jquery.validate.js" t="Include" />
+                <e p="jquery.validate.min.js" t="Include" />
+                <e p="localization" t="Include">
+                  <e p="messages_ar.js" t="Include" />
+                  <e p="messages_ar.min.js" t="Include" />
+                  <e p="messages_az.js" t="Include" />
+                  <e p="messages_az.min.js" t="Include" />
+                  <e p="messages_bg.js" t="Include" />
+                  <e p="messages_bg.min.js" t="Include" />
+                  <e p="messages_bn_BD.js" t="Include" />
+                  <e p="messages_bn_BD.min.js" t="Include" />
+                  <e p="messages_ca.js" t="Include" />
+                  <e p="messages_ca.min.js" t="Include" />
+                  <e p="messages_cs.js" t="Include" />
+                  <e p="messages_cs.min.js" t="Include" />
+                  <e p="messages_da.js" t="Include" />
+                  <e p="messages_da.min.js" t="Include" />
+                  <e p="messages_de.js" t="Include" />
+                  <e p="messages_de.min.js" t="Include" />
+                  <e p="messages_el.js" t="Include" />
+                  <e p="messages_el.min.js" t="Include" />
+                  <e p="messages_es.js" t="Include" />
+                  <e p="messages_es.min.js" t="Include" />
+                  <e p="messages_es_AR.js" t="Include" />
+                  <e p="messages_es_AR.min.js" t="Include" />
+                  <e p="messages_es_PE.js" t="Include" />
+                  <e p="messages_es_PE.min.js" t="Include" />
+                  <e p="messages_et.js" t="Include" />
+                  <e p="messages_et.min.js" t="Include" />
+                  <e p="messages_eu.js" t="Include" />
+                  <e p="messages_eu.min.js" t="Include" />
+                  <e p="messages_fa.js" t="Include" />
+                  <e p="messages_fa.min.js" t="Include" />
+                  <e p="messages_fi.js" t="Include" />
+                  <e p="messages_fi.min.js" t="Include" />
+                  <e p="messages_fr.js" t="Include" />
+                  <e p="messages_fr.min.js" t="Include" />
+                  <e p="messages_ge.js" t="Include" />
+                  <e p="messages_ge.min.js" t="Include" />
+                  <e p="messages_gl.js" t="Include" />
+                  <e p="messages_gl.min.js" t="Include" />
+                  <e p="messages_he.js" t="Include" />
+                  <e p="messages_he.min.js" t="Include" />
+                  <e p="messages_hr.js" t="Include" />
+                  <e p="messages_hr.min.js" t="Include" />
+                  <e p="messages_hu.js" t="Include" />
+                  <e p="messages_hu.min.js" t="Include" />
+                  <e p="messages_hy_AM.js" t="Include" />
+                  <e p="messages_hy_AM.min.js" t="Include" />
+                  <e p="messages_id.js" t="Include" />
+                  <e p="messages_id.min.js" t="Include" />
+                  <e p="messages_is.js" t="Include" />
+                  <e p="messages_is.min.js" t="Include" />
+                  <e p="messages_it.js" t="Include" />
+                  <e p="messages_it.min.js" t="Include" />
+                  <e p="messages_ja.js" t="Include" />
+                  <e p="messages_ja.min.js" t="Include" />
+                  <e p="messages_ka.js" t="Include" />
+                  <e p="messages_ka.min.js" t="Include" />
+                  <e p="messages_kk.js" t="Include" />
+                  <e p="messages_kk.min.js" t="Include" />
+                  <e p="messages_ko.js" t="Include" />
+                  <e p="messages_ko.min.js" t="Include" />
+                  <e p="messages_lt.js" t="Include" />
+                  <e p="messages_lt.min.js" t="Include" />
+                  <e p="messages_lv.js" t="Include" />
+                  <e p="messages_lv.min.js" t="Include" />
+                  <e p="messages_mk.js" t="Include" />
+                  <e p="messages_mk.min.js" t="Include" />
+                  <e p="messages_my.js" t="Include" />
+                  <e p="messages_my.min.js" t="Include" />
+                  <e p="messages_nl.js" t="Include" />
+                  <e p="messages_nl.min.js" t="Include" />
+                  <e p="messages_no.js" t="Include" />
+                  <e p="messages_no.min.js" t="Include" />
+                  <e p="messages_pl.js" t="Include" />
+                  <e p="messages_pl.min.js" t="Include" />
+                  <e p="messages_pt_BR.js" t="Include" />
+                  <e p="messages_pt_BR.min.js" t="Include" />
+                  <e p="messages_pt_PT.js" t="Include" />
+                  <e p="messages_pt_PT.min.js" t="Include" />
+                  <e p="messages_ro.js" t="Include" />
+                  <e p="messages_ro.min.js" t="Include" />
+                  <e p="messages_ru.js" t="Include" />
+                  <e p="messages_ru.min.js" t="Include" />
+                  <e p="messages_sd.js" t="Include" />
+                  <e p="messages_sd.min.js" t="Include" />
+                  <e p="messages_si.js" t="Include" />
+                  <e p="messages_si.min.js" t="Include" />
+                  <e p="messages_sk.js" t="Include" />
+                  <e p="messages_sk.min.js" t="Include" />
+                  <e p="messages_sl.js" t="Include" />
+                  <e p="messages_sl.min.js" t="Include" />
+                  <e p="messages_sr.js" t="Include" />
+                  <e p="messages_sr.min.js" t="Include" />
+                  <e p="messages_sr_lat.js" t="Include" />
+                  <e p="messages_sr_lat.min.js" t="Include" />
+                  <e p="messages_sv.js" t="Include" />
+                  <e p="messages_sv.min.js" t="Include" />
+                  <e p="messages_th.js" t="Include" />
+                  <e p="messages_th.min.js" t="Include" />
+                  <e p="messages_tj.js" t="Include" />
+                  <e p="messages_tj.min.js" t="Include" />
+                  <e p="messages_tr.js" t="Include" />
+                  <e p="messages_tr.min.js" t="Include" />
+                  <e p="messages_uk.js" t="Include" />
+                  <e p="messages_uk.min.js" t="Include" />
+                  <e p="messages_ur.js" t="Include" />
+                  <e p="messages_ur.min.js" t="Include" />
+                  <e p="messages_vi.js" t="Include" />
+                  <e p="messages_vi.min.js" t="Include" />
+                  <e p="messages_zh.js" t="Include" />
+                  <e p="messages_zh.min.js" t="Include" />
+                  <e p="messages_zh_TW.js" t="Include" />
+                  <e p="messages_zh_TW.min.js" t="Include" />
+                  <e p="methods_de.js" t="Include" />
+                  <e p="methods_de.min.js" t="Include" />
+                  <e p="methods_es_CL.js" t="Include" />
+                  <e p="methods_es_CL.min.js" t="Include" />
+                  <e p="methods_fi.js" t="Include" />
+                  <e p="methods_fi.min.js" t="Include" />
+                  <e p="methods_it.js" t="Include" />
+                  <e p="methods_it.min.js" t="Include" />
+                  <e p="methods_nl.js" t="Include" />
+                  <e p="methods_nl.min.js" t="Include" />
+                  <e p="methods_pt.js" t="Include" />
+                  <e p="methods_pt.min.js" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE.md" t="Include" />
+            </e>
+            <e p="jquery-validation-unobtrusive" t="Include">
+              <e p="dist" t="Include">
+                <e p="jquery.validate.unobtrusive.js" t="Include" />
+                <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+              </e>
+              <e p="jquery.validate.unobtrusive.js" t="Include" />
+              <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="EmployeeManagementSystem.WebClient.Core" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="EmployeeManagementSystem.WebClient.Core.csproj" t="IncludeRecursive" />
+        <e p="Entities" t="Include">
+          <e p="ApplicationRole.cs" t="Include" />
+          <e p="ApplicationUser.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.WebClient.Core.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="ViewModels" t="Include">
+          <e p="ErrorViewModel.cs" t="Include" />
+          <e p="JobSkillViewModel.cs" t="Include" />
+        </e>
+      </e>
+      <e p="EmployeeManagementSystem.WebClient.Infrastructure" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="DbContexts" t="Include">
+          <e p="EMSWebClientDbContext.cs" t="Include" />
+        </e>
+        <e p="EmployeeManagementSystem.WebClient.Infrastructure.csproj" t="IncludeRecursive" />
+        <e p="Entity Configurations" t="Include">
+          <e p="ApplicationRoleConfiguration.cs" t="Include" />
+          <e p="ApplicationUserConfiguration.cs" t="Include" />
+        </e>
+        <e p="Migrations" t="Include">
+          <e p="20200131143448_CreateIdentitySchema.cs" t="Include" />
+          <e p="20200131143448_CreateIdentitySchema.Designer.cs" t="Include" />
+          <e p="20200203080059_SeedRoles.cs" t="Include" />
+          <e p="20200203080059_SeedRoles.Designer.cs" t="Include" />
+          <e p="EMSWebClientDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="EmployeeManagementSystem.WebClient.Infrastructure.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

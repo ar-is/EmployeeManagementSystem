@@ -45,8 +45,6 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             if (jobId == Guid.Empty)
                 throw new ArgumentNullException(nameof(jobId));
 
-            var job = _context.Jobs.FirstOrDefault(j => j.Guid == jobId);
-
             IQueryable<Skill> skills = Enumerable.Empty<Skill>().AsQueryable();
 
             if (parameters.Filter != null)
@@ -90,10 +88,12 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
 
             var job = _context.Jobs.FirstOrDefault(j => j.Guid == jobId);
 
-            return _context.JobSkills
+            var skills = _context.JobSkills
                 .Include(js => js.Job)
-                .Where(js => js.Job.Guid == jobId)
+                .Where(js => js.Job.Id == job.Id)
                 .Select(js => js.Skill);
+
+            return skills;
         }
 
         private IQueryable<Skill> GetSkillsFilteredByName(Guid jobId, SkillsFilter filter)

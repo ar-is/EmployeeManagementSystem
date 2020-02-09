@@ -9,3 +9,14 @@ C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.W
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.dll
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.pdb
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.csproj.CopyComplete
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.deps.json
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.dll
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.pdb
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.dll
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.pdb
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.csprojAssemblyReference.cache
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.AssemblyInfo.cs
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.csproj.CopyComplete
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.dll
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Infrastructure\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Infrastructure.pdb

@@ -75,9 +75,8 @@ namespace EmployeeManagementSystem.API
                 var newtonsoftJsonOutputFormatter = config.OutputFormatters
                       .OfType<NewtonsoftJsonOutputFormatter>()?.FirstOrDefault();
 
-                if (newtonsoftJsonOutputFormatter != null)
-                    newtonsoftJsonOutputFormatter.SupportedMediaTypes
-                                                 .Add(MediaTypes.HateoasPlusJson);
+                newtonsoftJsonOutputFormatter?.SupportedMediaTypes
+                    .Add(MediaTypes.HateoasPlusJson);
             });
             
             services.AddAutoMapper(typeof(SkillsProfile).Assembly);            

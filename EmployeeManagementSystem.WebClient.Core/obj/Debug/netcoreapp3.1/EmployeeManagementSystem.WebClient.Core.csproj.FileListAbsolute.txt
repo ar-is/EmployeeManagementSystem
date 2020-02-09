@@ -6,3 +6,11 @@ C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.W
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.AssemblyInfo.cs
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.dll
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.pdb
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.deps.json
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.dll
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\bin\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.pdb
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.csprojAssemblyReference.cache
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.AssemblyInfoInputs.cache
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.AssemblyInfo.cs
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.dll
+C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient.Core\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.Core.pdb

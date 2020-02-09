@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj": {}
+    "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj": {
+    "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj",
+        "projectUniqueName": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj",
         "projectName": "EmployeeManagementSystem.API.Core",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj",
-        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\obj\\",
+        "projectPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\EmployeeManagementSystem.API.Core.csproj",
+        "packagesPath": "C:\\Users\\arist\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -30,8 +30,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
-                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj"
+              "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
+                "projectPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj"
               }
             }
           }
@@ -73,20 +73,20 @@
         }
       }
     },
-    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
+    "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj",
+        "projectUniqueName": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj",
         "projectName": "EmployeeManagementSystem.API.Utils",
-        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj",
-        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\obj\\",
+        "projectPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\EmployeeManagementSystem.API.Utils.csproj",
+        "packagesPath": "C:\\Users\\arist\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.API.Utils\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arist\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
