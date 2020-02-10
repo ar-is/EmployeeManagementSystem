@@ -45,6 +45,12 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             return RedirectToAction("Skills", new { jobId = viewModel.JobId });
         }
 
+        [Authorize(Roles = "Scheduler")]
+        public ViewResult SkillDetails()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

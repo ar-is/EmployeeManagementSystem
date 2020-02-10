@@ -24,7 +24,6 @@
             <th>NAME</th>
             <th>TYPE</th>
             <th>DESCRIPTION</th>
-            <th>DETAILS</th>
         </tr>
     </thead>
 </table>
@@ -33,7 +32,7 @@
     <script>
         $(document).ready(function () {
             var jobId = '@Model.JobId';
-            var skillDetailsAction = '@Url.Action("Details", "Home")';
+            var skillDetailsAction = '@Url.Action("SkillDetails", "Home")';
 
             SkillsController.jobsInit("#searchJob", jobId);
             SkillsController.skillsInit("#skills", jobId, skillDetailsAction);

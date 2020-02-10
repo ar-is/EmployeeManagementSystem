@@ -24,27 +24,40 @@
             ajax: skillService.getSkillsForJobDatatable(jobId),
             columns: [
                 {
-                    data: "name"
+                    data: "name",
+                    render: function (data, type, skill) {
+                        return '<a href="' + skillDetailsAction + "/" + skill.id + '">'+data+'</a>';
+                    }
                 },
                 {
                     data: "type"
                 },
                 {
                     data: "description"
-                },
-                {
-                    data: "id",
-                    render: function (data, type, skill) {
-                        return '<a href="' + skillDetailsAction + "/" + skill.id + '">Details</a>';
-                    }
                 }
             ]
         });
     };
 
+    var skillInit = function (skillTypeContainer, skillNameContainer,
+        skillDescriptionContainer, skillCreationDateContainer, skillId) {
+
+        var success = function (data) {
+            $(skillTypeContainer).html(data.type);
+            $(skillNameContainer).html(data.name);
+            $(skillDescriptionContainer).html(data.description);
+            $(skillNameContainer).html(data.name);
+        };
+
+        var fail = function () {
+            alert('Something failed!');
+        };
+    }
+
     return {
         jobsInit: jobsInit,
-        skillsInit: skillsInit
+        skillsInit: skillsInit,
+        skillInit: skillInit
     }
 
 }(JobService, SkillService);

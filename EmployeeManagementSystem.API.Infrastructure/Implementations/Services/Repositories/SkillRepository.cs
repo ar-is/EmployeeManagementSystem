@@ -113,5 +113,14 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .Where(s => s.Name.Contains(filter.Name))
                 .Where(s => Enum.GetName(typeof(SkillType), s.Type).Contains(filter.Type));
         }
+
+        public Skill GetSkill(Guid skillId)
+        {
+            if (skillId == Guid.Empty)
+                throw new ArgumentNullException(nameof(skillId));
+
+            return _context.Skills
+                .FirstOrDefault(s => s.Guid == skillId);
+        }
     }
 }

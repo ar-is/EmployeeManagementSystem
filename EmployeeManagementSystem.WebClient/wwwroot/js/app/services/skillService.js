@@ -19,8 +19,18 @@
         };
     };
 
+    var getSkill = function (skillId, success, fail) {
+        $.ajax({
+            url: "http://localhost:5001/api/jobs",
+            method: "GET"
+        })
+            .then(success)
+            .fail(fail);
+    }
+
     return {
         //getSkillsForJob: getSkillsForJob
-        getSkillsForJobDatatable: getSkillsForJobDatatable
+        getSkillsForJobDatatable: getSkillsForJobDatatable,
+        getSkill: getSkill
     }
 }();

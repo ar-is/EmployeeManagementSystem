@@ -88,5 +88,17 @@ namespace EmployeeManagementSystem.API.Controllers
 
             return Ok(_dataShapingService.GetShapedCollection(skills, parameters, parsedMediaType));
         }
+
+        [HttpGet(Name = "GetSkill")]
+        [Route("/api/skills/{skillId}")]
+        public ActionResult<SkillDto> GetSkill(Guid skillId)
+        {
+            var skill = _unitOfWork.Skills.GetSkill(skillId);
+
+            if (skill == null)
+                return NotFound();
+
+            return Ok(_mapper.Map<SkillDto>(skill));
+        }
     }
 }
