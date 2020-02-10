@@ -21,7 +21,7 @@
 
     var getSkill = function (skillId, success, fail) {
         $.ajax({
-            url: "http://localhost:5001/api/jobs",
+            url: "http://localhost:5001/api/skills/" + skillId,
             method: "GET"
         })
             .then(success)

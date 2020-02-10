@@ -46,9 +46,10 @@ namespace EmployeeManagementSystem.WebClient.Controllers
         }
 
         [Authorize(Roles = "Scheduler")]
-        public ViewResult SkillDetails()
+        [Route("Home/SkillDetails/{skillId:guid}")]
+        public ViewResult SkillDetails(Guid skillId)
         {
-            return View();
+            return View(new SkillViewModel { SkillId = skillId });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

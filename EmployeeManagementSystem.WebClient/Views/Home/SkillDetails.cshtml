@@ -1,22 +1,56 @@
-﻿@{
+﻿@model SkillViewModel
+
+@{
     ViewData["Title"] = "SkillDetails";
 }
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+</head>
 
 <h2>Skill Details</h2>
 <br />
 
 <div class="card border-success mb-3" style="max-width: 20rem;">
-    <div id="skillType" class="card-header"></div>
+    <div class="card-header">
+        <span id="skillType"></span>
+        <span class="d-inline-block float-right">
+            <i class="far fa-edit" style="cursor: pointer;"></i>
+        </span>
+        <input type="text" id="inputgroupname" style="display:none;">
+
+    </div>
     <div class="card-body">
         <h4 id="skillName" class="card-title"></h4>
         <p id="skillDescription" class="card-text"></p>
-        <p id="skillCreation Date" class="card-text"></p>
+        <p id="skillCreationDate" class="card-text"></p>
     </div>
 </div>
 
 @section Scripts {
     <script>
+        var skillId = '@Model.SkillId';
+        SkillsController.skillInit(skillType, skillName, skillDescription, skillCreationDate, skillId);
 
+        $(".fa-edit").hide();
+        $(".card-header").hover(function () {
+            $(".fa-edit").show();
+        }, function () {
+            $(".fa-edit").hide();
+        });
+
+        $('.fa-edit').on('click',function(){
+             $("#skillType").css({'display':"none"});
+             $("#inputgroupname").css({'display':'inline-block'});
+             $("#inputgroupname").focus();
+              $("#inputgroupname").val($("#skillType").html());
+        });
+        
+        $("#inputgroupname").focusout(function(){
+           $('#skillType').html($("#inputgroupname").val());
+          $("#inputgroupname").css({'display':'none'});
+          $("#skillType").css({'display':"inline-block","margin-top":"2px"});
+        });
     </script>
 }
 

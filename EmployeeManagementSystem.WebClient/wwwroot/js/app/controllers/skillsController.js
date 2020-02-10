@@ -46,12 +46,14 @@
             $(skillTypeContainer).html(data.type);
             $(skillNameContainer).html(data.name);
             $(skillDescriptionContainer).html(data.description);
-            $(skillNameContainer).html(data.name);
+            $(skillCreationDateContainer).html("Creation Date" + " : " + data.creationDate);
         };
 
         var fail = function () {
             alert('Something failed!');
         };
+
+        skillService.getSkill(skillId, success, fail);
     }
 
     return {
