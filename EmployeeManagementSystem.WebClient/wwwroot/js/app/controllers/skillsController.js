@@ -19,23 +19,32 @@
         jobService.getJobs(success, fail);
     };
 
-    var skillsForJobInit = function (container, jobId) {
-        var success = function (data) {
-            $.each(data, function (i) {
-                $(container).append("<tr><td>" + data[i].name + "</td><td>" + data[i].type + "</td><td>" + data[i].description + "</td><td>" + data[i].creationDate + "</td></tr>");
-            });
-        };
-
-        var fail = function () {
-            alert('Something failed!');
-        };
-
-        skillService.getSkillsForJob(jobId, success, fail);
-    }
+    var skillsInit = function (container, jobId, skillDetailsAction) {
+        $(container).DataTable({
+            ajax: skillService.getSkillsForJobDatatable(jobId),
+            columns: [
+                {
+                    data: "name"
+                },
+                {
+                    data: "type"
+                },
+                {
+                    data: "description"
+                },
+                {
+                    data: "id",
+                    render: function (data, type, skill) {
+                        return '<a href="' + skillDetailsAction + "/" + skill.id + '">Details</a>';
+                    }
+                }
+            ]
+        });
+    };
 
     return {
         jobsInit: jobsInit,
-        skillsForJobInit: skillsForJobInit
+        skillsInit: skillsInit
     }
 
 }(JobService, SkillService);

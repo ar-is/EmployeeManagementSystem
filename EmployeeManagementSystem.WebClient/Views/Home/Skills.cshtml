@@ -4,10 +4,6 @@
     ViewData["Title"] = "Skills";
 }
 
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css" />
-</head>
-
 <h1>Skills</h1>
 
 <form asp-controller="Home" asp-action="Skills">
@@ -20,55 +16,27 @@
     <button id="jobId" type="submit" value="Submit">Submit</button>
 </form>
 
-<table id="skills" class="table table-responsive">
+<br />
+
+<table id="skills" class="table table-responsive table-hover table-bordered">
     <thead>
         <tr>
             <th>NAME</th>
             <th>TYPE</th>
             <th>DESCRIPTION</th>
-            <th>CREATION DATE</th>
+            <th>DETAILS</th>
         </tr>
     </thead>
-    <tbody>
-    </tbody>
 </table>
- 
+
 @section Scripts {
-    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
-    <script src="~/js/app/services/jobService.js"></script>
-    <script src="~/js/app/services/skillService.js"></script>
-    <script src="~/js/app/controllers/skillsController.js"></script>
     <script>
         $(document).ready(function () {
-            debugger;
             var jobId = '@Model.JobId';
+            var skillDetailsAction = '@Url.Action("Details", "Home")';
 
             SkillsController.jobsInit("#searchJob", jobId);
-            //SkillsController.skillsForJobInit("#skills", jobId);
-
-            $("#skills").DataTable({
-                ajax: {
-                    url: "http://localhost:5001/api/jobs/" + jobId + "/skills",
-                    dataSrc: "",
-                    headers: {
-                        "Accept" : "application/json"
-                    }
-                },
-                columns: [
-                    {
-                        data: "name"
-                    },
-                    {
-                        data: "type"
-                    },
-                    {
-                        data: "description"
-                    },
-                    {
-                        data: "creationDate"
-                    }
-                ]
-            });
+            SkillsController.skillsInit("#skills", jobId, skillDetailsAction);
 
             $("#jobId").css('display', 'none');
 

@@ -2,15 +2,21 @@
   {
     "outputFileName": "wwwroot/css/site.min.css",
     "inputFiles": [
+      "wwwroot/lib/datatables/dist/css/dataTables.bootstrap4.css",
       "wwwroot/css/site.css"
     ]
   },
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
-      "wwwroot/js/site.js",
+      "wwwroot/lib/datatables/dist/js/jquery.dataTables.js",
+      "wwwroot/lib/datatables/dist/js/dataTables.select.js",
+      "wwwroot/lib/datatables/dist/js/dataTables.buttons.js",
+      "wwwroot/lib/datatables/dist/js/dataTables.bootstrap4.js",
       "wwwroot/js/app/services/jobService.js",
-      "wwwroot/js/app/controllers/skillsController.js"
+      "wwwroot/js/app/services/skillService.js",
+      "wwwroot/js/app/controllers/skillsController.js",
+      "wwwroot/js/site.js"
     ],
     "minify": {
       "enabled": true,
