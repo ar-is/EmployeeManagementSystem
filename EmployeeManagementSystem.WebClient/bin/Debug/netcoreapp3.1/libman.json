@@ -186,6 +186,17 @@
         "dist/jquery.validate.unobtrusive.js",
         "dist/jquery.validate.unobtrusive.min.js"
       ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootbox@5.4.0",
+      "destination": "wwwroot/lib/bootbox/",
+      "files": [
+        "dist/bootbox.all.min.js",
+        "dist/bootbox.locales.min.js",
+        "dist/bootbox.min.js",
+        "bootbox.js"
+      ]
     }
   ]
 }

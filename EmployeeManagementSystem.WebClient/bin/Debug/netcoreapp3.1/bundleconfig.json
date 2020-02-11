@@ -9,6 +9,7 @@
   {
     "outputFileName": "wwwroot/js/site.min.js",
     "inputFiles": [
+      "wwwroot/lib/bootbox/bootbox.js",
       "wwwroot/lib/datatables/dist/js/jquery.dataTables.js",
       "wwwroot/lib/datatables/dist/js/dataTables.select.js",
       "wwwroot/lib/datatables/dist/js/dataTables.buttons.js",

@@ -71,8 +71,9 @@
         </div>
     </div>
 
-    <button id="submitChanges">Submit</button>
-    <button id="submitForm" type="submit"></button>
+    <button id="submitChanges" type="button" class="btn btn-success">Save</button>
+    <button id="discardChanges" type="button" class="btn btn-danger">Discard</button>
+    @*<button id="submitForm" type="submit"></button>*@
 </form>
 
 @section Scripts {
@@ -146,13 +147,18 @@
         });
 
         $("#submitChanges").hide();
-        $("#submitForm").hide();
+        $("#discardChanges").hide();
+
+        $("#discardChanges").click(function () {
+            location.reload();
+        });
 
         $("#inputType").change(function () {
             $("#submitChanges").show();
+            $("#discardChanges").show();
         });
 
-        $("#submitChanges").click(function () {
+        $("#submitChanges").click(function (e) {
             var value = $('#inputType').find(":selected").text();
             var patch = [
                 { "op": "replace", "path": "/type", "value": value },
@@ -163,13 +169,32 @@
                 url: "http://localhost:5001/api/skills/" + id,
                 data: JSON.stringify(patch),
                 processData: false,
-                contentType: 'application/json-patch+json',
-                success: function () {
-                    $("#submitForm").click();
-                }
+                contentType: 'application/json-patch+json'
+            }).then(function () {
+                var dialog = bootbox.dialog({
+                    message: "<span style='color: green;'>Skill updated</span>",
+                    closeButton: false,
+                    centerVertical: true
+                });
+                            
+                setTimeout(function() {
+                    dialog.modal('hide');
+                }, 2000);
+            }, function () {
+                    var dialog = bootbox.dialog({
+                        message: "<span style='color: red;'>Skill not updated!</span>",
+                        closeButton: false,
+                        centerVertical: true
+                    });
+                                
+                    setTimeout(function() {
+                        dialog.modal('hide');
+                    }, 2000);
             });
 
-            
+            $("#submitChanges").hide();
+            $("#discardChanges").hide();
+            e.preventDefault();
         });
     </script>
 }
