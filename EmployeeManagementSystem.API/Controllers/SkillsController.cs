@@ -7,6 +7,7 @@ using EmployeeManagementSystem.API.Core.Interfaces.Services.Pagination;
 using EmployeeManagementSystem.API.Core.Interfaces.Services.Sorting;
 using EmployeeManagementSystem.API.Utils.ResourceFilters.Skills;
 using EmployeeManagementSystem.API.Utils.VendorMediaTypes;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
@@ -98,6 +99,29 @@ namespace EmployeeManagementSystem.API.Controllers
                 return NotFound();
 
             return Ok(_mapper.Map<SkillDto>(skill));
+        }
+
+        [HttpPatch("/api/skills/{skillId}", Name = "PartiallyUpdateSkill")]
+        public IActionResult PartiallyUpdateSkill(Guid skillId, 
+            JsonPatchDocument<SkillForUpdateDto> patchDocument)
+        {
+            var skillFromDb = _unitOfWork.Skills.GetSkill(skillId);
+
+            if (skillFromDb == null)
+                return NotFound();
+
+            var skillToPatch = _mapper.Map<SkillForUpdateDto>(skillFromDb);
+            patchDocument.ApplyTo(skillToPatch, ModelState);
+
+            if (!TryValidateModel(skillToPatch))
+                return ValidationProblem(ModelState);
+
+            _mapper.Map(skillToPatch, skillFromDb);
+
+            _unitOfWork.Skills.UpdateSkill(skillFromDb);
+            _unitOfWork.Complete();
+
+            return NoContent();
         }
     }
 }

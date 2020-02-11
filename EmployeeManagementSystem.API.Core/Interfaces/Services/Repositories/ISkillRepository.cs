@@ -12,5 +12,6 @@ namespace EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories
         //IEnumerable<Skill> GetSkills(Guid jobId);
         PagedList<Skill> GetSkills(Guid jobId, SkillsResourceParameters parameters);
         Skill GetSkill(Guid skillId);
+        void UpdateSkill(Skill skill);
     }
 }

@@ -45,8 +45,9 @@
         var success = function (data) {
             $(skillTypeContainer).html(data.type);
             $(skillNameContainer).html(data.name);
-            $(skillDescriptionContainer).html(data.description);
-            $(skillCreationDateContainer).html("Creation Date" + " : " + data.creationDate);
+            $(skillDescriptionContainer).append(data.description);
+            //$(skillDescriptionContainer).text(data.description);
+            $(skillCreationDateContainer).html(data.creationDate);
         };
 
         var fail = function () {

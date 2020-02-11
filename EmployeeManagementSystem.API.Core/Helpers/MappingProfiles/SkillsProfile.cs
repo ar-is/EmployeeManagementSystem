@@ -28,6 +28,17 @@ namespace EmployeeManagementSystem.API.Core.Helpers.MappingProfiles
                     dest => dest.Id,
                     opt => opt.MapFrom(src => src.Guid)
                     );
+
+            CreateMap<SkillForUpdateDto, Skill>();
+                //.ForMember(
+                //    dest => dest.Type,
+                //    opt => opt.MapFrom(src => (SkillType)Enum.Parse(typeof(SkillType), src.Type)))
+                // .ForMember(
+                //    dest => dest.CreationDate,
+                //    opt => opt.Ignore()
+                //    );
+
+            CreateMap<Skill, SkillForUpdateDto>();
         }
     }
 }

@@ -122,5 +122,10 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             return _context.Skills
                 .FirstOrDefault(s => s.Guid == skillId);
         }
+
+        public void UpdateSkill(Skill skill)
+        {
+
+        }
     }
 }
