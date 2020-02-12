@@ -52,13 +52,6 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             return View(new SkillViewModel { Id = id });
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Scheduler")]
-        public RedirectToActionResult SkillDetails(SkillViewModel viewModel)
-        {
-            return RedirectToAction("SkillDetails", new { id = viewModel.Id });
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

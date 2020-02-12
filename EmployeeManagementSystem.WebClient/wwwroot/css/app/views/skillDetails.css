@@ -1,0 +1,22 @@
+﻿.fa-edit {
+    cursor: pointer;
+}
+
+#skillName {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+#skillDescription {
+    margin-bottom: 0;
+}
+
+.description:after {
+    content: '.';
+    visibility: hidden;
+}
+
+#inputDescription {
+    width: 100%;
+    height: 100px;
+}

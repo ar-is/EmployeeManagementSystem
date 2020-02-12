@@ -46,7 +46,6 @@
             $(skillTypeContainer).html(data.type);
             $(skillNameContainer).html(data.name);
             $(skillDescriptionContainer).append(data.description);
-            //$(skillDescriptionContainer).text(data.description);
             $(skillCreationDateContainer).html(data.creationDate);
         };
 

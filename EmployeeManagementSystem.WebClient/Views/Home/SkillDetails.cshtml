@@ -6,196 +6,55 @@
 
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
-
-    <style>
-        .fa-edit {
-            cursor: pointer;
-        }
-
-        #skillName {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        #skillDescription {
-            margin-bottom: 0;
-        }
-
-        .description:after {
-            content: '.';
-            visibility: hidden;
-        }
-
-        #inputDescription {
-            width: 100%;
-            height: 100px;
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/app/views/skillDetails.css" />
 </head>
 
 <h2>Skill Details</h2>
 <br />
 
-<form id="skillForm" method="post">
-    <div class="card border-success mb-3" style="max-width: 20rem;">
-        <div class="card-header">
-            <span id="skillType"></span>
+<div class="card border-success mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+        <span id="skillType"></span>
+        <span class="d-inline-block float-right">
+            <i id="typeEdit" class="far fa-edit"></i>
+        </span>
+        <select id="inputType" style=" display: none;">
+            <option>Soft</option>
+            <option>Technical</option>
+        </select>
+    </div>
+    <div class="card-body">
+        <div class="card-title">
+            <span id="skillName"></span>
             <span class="d-inline-block float-right">
-                <i id="typeEdit" class="far fa-edit"></i>
+                <i id="nameEdit" class="far fa-edit"></i>
             </span>
-            <select id="inputType" asp-for="Type" style=" display: none;">
-                <option>Soft</option>
-                <option>Technical</option>
-            </select>
+            <input type="text" id="inputName" style="display:none;">
         </div>
-        <div class="card-body">
-            <div class="card-title">
-                <span id="skillName"></span>
-                <span class="d-inline-block float-right">
-                    <i id="nameEdit" class="far fa-edit"></i>
-                </span>
-                <input asp-for="Name" type="text" id="inputName" style="display:none;">
-            </div>
-            <div class="card-text description">
-                <p id="skillDescription"></p>
-                <i id="descriptionEdit" class="far fa-edit"></i>
-                <textarea asp-for="Description" id="inputDescription" style="display:none;"></textarea>
-            </div>
-            <br />
-            <div class="card-text">
-                <p>
-                    <b>Created: </b>
-                    <span id="skillCreationDate"></span>
-                </p>
-            </div>
+        <div class="card-text description">
+            <p id="skillDescription"></p>
+            <i id="descriptionEdit" class="far fa-edit"></i>
+            <textarea id="inputDescription" style="display:none;"></textarea>
+        </div>
+        <br />
+        <div class="card-text">
+            <p>
+                <b>Created: </b>
+                <span id="skillCreationDate"></span>
+            </p>
         </div>
     </div>
+</div>
 
-    <button id="submitChanges" type="button" class="btn btn-success">Save</button>
-    <button id="discardChanges" type="button" class="btn btn-danger">Discard</button>
-    @*<button id="submitForm" type="submit"></button>*@
-</form>
+<button id="submitChanges" type="button" class="btn btn-success">Save</button>
+<button id="discardChanges" type="button" class="btn btn-danger">Discard</button>
 
 @section Scripts {
     <script>
         var id = '@Model.Id';
         SkillsController.skillInit(skillType, skillName, skillDescription, skillCreationDate, id);
-
-        $(".fa-edit").hide();
-
-        $(".card-header").hover(function () {
-            if ($("#inputType").is(':hidden'))
-                $("#typeEdit").show();
-        }, function () {
-            $("#typeEdit").hide();
-        });
-
-        $(".card-title").hover(function () {
-            if ($("#inputName").is(':hidden'))
-                $("#nameEdit").show();
-        }, function () {
-            $("#nameEdit").hide();
-        });
-
-        $(".description").hover(function () {
-            if ($("#inputDescription").is(':hidden'))
-                $("#descriptionEdit").show();
-        }, function () {
-            $("#descriptionEdit").hide();
-        });
-
-        $('#typeEdit').on('click', function () {
-             $("#typeEdit").hide();
-             $("#skillType").css({'display':"none"});
-             $("#inputType").css({'display':'inline-block'});
-             $("#inputType").focus();
-             $("#inputType").val($("#skillType").html());
-        });
-        
-        $("#inputType").focusout(function(){
-           $('#skillType').html($("#inputType").val());
-          $("#inputType").css({'display':'none'});
-          $("#skillType").css({'display':"inline-block","margin-top":"2px"});
-        });
-
-        $('#nameEdit').on('click', function () {
-             $("#nameEdit").hide();
-             $("#skillName").css({'display':"none"});
-             $("#inputName").css({'display':'inline-block'});
-             $("#inputName").focus();
-             $("#inputName").val($("#skillName").html());
-        });
-        
-        $("#inputName").focusout(function () {
-            $('#skillName').html($("#inputName").val());
-            $("#inputName").css({'display':'none'});
-            $("#skillName").css({'display':"inline-block"});
-        });
-
-        $('#descriptionEdit').on('click', function () {
-             $("#descriptionEdit").hide();
-             $("#skillDescription").css({'display':"none"});
-             $("#inputDescription").css({'display':'inline-block'});
-             $("#inputDescription").focus();
-             $("#inputDescription").val($("#skillDescription").html());
-        });
-        
-        $("#inputDescription").focusout(function () {
-            $('#skillDescription').html($("#inputDescription").val());
-            $("#inputDescription").css({'display':'none'});
-            $("#skillDescription").css({'display':"inline-block"});
-        });
-
-        $("#submitChanges").hide();
-        $("#discardChanges").hide();
-
-        $("#discardChanges").click(function () {
-            location.reload();
-        });
-
-        $("#inputType").change(function () {
-            $("#submitChanges").show();
-            $("#discardChanges").show();
-        });
-
-        $("#submitChanges").click(function (e) {
-            var value = $('#inputType').find(":selected").text();
-            var patch = [
-                { "op": "replace", "path": "/type", "value": value },
-            ]
-
-            $.ajax({
-                type: "PATCH",
-                url: "http://localhost:5001/api/skills/" + id,
-                data: JSON.stringify(patch),
-                processData: false,
-                contentType: 'application/json-patch+json'
-            }).then(function () {
-                var dialog = bootbox.dialog({
-                    message: "<span style='color: green;'>Skill updated</span>",
-                    closeButton: false,
-                    centerVertical: true
-                });
-                            
-                setTimeout(function() {
-                    dialog.modal('hide');
-                }, 2000);
-            }, function () {
-                    var dialog = bootbox.dialog({
-                        message: "<span style='color: red;'>Skill not updated!</span>",
-                        closeButton: false,
-                        centerVertical: true
-                    });
-                                
-                    setTimeout(function() {
-                        dialog.modal('hide');
-                    }, 2000);
-            });
-
-            $("#submitChanges").hide();
-            $("#discardChanges").hide();
-            e.preventDefault();
-        });
+        SkillDetailsController.animations();
+        SkillDetailsController.updateSkill(id);
     </script>
 }
 
