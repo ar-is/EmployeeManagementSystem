@@ -14,6 +14,7 @@ namespace EmployeeManagementSystem.API.Core.Entities
         public SkillType Type { get; set; }
         public string Description { get; set; }
         public DateTimeOffset CreationDate { get; set; } = DateTimeOffset.UtcNow;
+        //public bool IsDeleted { get; set; }
         
         public ICollection<JobSkill> JobSkills { get; set; }
             = new Collection<JobSkill>();

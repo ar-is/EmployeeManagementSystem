@@ -1,7 +1,6 @@
-﻿var SkillDetailsController = function (skillService) {
+﻿var SkillDetailsController = function (pageElementHelpers, skillService) {
 
     var animations = function () {
-
         $(".fa-edit").hide();
         typeAnimations();
         nameAnimations();
@@ -9,49 +8,22 @@
         buttonAnimations();
     };
 
-    var toggleEditIcon = function (mainContainer, inputContainer, iconContainer) {
-        $(mainContainer).hover(function () {
-            if ($(inputContainer).is(':hidden'))
-                $(iconContainer).show();
-        }, function () {
-                $(iconContainer).hide();
-        });
-    };
-
-    var onClickEditIcon = function (iconContainer, valueContainer, inputContainer) {
-        $(iconContainer).on('click', function () {
-            $(iconContainer).hide();
-            $(valueContainer).css({ 'display': "none" });
-            $(inputContainer).css({ 'display': 'inline-block' });
-            $(inputContainer).focus();
-            $(inputContainer).val($(valueContainer).html());
-        });
-    };
-
-    var onEditUnfocus = function (inputContainer, valueContainer) {
-        $(inputContainer).focusout(function () {
-            $(valueContainer).html($(inputContainer).val());
-            $(inputContainer).css({ 'display': 'none' });
-            $(valueContainer).css({ 'display': "inline-block", "margin-top": "2px" });
-        });
-    };
-
     var typeAnimations = function () {
-        toggleEditIcon(".card-header", "#inputType", "#typeEdit");
-        onClickEditIcon("#typeEdit", "#skillType", "#inputType");
-        onEditUnfocus("#inputType", "#skillType");
+        pageElementHelpers.toggleEditIcon(".card-header", "#inputType", "#typeEdit");
+        pageElementHelpers.onClickEditIcon("#typeEdit", "#skillType", "#inputType");
+        pageElementHelpers.onEditUnfocus("#inputType", "#skillType");
     };
 
     var nameAnimations = function () {
-        toggleEditIcon(".card-title", "#inputName", "#nameEdit");
-        onClickEditIcon("#nameEdit", "#skillName", "#inputName");
-        onEditUnfocus("#inputName", "#skillName");
+        pageElementHelpers.toggleEditIcon(".card-title", "#inputName", "#nameEdit");
+        pageElementHelpers.onClickEditIcon("#nameEdit", "#skillName", "#inputName");
+        pageElementHelpers.onEditUnfocus("#inputName", "#skillName");
     };
 
     var descriptionAnimations = function () {
-        toggleEditIcon(".description", "#inputDescription", "#descriptionEdit");
-        onClickEditIcon("#descriptionEdit", "#skillDescription", "#inputDescription");
-        onEditUnfocus("#inputDescription", "#skillDescription");
+        pageElementHelpers.toggleEditIcon(".description", "#inputDescription", "#descriptionEdit");
+        pageElementHelpers.onClickEditIcon("#descriptionEdit", "#skillDescription", "#inputDescription");
+        pageElementHelpers.onEditUnfocus("#inputDescription", "#skillDescription");
     };
 
     var buttonAnimations = function () {
@@ -62,36 +34,18 @@
             location.reload();
         });
 
-        onInputChange("#inputType", "#submitChanges", "#discardChanges");
-        onInputChange("#inputName", "#submitChanges", "#discardChanges");
-        onInputChange("#inputDescription", "#submitChanges", "#discardChanges");
-    };
-
-    var onInputChange = function (inputContainer, saveButton, discardButton) {
-        $(inputContainer).change(function () {
-            $(saveButton).show();
-            $(discardButton).show();
-        });
-    };
-
-    var toggleModal = function (color, message) {
-        var dialog = bootbox.dialog({
-            message: "<span style='color: "+ color +"'>" + message +"</span>",
-            closeButton: false,
-            centerVertical: true
-        });
-
-        setTimeout(function () {
-            dialog.modal('hide');
-        }, 2000);
+        pageElementHelpers.onInputChange("#inputType", "#submitChanges", "#discardChanges");
+        pageElementHelpers.onInputChange("#inputName", "#submitChanges", "#discardChanges");
+        pageElementHelpers.onInputChange("#inputDescription", "#submitChanges", "#discardChanges");
     };
 
     var success = function () {
-        toggleModal("green", "Skill updated");
+        pageElementHelpers.toggleModal("green", "Skill updated");
     };
 
-    var fail = function () {
-        toggleModal("red", "Skill not updated!");
+    var fail = function (xhr, textStatus, errorThrown) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText;
+        pageElementHelpers.toggleModal("red", "Skill not updated!" + errorThrown);
     };
 
     var updateSkill = function (id) {
@@ -111,4 +65,4 @@
         animations: animations,
         updateSkill: updateSkill
     }
-}(SkillService);
+}(PageElementHelpers, SkillService);

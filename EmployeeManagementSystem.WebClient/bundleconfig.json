@@ -14,6 +14,7 @@
       "wwwroot/lib/datatables/dist/js/dataTables.select.js",
       "wwwroot/lib/datatables/dist/js/dataTables.buttons.js",
       "wwwroot/lib/datatables/dist/js/dataTables.bootstrap4.js",
+      "wwwroot/js/app/helpers/pageElementHelpers.js",
       "wwwroot/js/app/services/jobService.js",
       "wwwroot/js/app/services/skillService.js",
       "wwwroot/js/app/controllers/skillsController.js",

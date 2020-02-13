@@ -26,7 +26,7 @@
                 {
                     data: "name",
                     render: function (data, type, skill) {
-                        return '<a href="' + skillDetailsAction + "/" + skill.id + '">'+data+'</a>';
+                        return '<a href="' + skillDetailsAction + "/" + skill.id + '">'+ data +'</a>';
                     }
                 },
                 {
