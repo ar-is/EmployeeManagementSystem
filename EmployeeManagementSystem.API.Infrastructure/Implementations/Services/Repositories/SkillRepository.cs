@@ -26,21 +26,27 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                ?? throw new ArgumentNullException(nameof(propertyMappingService));
         }
 
-        //public IEnumerable<Skill> GetSkills(Guid jobId)
-        //{
-        //    if (jobId == Guid.Empty)
-        //        throw new ArgumentNullException(nameof(jobId));
+        public IEnumerable<Skill> GetSkills(string status)
+        {
+            switch (status)
+            {
+                case "Enabled":
+                    return _context.Skills
+                        .Where(s => s.IsEnabled)
+                        .ToList();
 
-        //    var job = _context.Jobs.FirstOrDefault(j => j.Guid == jobId);
+                case "Disabled":
+                    return _context.Skills
+                        .Where(s => !s.IsEnabled)
+                        .ToList();
 
-        //    return _context.JobSkills
-        //        .Include(js => js.Job)
-        //        .Where(js => js.Job.Guid == jobId)
-        //        .Select(js => js.Skill)
-        //        .ToList();                
-        //}
+                case "All":
+                default:
+                    return _context.Skills.ToList();
+            }   
+        }
 
-        public PagedList<Skill> GetSkills(Guid jobId, SkillsResourceParameters parameters)
+        public PagedList<Skill> GetSkillsForJob(Guid jobId, SkillsResourceParameters parameters)
         {
             if (jobId == Guid.Empty)
                 throw new ArgumentNullException(nameof(jobId));
@@ -91,7 +97,8 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             var skills = _context.JobSkills
                 .Include(js => js.Job)
                 .Where(js => js.Job.Id == job.Id)
-                .Select(js => js.Skill);
+                .Select(js => js.Skill)
+                .Where(s => s.IsEnabled);
 
             return skills;
         }

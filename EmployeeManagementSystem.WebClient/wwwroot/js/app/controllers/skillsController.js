@@ -19,6 +19,32 @@
         jobService.getJobs(success, fail);
     };
 
+    var allSkillsInit = function (container, skillDetailsAction, status) {
+        $(container).DataTable({
+            ajax: skillService.getAllSkillsDatatable(status),
+            columns: [
+                {
+                    data: "name",
+                    render: function (data, type, skill) {
+                        return '<a href="' + skillDetailsAction + "/" + skill.id + '">' + data + '</a>';
+                    }
+                },
+                {
+                    data: "type"
+                },
+                {
+                    data: "description"
+                },
+                {
+                    data: "isEnabled",
+                    render: function (data, type, skill) {
+                        return data ? '<i class="fas fa-check" style="color:green;"></i>' : '<i class="fas fa-times" style="color:red;"></i>';
+                    }
+                }
+            ]
+        });
+    };
+
     var skillsInit = function (container, jobId, skillDetailsAction) {
         $(container).DataTable({
             ajax: skillService.getSkillsForJobDatatable(jobId),
@@ -58,6 +84,7 @@
 
     return {
         jobsInit: jobsInit,
+        allSkillsInit: allSkillsInit,
         skillsInit: skillsInit,
         skillInit: skillInit
     }

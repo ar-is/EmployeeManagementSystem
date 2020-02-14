@@ -11,5 +11,7 @@ namespace EmployeeManagementSystem.API.Core.Entities
 
         public short JobId { get; set; }
         public Job Job { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }

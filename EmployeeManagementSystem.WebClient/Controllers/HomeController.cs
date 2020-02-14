@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EmployeeManagementSystem.WebClient.Core.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using System.Net.Http;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace EmployeeManagementSystem.WebClient.Controllers
 {
@@ -30,6 +33,19 @@ namespace EmployeeManagementSystem.WebClient.Controllers
         }
 
         [Authorize(Roles = "Scheduler")]
+        public ViewResult AllSkills(string status)
+        {
+            return View(new AllSkillsViewModel { Status = status });
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Scheduler")]
+        public RedirectToActionResult AllSkills(AllSkillsViewModel viewModel = null)
+        {
+            return RedirectToAction("AllSkills", new { status = viewModel.Status });
+        }
+
+        [Authorize(Roles = "Scheduler")]
         public ViewResult Skills(Guid jobId)
         {
             if (jobId == Guid.Empty)
@@ -49,7 +65,26 @@ namespace EmployeeManagementSystem.WebClient.Controllers
         [Route("Home/SkillDetails/{id:guid}")]
         public ViewResult SkillDetails(Guid id)
         {
-            return View(new SkillViewModel { Id = id });
+            var t = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/skills/" + id)));
+            t.Wait();
+
+            var skill = JsonConvert.DeserializeObject<SkillViewModel>(t.Result);
+
+            return View(skill);
+        }
+
+        static async Task<string> GetURI(Uri u)
+        {
+            var response = string.Empty;
+
+            using var client = new HttpClient();
+
+            HttpResponseMessage result = await client.GetAsync(u);
+
+            if (result.IsSuccessStatusCode)
+                response = await result.Content.ReadAsStringAsync();
+
+            return response;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

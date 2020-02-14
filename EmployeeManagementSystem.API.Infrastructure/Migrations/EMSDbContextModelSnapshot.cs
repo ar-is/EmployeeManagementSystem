@@ -19,7 +19,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Department", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Department", b =>
                 {
                     b.Property<short>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,7 +92,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Employee", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Employee", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -251,7 +251,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.EmployeeSkill", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.EmployeeSkill", b =>
                 {
                     b.Property<short>("SkillId")
                         .HasColumnType("smallint");
@@ -588,7 +588,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Job", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Job", b =>
                 {
                     b.Property<short>("Id")
                         .ValueGeneratedOnAdd()
@@ -690,13 +690,16 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.JobSkill", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.JobSkill", b =>
                 {
                     b.Property<short>("SkillId")
                         .HasColumnType("smallint");
 
                     b.Property<short>("JobId")
                         .HasColumnType("smallint");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
 
                     b.HasKey("SkillId", "JobId");
 
@@ -708,221 +711,264 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)1
+                            JobId = (short)1,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)2,
-                            JobId = (short)1
+                            JobId = (short)1,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)5,
-                            JobId = (short)1
+                            JobId = (short)1,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)13,
-                            JobId = (short)1
+                            JobId = (short)1,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)14,
-                            JobId = (short)1
+                            JobId = (short)1,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)2
+                            JobId = (short)2,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)2,
-                            JobId = (short)2
+                            JobId = (short)2,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)5,
-                            JobId = (short)2
+                            JobId = (short)2,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)2,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)4,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)6,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)7,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)8,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)9,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)14,
-                            JobId = (short)3
+                            JobId = (short)3,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)2,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)6,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)7,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)8,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)9,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)10,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)11,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)12,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)13,
-                            JobId = (short)4
+                            JobId = (short)4,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)2,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)4,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)5,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)8,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)11,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)13,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)14,
-                            JobId = (short)5
+                            JobId = (short)5,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)6
+                            JobId = (short)6,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)4,
-                            JobId = (short)6
+                            JobId = (short)6,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)5,
-                            JobId = (short)6
+                            JobId = (short)6,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)13,
-                            JobId = (short)6
+                            JobId = (short)6,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)14,
-                            JobId = (short)6
+                            JobId = (short)6,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)1,
-                            JobId = (short)7
+                            JobId = (short)7,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)2,
-                            JobId = (short)7
+                            JobId = (short)7,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)3,
-                            JobId = (short)7
+                            JobId = (short)7,
+                            IsEnabled = true
                         },
                         new
                         {
                             SkillId = (short)13,
-                            JobId = (short)7
+                            JobId = (short)7,
+                            IsEnabled = true
                         });
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Skill", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Skill", b =>
                 {
                     b.Property<short>("Id")
                         .ValueGeneratedOnAdd()
@@ -939,6 +985,9 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
 
                     b.Property<Guid>("Guid")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -963,6 +1012,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Effective communication skills will be helpful through the interview process and in your career overall. The ability to communicate involves knowing how you should speak to others in different situations or settings.",
                             Guid = new Guid("57408e9a-9d0a-4df9-87df-fc4dbc8ab9e5"),
+                            IsEnabled = true,
                             Name = "Communication",
                             Type = 1
                         },
@@ -972,6 +1022,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Employers highly value people who can resolve issues quickly and effectively. That may involve calling on industry knowledge to fix an issue immediately as it occurs, or taking time to research and consult with colleagues to find a scalable, long-term solution.",
                             Guid = new Guid("6bd53075-c359-4723-88e6-e942d04af82b"),
+                            IsEnabled = true,
                             Name = "Problem-solving",
                             Type = 1
                         },
@@ -981,6 +1032,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Employees with creativity can find new ways to perform tasks, improve processes or even develop new and exciting avenues for the business to explore.",
                             Guid = new Guid("35534cb4-3e59-4edb-ab8d-da73caece421"),
+                            IsEnabled = true,
                             Name = "Creativity",
                             Type = 1
                         },
@@ -990,6 +1042,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Employees who are capable of adapting to new situations and ways of working are valuable in many jobs and industries.",
                             Guid = new Guid("d69b8478-b06a-4469-8540-4f0bffd9a3a1"),
+                            IsEnabled = true,
                             Name = "Adaptability",
                             Type = 1
                         },
@@ -999,6 +1052,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Work ethic is the ability to follow through on tasks and duties in a timely, quality manner. A strong work ethic will help ensure you develop a positive relationship with your employer and colleagues, even when you are still developing technical skills in a new job.",
                             Guid = new Guid("8a113a93-2051-490d-9329-bad2920e9b97"),
+                            IsEnabled = true,
                             Name = "Work ethic",
                             Type = 1
                         },
@@ -1008,6 +1062,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Data Structures and Algorithms(e.g. array, linked list, tree) are the heart of programming as they improve the problem-solving ability of a candidate/employee to a great extent.",
                             Guid = new Guid("5dc15297-6522-4363-9c1f-c78b597eb73e"),
+                            IsEnabled = true,
                             Name = "Data Structures and Algorithms",
                             Type = 0
                         },
@@ -1017,6 +1072,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Source control helps the developer in managing and storing their code.",
                             Guid = new Guid("1811edf9-c04b-4a09-80a9-8c28538a732c"),
+                            IsEnabled = true,
                             Name = "Source Control (Git, TFS, etc.)",
                             Type = 0
                         },
@@ -1026,6 +1082,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "OOP defines most modern server-side scripting languages, which are the languages back-end developers use to write software and database technology.",
                             Guid = new Guid("caaf4435-c6de-436d-a941-8bf3f8d9ce38"),
+                            IsEnabled = true,
                             Name = "OOP",
                             Type = 0
                         },
@@ -1035,6 +1092,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "C# is a general-purpose, multi-paradigm programming language encompassing strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented (class-based), and component-oriented programming disciplines.",
                             Guid = new Guid("7fde5249-3a4a-4b95-b8fc-81bc78cf848e"),
+                            IsEnabled = true,
                             Name = "C#",
                             Type = 0
                         },
@@ -1044,6 +1102,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = ".NET Core is a free and open-source, managed computer software framework for Windows, Linux, and macOS operating systems. It is a cross-platform successor to .NET Framework.",
                             Guid = new Guid("99f337c3-175e-44b5-bb6f-c21daef9320c"),
+                            IsEnabled = true,
                             Name = ".NET Core",
                             Type = 0
                         },
@@ -1053,6 +1112,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "SQL stands for Structured Query Language. SQL is used to communicate with a database.",
                             Guid = new Guid("b9d648ef-0199-4813-bb46-3edae60316fa"),
+                            IsEnabled = true,
                             Name = "SQL",
                             Type = 0
                         },
@@ -1062,6 +1122,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Javascript often abbreviated as JS, is a high-level, just-in-time compiled, multi-paradigm programming language that conforms to the ECMAScript specification.",
                             Guid = new Guid("6bf0ba43-52eb-42b3-8e7e-e956813d0030"),
+                            IsEnabled = true,
                             Name = "Javascript",
                             Type = 0
                         },
@@ -1071,6 +1132,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "Forward thinking helps you make accurate predictions of the possible needs of your company, as well as outcomes of actions made anywhere in the entire supply chain.",
                             Guid = new Guid("f297e677-4614-41a6-8899-244205ef2f61"),
+                            IsEnabled = true,
                             Name = "Forward Thinking",
                             Type = 1
                         },
@@ -1080,60 +1142,61 @@ namespace EmployeeManagementSystem.API.Infrastructure.Migrations
                             CreationDate = new DateTimeOffset(new DateTime(2020, 1, 30, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 2, 0, 0, 0)),
                             Description = "When it comes to working with other teams or units in the supply chain, it pays to treat everyone with respect and professionalism.",
                             Guid = new Guid("53417bc5-a7c1-4bad-8393-78d79b263270"),
+                            IsEnabled = true,
                             Name = "Team player",
                             Type = 1
                         });
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Department", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Department", b =>
                 {
-                    b.HasOne("Employee_Management_System.Core.Entities.Employee", "Manager")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Employee", "Manager")
                         .WithMany()
                         .HasForeignKey("ManagerId");
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Employee", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Employee", b =>
                 {
-                    b.HasOne("Employee_Management_System.Core.Entities.Job", "Job")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Job", "Job")
                         .WithMany("Employees")
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.EmployeeSkill", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.EmployeeSkill", b =>
                 {
-                    b.HasOne("Employee_Management_System.Core.Entities.Employee", "Employee")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Employee", "Employee")
                         .WithMany("EmployeeSkills")
                         .HasForeignKey("EmployeeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Employee_Management_System.Core.Entities.Skill", "Skill")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Skill", "Skill")
                         .WithMany("EmployeeSkills")
                         .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.Job", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.Job", b =>
                 {
-                    b.HasOne("Employee_Management_System.Core.Entities.Department", "Department")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Department", "Department")
                         .WithMany("Jobs")
                         .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Employee_Management_System.Core.Entities.JobSkill", b =>
+            modelBuilder.Entity("EmployeeManagementSystem.API.Core.Entities.JobSkill", b =>
                 {
-                    b.HasOne("Employee_Management_System.Core.Entities.Job", "Job")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Job", "Job")
                         .WithMany("JobSkills")
                         .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Employee_Management_System.Core.Entities.Skill", "Skill")
+                    b.HasOne("EmployeeManagementSystem.API.Core.Entities.Skill", "Skill")
                         .WithMany("JobSkills")
                         .HasForeignKey("SkillId")
                         .OnDelete(DeleteBehavior.Cascade)

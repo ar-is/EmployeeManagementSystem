@@ -16,5 +16,7 @@ namespace EmployeeManagementSystem.API.Core.Dtos.Skills
         public string Description { get; set; }
 
         public DateTimeOffset CreationDate { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }

@@ -1,11 +1,11 @@
 ﻿var SkillDetailsController = function (pageElementHelpers, skillService) {
 
-    var animations = function () {
+    var animations = function (isEnabled) {
         $(".fa-edit").hide();
         typeAnimations();
         nameAnimations();
         descriptionAnimations();
-        buttonAnimations();
+        buttonAnimations(isEnabled);
     };
 
     var typeAnimations = function () {
@@ -26,9 +26,14 @@
         pageElementHelpers.onEditUnfocus("#inputDescription", "#skillDescription");
     };
 
-    var buttonAnimations = function () {
+    var buttonAnimations = function (isEnabled) {
         $("#submitChanges").hide();
         $("#discardChanges").hide();
+
+        if (isEnabled)
+            $("#disableSkill").show();
+        else
+            $("#enableSkill").show();
 
         $("#discardChanges").click(function () {
             location.reload();
@@ -61,8 +66,54 @@
         });
     };
 
+    var disableSuccess = function () {
+        pageElementHelpers.toggleModal("green", "Skill disabled");
+        $("#disableSkill").hide();
+        $("#enableSkill").show();
+    };
+
+    var disableFail = function (xhr, textStatus, errorThrown) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText;
+        pageElementHelpers.toggleModal("red", "Skill not disabled!" + errorThrown);
+    };
+
+    var disableSkill = function (id) {
+        var disablePatchDoc = skillService.getSkillDisablePatchDocument();
+
+        $("#disableSkill").click(function (e) {
+            skillService.patchSkill(id, disablePatchDoc, disableSuccess, disableFail);
+            e.preventDefault();
+        });
+    };
+
+    var enableSuccess = function () {
+        pageElementHelpers.toggleModal("green", "Skill enabled");
+        $("#disableSkill").show();
+        $("#enableSkill").hide();
+    };
+
+    var enableFail = function (xhr, textStatus, errorThrown) {
+        var errorMessage = xhr.status + ': ' + xhr.statusText;
+        pageElementHelpers.toggleModal("red", "Skill not enabled!" + errorThrown);
+    };
+
+    var enableSkill = function (id) {
+        var enablePatchDoc = skillService.getSkillEnablePatchDocument();
+
+        $("#enableSkill").click(function (e) {
+            skillService.patchSkill(id, enablePatchDoc, enableSuccess, enableFail);
+            e.preventDefault();
+        });
+    };
+
+    var toggleSkillStatus = function (id) {
+        disableSkill(id);
+        enableSkill(id);
+    };
+
     return {
         animations: animations,
-        updateSkill: updateSkill
+        updateSkill: updateSkill,
+        toggleSkillStatus: toggleSkillStatus
     }
 }(PageElementHelpers, SkillService);

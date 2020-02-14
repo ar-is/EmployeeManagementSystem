@@ -46,15 +46,20 @@
     </div>
 </div>
 
-<button id="submitChanges" type="button" class="btn btn-success">Save</button>
-<button id="discardChanges" type="button" class="btn btn-danger">Discard</button>
+<button id="submitChanges" type="button" class="btn btn-success">Save Changes</button>
+<button id="discardChanges" type="button" class="btn btn-warning">Discard Changes</button>
+<button id="disableSkill" type="button" class="btn btn-danger" style="display:none;">Disable</button>
+<button id="enableSkill" type="button" class="btn btn-info" style="display:none;">Enable</button>
 
 @section Scripts {
     <script>
+        debugger;
         var id = '@Model.Id';
+        var isEnabled = '@Model.IsEnabled' === "True";
         SkillsController.skillInit(skillType, skillName, skillDescription, skillCreationDate, id);
-        SkillDetailsController.animations();
+        SkillDetailsController.animations(isEnabled);
         SkillDetailsController.updateSkill(id);
+        SkillDetailsController.toggleSkillStatus(id);
     </script>
 }
 

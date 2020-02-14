@@ -15,5 +15,7 @@ namespace EmployeeManagementSystem.API.Core.Dtos.Skills
         public string Description { get; set; }
 
         public string CreationDate { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }

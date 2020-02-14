@@ -9,6 +9,13 @@
     //        .fail(fail);
     //};
 
+    var getAllSkillsDatatable = function (status) {
+        return {
+            url: "http://localhost:5001/api/skills/?status=" + status,
+            dataSrc: ""
+        };
+    };
+
     var getSkillsForJobDatatable = function (jobId) {
         return {
             url: "http://localhost:5001/api/jobs/" + jobId + "/skills",
@@ -55,6 +62,14 @@
         });
     };
 
+    var getSkillDisablePatchDocument = function () {
+        return [ { "op": "replace", "path": "/isEnabled", "value": false } ];
+    };
+
+    var getSkillEnablePatchDocument = function () {
+        return [{ "op": "replace", "path": "/isEnabled", "value": true }];
+    };
+
     var patchSkill = function (id, patch, success, fail) {
         $.ajax({
             type: "PATCH",
@@ -68,9 +83,12 @@
 
     return {
         //getSkillsForJob: getSkillsForJob
+        getAllSkillsDatatable: getAllSkillsDatatable,
         getSkillsForJobDatatable: getSkillsForJobDatatable,
         getSkill: getSkill,
         getSkillPatchDocument: getSkillPatchDocument,
+        getSkillDisablePatchDocument: getSkillDisablePatchDocument,
+        getSkillEnablePatchDocument: getSkillEnablePatchDocument,
         patchSkill: patchSkill
     }
 }();

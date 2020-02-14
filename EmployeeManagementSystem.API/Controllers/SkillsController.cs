@@ -51,7 +51,6 @@ namespace EmployeeManagementSystem.API.Controllers
                 ?? throw new ArgumentNullException(nameof(dataShapingService));
         }
 
-
         [Produces(MediaTypes.Json,
             MediaTypes.HateoasPlusJson,
             SkillMediaTypes.FullSkillJson,
@@ -82,12 +81,18 @@ namespace EmployeeManagementSystem.API.Controllers
             if (!string.IsNullOrEmpty(parameters.Fields) && !parameters.Fields.Contains("id"))
                 return BadRequest();
 
-            var skills = _unitOfWork.Skills.GetSkills(jobId, parameters);
+            var skills = _unitOfWork.Skills.GetSkillsForJob(jobId, parameters);
 
             //Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(
             //        _paginationService.CreatePaginationMetadata(skills, parameters)));
 
             return Ok(_dataShapingService.GetShapedCollection(skills, parameters, parsedMediaType));
+        }
+
+        [HttpGet("/api/skills", Name = "GetSkills")]
+        public ActionResult<SkillDto> GetSkills([FromQuery]string status)
+        {
+            return Ok(_mapper.Map<IEnumerable<SkillDto>>(_unitOfWork.Skills.GetSkills(status)));
         }
 
         [HttpGet("/api/skills/{skillId}", Name = "GetSkill")]

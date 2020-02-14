@@ -12,5 +12,7 @@ namespace EmployeeManagementSystem.API.Core.Dtos.Skills
         public string Type { get; set; }
 
         public string Description { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }

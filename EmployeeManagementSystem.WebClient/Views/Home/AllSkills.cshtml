@@ -1,0 +1,46 @@
+﻿@model AllSkillsViewModel
+
+@{
+    ViewData["Title"] = "AllSkills";
+}
+
+<h1>AllSkills</h1>
+
+<form asp-controller="Home" asp-action="AllSkills">
+    <select asp-for="Status" id="selectSkill">
+        <option>All</option>
+        <option>Enabled</option>
+        <option>Disabled</option>
+    </select>
+
+    <button id="skillStatus" type="submit" value="Submit">Submit</button>
+</form>
+
+<table id="allSkills" class="table table-responsive table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>TYPE</th>
+            <th>DESCRIPTION</th>
+            <th>ENABLED</th>
+        </tr>
+    </thead>
+</table>
+
+<br />
+
+@section Scripts {
+    <script>
+        var status = '@Model.Status';
+        var skillDetailsAction = '@Url.Action("SkillDetails", "Home")';
+
+        SkillsController.allSkillsInit("#allSkills", skillDetailsAction, status);
+
+        $("#skillStatus").css('display', 'none');
+
+        $("#selectSkill").change(function () {
+            $("#skillStatus").click();
+        });
+    </script>
+}
+
