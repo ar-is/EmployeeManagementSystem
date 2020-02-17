@@ -26,24 +26,55 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                ?? throw new ArgumentNullException(nameof(propertyMappingService));
         }
 
-        public IEnumerable<Skill> GetSkills(string status)
+        public IEnumerable<Skill> GetSkills(string type, string status)
         {
-            switch (status)
+            var skills = _context.Skills.AsQueryable();
+            GetSkillsFilteredByType(type, ref skills);
+            GetSkillsFilteredByStatus(status, ref skills);
+            
+            return skills.ToList();
+        }
+
+        private void GetSkillsFilteredByType(string type, ref IQueryable<Skill> skills)
+        {
+            if (!string.IsNullOrEmpty(type))
             {
-                case "Enabled":
-                    return _context.Skills
-                        .Where(s => s.IsEnabled)
-                        .ToList();
+                switch (type)
+                {
+                    case "Soft":
+                        skills = skills.Where(s => s.Type == SkillType.Soft);
+                        break;
 
-                case "Disabled":
-                    return _context.Skills
-                        .Where(s => !s.IsEnabled)
-                        .ToList();
+                    case "Technical":
+                        skills = skills.Where(s => s.Type == SkillType.Technical);
+                        break;
 
-                case "All":
-                default:
-                    return _context.Skills.ToList();
-            }   
+                    case "All":
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void GetSkillsFilteredByStatus(string status, ref IQueryable<Skill> skills)
+        {
+            if (!string.IsNullOrEmpty(status))
+            {
+                switch (status)
+                {
+                    case "Enabled":
+                        skills = skills.Where(s => s.IsEnabled);
+                        break;
+
+                    case "Disabled":
+                        skills = skills.Where(s => !s.IsEnabled);
+                        break;
+
+                    case "All":
+                    default:
+                        break;
+                }
+            }
         }
 
         public PagedList<Skill> GetSkillsForJob(Guid jobId, SkillsResourceParameters parameters)

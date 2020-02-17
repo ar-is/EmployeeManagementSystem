@@ -7,14 +7,23 @@
 <h1>AllSkills</h1>
 
 <form asp-controller="Home" asp-action="AllSkills">
-    <select asp-for="Status" id="selectSkill">
+    Type:
+    <select asp-for="Type" id="selectSkillType">
+        <option>All</option>
+        <option>Soft</option>
+        <option>Technical</option>
+    </select>
+
+    Status:
+    <select asp-for="Status" id="selectSkillStatus">
         <option>All</option>
         <option>Enabled</option>
         <option>Disabled</option>
     </select>
 
-    <button id="skillStatus" type="submit" value="Submit">Submit</button>
+    <button id="skillOption" type="submit" value="Submit">Submit</button>
 </form>
+<br />
 
 <table id="allSkills" class="table table-responsive table-hover table-bordered">
     <thead>
@@ -31,16 +40,21 @@
 
 @section Scripts {
     <script>
+        var type = '@Model.Type';
         var status = '@Model.Status';
         var skillDetailsAction = '@Url.Action("SkillDetails", "Home")';
 
-        SkillsController.allSkillsInit("#allSkills", skillDetailsAction, status);
+        SkillsController.allSkillsInit("#allSkills", skillDetailsAction, type, status);
 
-        $("#skillStatus").css('display', 'none');
+        $("#skillOption").css('display', 'none');
 
-        $("#selectSkill").change(function () {
-            $("#skillStatus").click();
+        $("#selectSkillType").change(function () {
+            $("#skillOption").click();
         });
+
+        $("#selectSkillStatus").change(function () {
+            $("#skillOption").click();
+        }); 
     </script>
 }
 

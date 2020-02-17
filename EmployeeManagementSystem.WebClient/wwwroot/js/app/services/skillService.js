@@ -9,9 +9,9 @@
     //        .fail(fail);
     //};
 
-    var getAllSkillsDatatable = function (status) {
+    var getAllSkillsDatatable = function (type, status) {
         return {
-            url: "http://localhost:5001/api/skills/?status=" + status,
+            url: "http://localhost:5001/api/skills/?type=" + type + "&status=" + status,
             dataSrc: ""
         };
     };

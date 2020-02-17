@@ -33,16 +33,16 @@ namespace EmployeeManagementSystem.WebClient.Controllers
         }
 
         [Authorize(Roles = "Scheduler")]
-        public ViewResult AllSkills(string status)
+        public ViewResult AllSkills(string type, string status)
         {
-            return View(new AllSkillsViewModel { Status = status });
+            return View(new AllSkillsViewModel { Type = type, Status = status });
         }
 
         [HttpPost]
         [Authorize(Roles = "Scheduler")]
-        public RedirectToActionResult AllSkills(AllSkillsViewModel viewModel = null)
+        public RedirectToActionResult AllSkills(AllSkillsViewModel viewModel)
         {
-            return RedirectToAction("AllSkills", new { status = viewModel.Status });
+            return RedirectToAction("AllSkills", new { type = viewModel.Type, status = viewModel.Status });
         }
 
         [Authorize(Roles = "Scheduler")]
@@ -56,7 +56,7 @@ namespace EmployeeManagementSystem.WebClient.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Scheduler")]
-        public RedirectToActionResult Skills(JobSkillViewModel viewModel = null)
+        public RedirectToActionResult Skills(JobSkillViewModel viewModel)
         {
             return RedirectToAction("Skills", new { jobId = viewModel.JobId });
         }

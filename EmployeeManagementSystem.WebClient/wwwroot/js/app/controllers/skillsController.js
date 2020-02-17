@@ -19,9 +19,9 @@
         jobService.getJobs(success, fail);
     };
 
-    var allSkillsInit = function (container, skillDetailsAction, status) {
+    var allSkillsInit = function (container, skillDetailsAction, type, status) {
         $(container).DataTable({
-            ajax: skillService.getAllSkillsDatatable(status),
+            ajax: skillService.getAllSkillsDatatable(type, status),
             columns: [
                 {
                     data: "name",

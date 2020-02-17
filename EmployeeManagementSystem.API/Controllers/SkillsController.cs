@@ -90,9 +90,9 @@ namespace EmployeeManagementSystem.API.Controllers
         }
 
         [HttpGet("/api/skills", Name = "GetSkills")]
-        public ActionResult<SkillDto> GetSkills([FromQuery]string status)
+        public ActionResult<SkillDto> GetSkills([FromQuery]string type, [FromQuery]string status)
         {
-            return Ok(_mapper.Map<IEnumerable<SkillDto>>(_unitOfWork.Skills.GetSkills(status)));
+            return Ok(_mapper.Map<IEnumerable<SkillDto>>(_unitOfWork.Skills.GetSkills(type, status)));
         }
 
         [HttpGet("/api/skills/{skillId}", Name = "GetSkill")]

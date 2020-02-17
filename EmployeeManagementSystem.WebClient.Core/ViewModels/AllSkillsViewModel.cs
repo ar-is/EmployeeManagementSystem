@@ -6,6 +6,7 @@ namespace EmployeeManagementSystem.WebClient.Core.ViewModels
 {
     public class AllSkillsViewModel
     {
+        public string Type { get; set; }
         public string Status { get; set; }
     }
 }
