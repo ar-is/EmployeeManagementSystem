@@ -30,9 +30,9 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             return _context.Jobs.ToList();
         }
 
-        public Job GetFirstJob()
+        public Job GetJob(Guid jobId)
         {
-            return _context.Jobs.FirstOrDefault(j => j.Id == 1);
+            return _context.Jobs.FirstOrDefault(j => j.Guid == jobId);
         }
     }
 }

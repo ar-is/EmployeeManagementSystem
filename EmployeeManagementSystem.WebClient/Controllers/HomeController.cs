@@ -32,61 +32,6 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Scheduler")]
-        public ViewResult AllSkills(string type, string status)
-        {
-            return View(new AllSkillsViewModel { Type = type, Status = status });
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Scheduler")]
-        public RedirectToActionResult AllSkills(AllSkillsViewModel viewModel)
-        {
-            return RedirectToAction("AllSkills", new { type = viewModel.Type, status = viewModel.Status });
-        }
-
-        [Authorize(Roles = "Scheduler")]
-        public ViewResult Skills(Guid jobId)
-        {
-            if (jobId == Guid.Empty)
-                jobId = Guid.Parse("7b75a444-994d-4936-96bf-9c3c0804e42d");
-
-            return View(new JobSkillViewModel { JobId = jobId });
-        }
-
-        [HttpPost]
-        [Authorize(Roles = "Scheduler")]
-        public RedirectToActionResult Skills(JobSkillViewModel viewModel)
-        {
-            return RedirectToAction("Skills", new { jobId = viewModel.JobId });
-        }
-
-        [Authorize(Roles = "Scheduler")]
-        [Route("Home/SkillDetails/{id:guid}")]
-        public ViewResult SkillDetails(Guid id)
-        {
-            var t = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/skills/" + id)));
-            t.Wait();
-
-            var skill = JsonConvert.DeserializeObject<SkillViewModel>(t.Result);
-
-            return View(skill);
-        }
-
-        static async Task<string> GetURI(Uri u)
-        {
-            var response = string.Empty;
-
-            using var client = new HttpClient();
-
-            HttpResponseMessage result = await client.GetAsync(u);
-
-            if (result.IsSuccessStatusCode)
-                response = await result.Content.ReadAsStringAsync();
-
-            return response;
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

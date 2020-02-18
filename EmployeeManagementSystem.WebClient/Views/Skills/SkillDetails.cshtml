@@ -48,8 +48,9 @@
 
 <button id="submitChanges" type="button" class="btn btn-success">Save Changes</button>
 <button id="discardChanges" type="button" class="btn btn-warning">Discard Changes</button>
-<button id="disableSkill" type="button" class="btn btn-danger" style="display:none;">Disable</button>
-<button id="enableSkill" type="button" class="btn btn-info" style="display:none;">Enable</button>
+<button id="disableSkill" type="button" class="btn btn-outline-danger" style="display:none;">Disable</button>
+<button id="enableSkill" type="button" class="btn btn-outline-success" style="display:none;">Enable</button>
+<button id="deleteSkill" type="button" class="btn btn-danger">Delete</button>
 
 @section Scripts {
     <script>
@@ -60,6 +61,7 @@
         SkillDetailsController.animations(isEnabled);
         SkillDetailsController.updateSkill(id);
         SkillDetailsController.toggleSkillStatus(id);
+        SkillDetailsController.deleteSkill(id);
     </script>
 }
 

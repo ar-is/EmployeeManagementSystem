@@ -81,6 +81,32 @@
             .then(success, fail);
     };
 
+    var postSkill = function (jobIds, success, fail) {
+        var skillToCreate = {
+            type: $("postType").find(":selected").text(),
+            name: $("#postName").val(),
+            description: $("#postDescription").val(),
+            isEnabled: true,
+            jobSkills: JSON.stringify(jobIds)
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:5001/api/skills/",
+            data: JSON.stringify(skillToCreate),
+            contentType: 'application/json'
+        })
+            .then(success, fail);
+    };
+
+    var deleteSkill = function (id, success, fail) {
+        $.ajax({
+            type: "DELETE",
+            url: "http://localhost:5001/api/skills/" + id
+        })
+            .then(success, fail);
+    };
+
     return {
         //getSkillsForJob: getSkillsForJob
         getAllSkillsDatatable: getAllSkillsDatatable,
@@ -89,6 +115,8 @@
         getSkillPatchDocument: getSkillPatchDocument,
         getSkillDisablePatchDocument: getSkillDisablePatchDocument,
         getSkillEnablePatchDocument: getSkillEnablePatchDocument,
-        patchSkill: patchSkill
+        patchSkill: patchSkill,
+        postSkill: postSkill,
+        deleteSkill: deleteSkill
     }
 }();

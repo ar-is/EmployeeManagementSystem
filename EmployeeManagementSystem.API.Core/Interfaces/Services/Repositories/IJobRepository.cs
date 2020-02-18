@@ -9,6 +9,6 @@ namespace EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories
     {
         bool JobExists(Guid jobId);
         IEnumerable<Job> GetJobs();
-        Job GetFirstJob();
+        Job GetJob(Guid jobId);
     }
 }

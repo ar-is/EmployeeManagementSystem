@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj": {}
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj": {
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj",
+        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj",
         "projectName": "EmployeeManagementSystem.WebClient.Core",
-        "projectPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj",
-        "packagesPath": "C:\\Users\\arist\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\obj\\",
+        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj",
+        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\arist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -69,20 +69,20 @@
         }
       }
     },
-    "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj": {
+    "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj",
         "projectName": "EmployeeManagementSystem.WebClient.Infrastructure",
-        "projectPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\arist\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\EmployeeManagementSystem.WebClient.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\e62824\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\arist\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\e62824\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,8 +95,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj": {
-                "projectPath": "C:\\Users\\arist\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj"
+              "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj": {
+                "projectPath": "C:\\Users\\e62824\\source\\repos\\EmployeeManagementSystem\\EmployeeManagementSystem.WebClient.Core\\EmployeeManagementSystem.WebClient.Core.csproj"
               }
             }
           }

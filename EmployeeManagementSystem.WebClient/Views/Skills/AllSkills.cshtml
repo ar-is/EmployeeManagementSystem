@@ -6,7 +6,10 @@
 
 <h1>AllSkills</h1>
 
-<form asp-controller="Home" asp-action="AllSkills">
+<a class="btn btn-outline-success" asp-area="" asp-controller="Skills" asp-action="CreateSkill">Add Skill</a>
+<br />
+
+<form asp-controller="Skills" asp-action="AllSkills" style="padding-top: 15px;">
     Type:
     <select asp-for="Type" id="selectSkillType">
         <option>All</option>
@@ -42,7 +45,10 @@
     <script>
         var type = '@Model.Type';
         var status = '@Model.Status';
-        var skillDetailsAction = '@Url.Action("SkillDetails", "Home")';
+        var skillDetailsAction = '@Url.Action("SkillDetails", "Skills")';
+        //var table = $("#allSkills").DataTable();
+
+        //SkillsController.allSkillsInit(table, skillDetailsAction, type, status);
 
         SkillsController.allSkillsInit("#allSkills", skillDetailsAction, type, status);
 

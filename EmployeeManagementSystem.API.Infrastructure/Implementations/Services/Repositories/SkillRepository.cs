@@ -161,9 +161,34 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .FirstOrDefault(s => s.Guid == skillId);
         }
 
+        public void AddSkill(Skill skill)
+        {
+            if (skill == null)
+                throw new ArgumentNullException(nameof(skill));
+
+            if (skill.Guid == Guid.Empty)
+                skill.Guid = Guid.NewGuid();
+
+            _context.Skills.Add(skill);
+        }
+
         public void UpdateSkill(Skill skill)
         {
 
+        }
+
+        public bool SkillExists(Skill skill)
+        {
+            return _context.Skills.Any(s => s.Name == skill.Name &&
+                                            s.Type == skill.Type);
+        }
+
+        public void DeleteSkill(Skill skill)
+        {
+            if (skill == null)
+                throw new ArgumentNullException(nameof(skill));
+
+            _context.Skills.Remove(skill);
         }
     }
 }

@@ -6,7 +6,7 @@
 
 <h1>Skills</h1>
 
-<form asp-controller="Home" asp-action="Skills">
+<form asp-controller="Skills" asp-action="Skills">
     <select name="jobId" id="searchJob"
             @*asp-for="JobId"
             asp-items="@(new SelectList(Model.Jobs, "Id", "Title"))"*@>
@@ -32,7 +32,7 @@
     <script>
         $(document).ready(function () {
             var jobId = '@Model.JobId';
-            var skillDetailsAction = '@Url.Action("SkillDetails", "Home")';
+            var skillDetailsAction = '@Url.Action("SkillDetails", "Skills")';
 
             SkillsController.jobsInit("#searchJob", jobId);
             SkillsController.skillsInit("#skills", jobId, skillDetailsAction);

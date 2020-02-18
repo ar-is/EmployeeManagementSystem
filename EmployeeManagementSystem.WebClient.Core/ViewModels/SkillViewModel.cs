@@ -17,5 +17,10 @@ namespace EmployeeManagementSystem.WebClient.Core.ViewModels
         public string CreationDate { get; set; }
 
         public bool IsEnabled { get; set; }
+
+        public IEnumerable<JobViewModel> Jobs { get; set; }
+
+        public string NamePlacehodler => "Enter Skill Name";
+        public string DescriptionPlaceholder => "Enter Skill Description";
     }
 }

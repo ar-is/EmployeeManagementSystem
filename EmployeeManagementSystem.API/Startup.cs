@@ -78,12 +78,12 @@ namespace EmployeeManagementSystem.API
                 newtonsoftJsonOutputFormatter?.SupportedMediaTypes
                     .Add(MediaTypes.HateoasPlusJson);
             });
-            
-            services.AddAutoMapper(typeof(SkillsProfile).Assembly);            
-            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddCustomServices(Configuration);
 
+            services.AddAutoMapper(typeof(SkillsProfile).Assembly);            
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+           
             services.AddDbContext<EMSDbContext>(options =>
             {
                 options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EMSApiDb;Trusted_Connection=True;");

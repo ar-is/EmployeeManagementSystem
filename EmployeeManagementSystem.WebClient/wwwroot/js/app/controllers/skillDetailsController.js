@@ -111,9 +111,28 @@
         enableSkill(id);
     };
 
+    var deleteSkill = function (id) {
+        var deleteSuccess = function () {
+            pageElementHelpers.toggleModal("green", "Skill deleted");
+        };
+
+        var deleteFail = function () {
+            pageElementHelpers.toggleModal("red", "Skill not deleted!" + errorThrown);
+        };
+
+        $("#deleteSkill").click(function () {
+            skillService.deleteSkill(id, deleteSuccess, deleteFail);
+
+            setTimeout(function () {
+                window.location.href = "https://localhost:44375/Skills/AllSkills"
+            }, 2500);
+        });
+    };
+
     return {
         animations: animations,
         updateSkill: updateSkill,
-        toggleSkillStatus: toggleSkillStatus
+        toggleSkillStatus: toggleSkillStatus,
+        deleteSkill: deleteSkill
     }
 }(PageElementHelpers, SkillService);

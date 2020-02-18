@@ -1,4 +1,6 @@
-﻿using EmployeeManagementSystem.API.Core.Entities;
+﻿using AutoMapper;
+using EmployeeManagementSystem.API.Core.Entities;
+using EmployeeManagementSystem.API.Core.Helpers.MappingProfiles;
 using EmployeeManagementSystem.API.Core.Interfaces.Services;
 using EmployeeManagementSystem.API.Core.Interfaces.Services.Data_Shaping;
 using EmployeeManagementSystem.API.Core.Interfaces.Services.Pagination;
@@ -44,6 +46,11 @@ namespace EmployeeManagementSystem.API.Helpers.Extension_Methods
             services.AddScoped<IDataShapingService<Skill>, SkillShapingService>();
             services.AddTransient<IPropertyMappingService, PropertyMappingService>();
             services.AddTransient<IPropertyCheckerService, PropertyCheckerService>();
+
+            //services.AddScoped(provider => new MapperConfiguration(cfg =>
+            //{
+            //    cfg.AddProfile(new JobSkillsProfile(provider.GetService<IUnitOfWork>()));
+            //}).CreateMapper());
 
             return services;
         }

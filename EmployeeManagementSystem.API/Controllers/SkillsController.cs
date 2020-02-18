@@ -106,6 +106,24 @@ namespace EmployeeManagementSystem.API.Controllers
             return Ok(_mapper.Map<SkillDto>(skill));
         }
 
+        [HttpPost("/api/skills", Name = "CreateSkill")]
+        public IActionResult CreateSkill(SkillForCreationDto skill)
+        {
+            var skillEntity = _mapper.Map<Skill>(skill);
+
+            if (_unitOfWork.Skills.SkillExists(skillEntity))
+                return Conflict(new { message = $"This Skill already exists in the database!" });
+
+            _unitOfWork.Skills.AddSkill(skillEntity);
+            _unitOfWork.Complete();
+
+            var skillToReturn = _mapper.Map<SkillDto>(skillEntity);
+
+            return CreatedAtRoute("GetSkill",
+                                  new { skillId = skillToReturn.Id },
+                                        skillToReturn);
+        }
+
         [HttpPatch("/api/skills/{skillId}", Name = "PartiallyUpdateSkill")]
         public IActionResult PartiallyUpdateSkill(Guid skillId, 
             JsonPatchDocument<SkillForUpdateDto> patchDocument)
@@ -128,5 +146,19 @@ namespace EmployeeManagementSystem.API.Controllers
 
             return NoContent();
         }
-    }
+
+        [HttpDelete("/api/skills/{skillId}", Name = "DeleteSkill")]
+        public ActionResult DeleteSkill(Guid skillId)
+        {
+            var skillFromDb = _unitOfWork.Skills.GetSkill(skillId);
+
+            if (skillFromDb == null)
+                return NotFound();
+
+            _unitOfWork.Skills.DeleteSkill(skillFromDb);
+            _unitOfWork.Complete();
+
+            return NoContent();
+        }
+    } 
 }

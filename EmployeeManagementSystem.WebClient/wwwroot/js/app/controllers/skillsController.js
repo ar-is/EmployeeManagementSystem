@@ -1,4 +1,4 @@
-﻿var SkillsController = function (jobService, skillService) {
+﻿var SkillsController = function (pageElementHelpers, jobService, skillService) {
 
     var jobsInit = function (container, jobId) {
         var success = function (data) {
@@ -82,11 +82,30 @@
         skillService.getSkill(skillId, success, fail);
     }
 
+    var createSkill = function (jobIds) {
+        var postSuccess = function () {
+            pageElementHelpers.toggleModal("green", "Skill created");
+        };
+
+        var postFail = function (xhr, textStatus, errorThrown) {
+            pageElementHelpers.toggleModal("red", "Skill not created!" + errorThrown);
+        };
+
+        $("#submitSkillForm").click(function () {
+            skillService.postSkill(jobIds, postSuccess, postFail);
+
+            setTimeout(function () {
+                window.location.href = "https://localhost:44375/Skills/AllSkills"
+            }, 2500);
+        });     
+    };
+
     return {
         jobsInit: jobsInit,
         allSkillsInit: allSkillsInit,
         skillsInit: skillsInit,
-        skillInit: skillInit
+        skillInit: skillInit,
+        createSkill: createSkill
     }
 
-}(JobService, SkillService);
+}(PageElementHelpers, JobService, SkillService);

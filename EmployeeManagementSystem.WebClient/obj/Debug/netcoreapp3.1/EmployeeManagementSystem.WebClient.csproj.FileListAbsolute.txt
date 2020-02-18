@@ -200,7 +200,6 @@ C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.W
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\bin\Debug\netcoreapp3.1\bundleconfig.json
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\bin\Debug\netcoreapp3.1\libman.json
-C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Home\Skills.cshtml.g.cs
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
@@ -412,7 +411,9 @@ C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.We
 C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.csproj.CopyComplete
 C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.dll
 C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\EmployeeManagementSystem.WebClient.pdb
-C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Home\SkillDetails.cshtml.g.cs
 C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Home\SkillDetails.cshtml.g.cs
-C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Home\AllSkills.cshtml.g.cs
 C:\Users\arist\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Home\AllSkills.cshtml.g.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Skills\AllSkills.cshtml.g.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Skills\SkillDetails.cshtml.g.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Skills\Skills.cshtml.g.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Skills\SkillForm.cshtml.g.cs
