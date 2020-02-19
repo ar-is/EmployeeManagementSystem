@@ -19,11 +19,11 @@ namespace EmployeeManagementSystem.API.Core.Helpers.MappingProfiles
 
         public JobSkillsProfile()
         {
-            CreateMap<JobSkillForCreationDto, JobSkill>();
-                //.ForMember(
-                //    dest => dest.JobId,
-                //    opt => opt.MapFrom(src => _unitOfWork.Jobs.GetJob(src.JobId).Id)
-                //    );
+            CreateMap<JobSkillForCreationDto, JobSkill>()
+            .ForMember(
+                dest => dest.JobId,
+                opt => opt.MapFrom(src => _unitOfWork.Jobs.GetJob(src.JobId).Id)
+                );
         }
     }
 }

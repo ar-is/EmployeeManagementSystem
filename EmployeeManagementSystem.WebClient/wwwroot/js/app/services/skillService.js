@@ -81,9 +81,15 @@
             .then(success, fail);
     };
 
-    var postSkill = function (jobIds, success, fail) {
+    var postSkill = function (success, fail) {
+
+        var jobIds = [];
+        $(".form-check input:checkbox:checked").map(function () {
+            jobIds.push({ jobId: $(this).data('id') });
+        });
+
         var skillToCreate = {
-            type: $("postType").find(":selected").text(),
+            type: $("#postType").find(":selected").text(),
             name: $("#postName").val(),
             description: $("#postDescription").val(),
             isEnabled: true,

@@ -82,7 +82,7 @@
         skillService.getSkill(skillId, success, fail);
     }
 
-    var createSkill = function (jobIds) {
+    var createSkill = function () {
         var postSuccess = function () {
             pageElementHelpers.toggleModal("green", "Skill created");
         };
@@ -92,7 +92,7 @@
         };
 
         $("#submitSkillForm").click(function () {
-            skillService.postSkill(jobIds, postSuccess, postFail);
+            skillService.postSkill(postSuccess, postFail);
 
             setTimeout(function () {
                 window.location.href = "https://localhost:44375/Skills/AllSkills"

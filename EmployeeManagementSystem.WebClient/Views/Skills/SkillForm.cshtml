@@ -42,15 +42,52 @@
 
 @section Scripts {
     <script>
-        var jobIds = [];
-        $(".form-check input:checkbox:checked").map(function () {
-            jobIds.push({ jobId: $(this).data('id') });
-        });
+        
+        //var jobIds = [];
+        //$(".form-check input:checkbox:checked").map(function () {
+        //    jobIds.push({ jobId: $(this).data('id') });
+        //});
         //var jobIds = $(".form-check input:checkbox:checked").map(function () {
         //    ids.push({ jobId: $(this).data('id') });
         //    return $(this).data('id');
         //}).get();
 
-        SkillsController.createSkill(jobIds);
+        //SkillsController.createSkill();
+
+        var postSuccess = function () {
+            PageElementHelpers.toggleModal("green", "Skill created");
+        };
+
+        var postFail = function (xhr, textStatus, errorThrown) {
+            PageElementHelpers.toggleModal("red", "Skill not created!" + errorThrown);
+        };
+
+        $("#submitSkillForm").click(function () {
+            debugger;
+            var jobIds = [];
+            $(".form-check input:checkbox:checked").map(function () {
+                jobIds.push({ jobId: $(this).data('id') });
+            });
+
+            var skillToCreate = {
+                type: $("#postType").find(":selected").text(),
+                name: $("#postName").val(),
+                description: $("#postDescription").val(),
+                isEnabled: true,
+                jobSkills: jobIds
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:5001/api/skills/",
+                data: JSON.stringify(skillToCreate),
+                contentType: 'application/json'
+            })
+                .then(postSuccess, postFail);
+
+            setTimeout(function () {
+                window.location.href = "https://localhost:44375/Skills/AllSkills"
+            }, 2500);
+        }); 
     </script>
 }

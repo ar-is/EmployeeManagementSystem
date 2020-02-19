@@ -109,7 +109,8 @@ namespace EmployeeManagementSystem.API.Controllers
         [HttpPost("/api/skills", Name = "CreateSkill")]
         public IActionResult CreateSkill(SkillForCreationDto skill)
         {
-            var skillEntity = _mapper.Map<Skill>(skill);
+            //var skillEntity = _mapper.Map<Skill>(skill);
+            var skillEntity = MapRelatedCollection(skill);
 
             if (_unitOfWork.Skills.SkillExists(skillEntity))
                 return Conflict(new { message = $"This Skill already exists in the database!" });
@@ -122,6 +123,16 @@ namespace EmployeeManagementSystem.API.Controllers
             return CreatedAtRoute("GetSkill",
                                   new { skillId = skillToReturn.Id },
                                         skillToReturn);
+        }
+
+        private Skill MapRelatedCollection(SkillForCreationDto skill)
+        {
+            var skillEntity = _mapper.Map<Skill>(skill);
+            var mappedJobSkills = new List<JobSkill>();
+            skill.JobSkills.ToList().ForEach(js => mappedJobSkills.Add(new JobSkill() { JobId = _unitOfWork.Jobs.GetJob(js.JobId).Id }));
+            mappedJobSkills.ForEach(js => skillEntity.JobSkills.Add(js));
+
+            return skillEntity;
         }
 
         [HttpPatch("/api/skills/{skillId}", Name = "PartiallyUpdateSkill")]

@@ -20,6 +20,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using EmployeeManagementSystem.API.Utils.VendorMediaTypes;
+using EmployeeManagementSystem.API.Core.Interfaces.Services;
 
 namespace EmployeeManagementSystem.API
 {
@@ -79,15 +80,42 @@ namespace EmployeeManagementSystem.API
                     .Add(MediaTypes.HateoasPlusJson);
             });
 
-            services.AddCustomServices(Configuration);
-
-            services.AddAutoMapper(typeof(SkillsProfile).Assembly);            
-            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-           
             services.AddDbContext<EMSDbContext>(options =>
             {
                 options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EMSApiDb;Trusted_Connection=True;");
             });
+
+            services.AddAutoMapper(typeof(SkillsProfile).Assembly);
+
+            services.AddCustomServices(Configuration);
+
+            //services.AddAutoMapper(typeof(Startup));
+
+            //services.AddScoped(provider => new MapperConfiguration(cfg =>
+            //{
+            //    cfg.AddProfile(new JobSkillsProfile(provider.GetService<IUnitOfWork>()));
+            //    cfg.AddProfile(new JobsProfile());
+            //    cfg.AddProfile(new SkillsProfile());
+            //}).CreateMapper());
+
+            //services.AddAutoMapper(typeof(SkillsProfile), typeof(JobsProfile));
+
+            //services.AddScoped(provider => new MapperConfiguration(cfg =>
+            //{
+            //    cfg.AddProfile(new JobsProfile());
+            //}).CreateMapper());
+
+            //services.AddScoped(provider => new MapperConfiguration(cfg =>
+            //{
+            //    cfg.AddProfile(new SkillsProfile());
+            //}).CreateMapper());
+
+            
+
+
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
 
             services.AddCors(options =>
             {

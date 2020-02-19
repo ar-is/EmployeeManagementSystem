@@ -29,11 +29,11 @@ namespace EmployeeManagementSystem.API.Core.Helpers.MappingProfiles
                     opt => opt.MapFrom(src => src.Guid)
                     );
 
-            CreateMap<SkillForCreationDto, Skill>();
-                //.ForMember(
-                //    dest => dest.JobSkills,
-                //    opt => opt.Ignore()
-                //    );
+            CreateMap<SkillForCreationDto, Skill>()
+                .ForMember(
+                    dest => dest.JobSkills,
+                    opt => opt.Ignore()
+                    );
 
             CreateMap<SkillForUpdateDto, Skill>();
                 //.ForMember(
