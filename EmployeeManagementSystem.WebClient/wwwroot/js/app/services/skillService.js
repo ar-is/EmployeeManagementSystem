@@ -60,6 +60,18 @@
             if (!patch.find(p => p === descriptionPatch))
                 patch.push(descriptionPatch);
         });
+
+        $(".form-check").change(function () {
+            var jobIds = [];
+            $(".form-check input:checkbox:checked").map(function () {
+                jobIds.push({ jobId: $(this).data('id') });
+            });
+
+            var jobsPatch = { "op": "replace", "path": "/jobSkills", "value": jobIds };
+
+            if (!patch.find(p => p === jobsPatch))
+                patch.push(jobsPatch);
+        });     
     };
 
     var getSkillDisablePatchDocument = function () {

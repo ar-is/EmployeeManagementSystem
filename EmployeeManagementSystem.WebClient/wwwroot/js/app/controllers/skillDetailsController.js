@@ -42,6 +42,7 @@
         pageElementHelpers.onInputChange("#inputType", "#submitChanges", "#discardChanges");
         pageElementHelpers.onInputChange("#inputName", "#submitChanges", "#discardChanges");
         pageElementHelpers.onInputChange("#inputDescription", "#submitChanges", "#discardChanges");
+        pageElementHelpers.onInputChange(".form-check", "#submitChanges", "#discardChanges");
     };
 
     var success = function () {
@@ -50,7 +51,7 @@
 
     var fail = function (xhr, textStatus, errorThrown) {
         var errorMessage = xhr.status + ': ' + xhr.statusText;
-        pageElementHelpers.toggleModal("red", "Skill not updated!" + errorThrown);
+        pageElementHelpers.toggleModal("red", "Skill not updated!" + errorThrown + errorMessage);
     };
 
     var updateSkill = function (id) {

@@ -38,16 +38,13 @@
         </div>
         <br />
         <div class="form-check">
-            @foreach (var selectedJob in Model.Jobs)
+            @foreach (var job in Model.AllJobs)
             {
-                @foreach (var job in Model.AllJobs)
-                {
-                    <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox" data-id="@job.Id" @(job.Id == selectedJob.Id ? "checked='checked'" : string.Empty)>
-                        @job.SeniorityLevel @job.Title
-                        <br />
-                    </label>
-                }
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" data-id="@job.Id" @(Model.Jobs.Any(j => j.Id == job.Id) ? "checked='checked'" : string.Empty)>
+                    @job.SeniorityLevel @job.Title
+                    <br />
+                </label>
             }
         </div>
         <br />
@@ -68,7 +65,6 @@
 
 @section Scripts {
     <script>
-        debugger;
         var id = '@Model.Id';
         var isEnabled = '@Model.IsEnabled' === "True";
         SkillsController.skillInit(skillType, skillName, skillDescription, skillCreationDate, id);

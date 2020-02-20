@@ -115,7 +115,7 @@ namespace EmployeeManagementSystem.API.Controllers
         public IActionResult CreateSkill(SkillForCreationDto skill)
         {
             //var skillEntity = _mapper.Map<Skill>(skill);
-            var skillEntity = MapRelatedCollection(skill);
+            var skillEntity = MapRelatedCollectionOnCreation(skill);
 
             if (_unitOfWork.Skills.SkillExists(skillEntity))
                 return Conflict(new { message = $"This Skill already exists in the database!" });
@@ -130,7 +130,7 @@ namespace EmployeeManagementSystem.API.Controllers
                                         skillToReturn);
         }
 
-        private Skill MapRelatedCollection(SkillForCreationDto skill)
+        private Skill MapRelatedCollectionOnCreation(SkillForCreationDto skill)
         {
             var skillEntity = _mapper.Map<Skill>(skill);
             var mappedJobSkills = new List<JobSkill>();
@@ -138,6 +138,25 @@ namespace EmployeeManagementSystem.API.Controllers
             mappedJobSkills.ForEach(js => skillEntity.JobSkills.Add(js));
 
             return skillEntity;
+        }
+
+        private void MapRelatedCollectionOnPatch(SkillForUpdateDto skillToPatch,
+            ref Skill skillFromDb)
+        {
+            var skillToPatchJobIds = new HashSet<Guid>();
+            skillToPatch.JobSkills.ToList().ForEach(js => skillToPatchJobIds.Add(js.JobId));
+            var skillFromDbJobIds = new HashSet<Guid>();
+            skillFromDb.JobSkills.ToList().ForEach(js => skillFromDbJobIds.Add(js.Job.Guid));
+
+            if (!skillToPatchJobIds.SetEquals(skillFromDbJobIds))
+            {
+                skillFromDb.JobSkills.Clear();
+                var mappedJobSkills = new List<JobSkill>();
+                skillToPatch.JobSkills.ToList().ForEach(js => mappedJobSkills.Add(new JobSkill() { JobId = _unitOfWork.Jobs.GetJob(js.JobId).Id }));
+
+                foreach (var jobSkill in mappedJobSkills)
+                    skillFromDb.JobSkills.Add(jobSkill);
+            }
         }
 
         [HttpPatch("/api/skills/{skillId}", Name = "PartiallyUpdateSkill")]
@@ -156,6 +175,7 @@ namespace EmployeeManagementSystem.API.Controllers
                 return ValidationProblem(ModelState);
 
             _mapper.Map(skillToPatch, skillFromDb);
+            MapRelatedCollectionOnPatch(skillToPatch, ref skillFromDb);
 
             _unitOfWork.Skills.UpdateSkill(skillFromDb);
             _unitOfWork.Complete();
