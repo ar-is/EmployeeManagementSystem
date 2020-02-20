@@ -37,6 +37,20 @@
             <textarea id="inputDescription" style="display:none;"></textarea>
         </div>
         <br />
+        <div class="form-check">
+            @foreach (var selectedJob in Model.Jobs)
+            {
+                @foreach (var job in Model.AllJobs)
+                {
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" data-id="@job.Id" @(job.Id == selectedJob.Id ? "checked='checked'" : string.Empty)>
+                        @job.SeniorityLevel @job.Title
+                        <br />
+                    </label>
+                }
+            }
+        </div>
+        <br />
         <div class="card-text">
             <p>
                 <b>Created: </b>

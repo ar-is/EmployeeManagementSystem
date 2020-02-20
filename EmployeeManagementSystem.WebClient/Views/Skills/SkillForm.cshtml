@@ -63,7 +63,6 @@
         };
 
         $("#submitSkillForm").click(function () {
-            debugger;
             var jobIds = [];
             $(".form-check input:checkbox:checked").map(function () {
                 jobIds.push({ jobId: $(this).data('id') });

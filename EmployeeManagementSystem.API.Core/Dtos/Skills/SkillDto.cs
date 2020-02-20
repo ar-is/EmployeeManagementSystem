@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace EmployeeManagementSystem.API.Core.Dtos.Skills
@@ -17,5 +18,8 @@ namespace EmployeeManagementSystem.API.Core.Dtos.Skills
         public string CreationDate { get; set; }
 
         public bool IsEnabled { get; set; }
+
+        public ICollection<JobDto> Jobs { get; set; }
+            = new Collection<JobDto>();
     }
 }

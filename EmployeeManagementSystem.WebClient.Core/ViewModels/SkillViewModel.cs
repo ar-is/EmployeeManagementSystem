@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace EmployeeManagementSystem.WebClient.Core.ViewModels
@@ -18,7 +19,11 @@ namespace EmployeeManagementSystem.WebClient.Core.ViewModels
 
         public bool IsEnabled { get; set; }
 
-        public IEnumerable<JobViewModel> Jobs { get; set; }
+        public ICollection<JobViewModel> Jobs { get; set; }
+            = new Collection<JobViewModel>();
+
+        public ICollection<JobViewModel> AllJobs { get; set; }
+            = new Collection<JobViewModel>();
 
         public string NamePlacehodler => "Enter Skill Name";
         public string DescriptionPlaceholder => "Enter Skill Description";

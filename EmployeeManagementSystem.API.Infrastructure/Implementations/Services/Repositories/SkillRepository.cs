@@ -158,6 +158,8 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 throw new ArgumentNullException(nameof(skillId));
 
             return _context.Skills
+                .Include(s => s.JobSkills)
+                    .ThenInclude(js =>js.Job)
                 .FirstOrDefault(s => s.Guid == skillId);
         }
 

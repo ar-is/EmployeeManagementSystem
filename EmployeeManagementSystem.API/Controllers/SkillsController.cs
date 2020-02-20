@@ -103,7 +103,12 @@ namespace EmployeeManagementSystem.API.Controllers
             if (skill == null)
                 return NotFound();
 
-            return Ok(_mapper.Map<SkillDto>(skill));
+            var mappedJobs = new List<Job>();
+            skill.JobSkills.ToList().ForEach(js => mappedJobs.Add(js.Job));
+            var skillDtoToReturn = _mapper.Map<SkillDto>(skill);
+            mappedJobs.ForEach(mj => skillDtoToReturn.Jobs.Add(_mapper.Map<JobDto>(mj)));
+
+            return Ok(skillDtoToReturn);
         }
 
         [HttpPost("/api/skills", Name = "CreateSkill")]

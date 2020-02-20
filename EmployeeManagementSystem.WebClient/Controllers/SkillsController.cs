@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,10 +46,15 @@ namespace EmployeeManagementSystem.WebClient.Controllers
         [Route("Skills/SkillDetails/{id:guid}")]
         public ViewResult SkillDetails(Guid id)
         {
-            var t = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/skills/" + id)));
-            t.Wait();
+            var skillTask = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/skills/" + id)));
+            skillTask.Wait();
 
-            var skill = JsonConvert.DeserializeObject<SkillViewModel>(t.Result);
+            var skill = JsonConvert.DeserializeObject<SkillViewModel>(skillTask.Result);
+
+            var jobsTask = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/jobs/")));
+            jobsTask.Wait();
+
+            skill.AllJobs = JsonConvert.DeserializeObject<ICollection<JobViewModel>>(jobsTask.Result);
 
             return View(skill);
         }
@@ -73,7 +79,7 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             var t = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/jobs/")));
             t.Wait();
 
-            var jobs = JsonConvert.DeserializeObject<IEnumerable<JobViewModel>>(t.Result);
+            var jobs = JsonConvert.DeserializeObject<ICollection<JobViewModel>>(t.Result);
 
             return View("SkillForm", new SkillViewModel() { Jobs = jobs });
         }
