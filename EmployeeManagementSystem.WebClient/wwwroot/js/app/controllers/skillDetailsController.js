@@ -59,6 +59,7 @@
         skillService.getSkillPatchDocument(patch);
 
         $("#submitChanges").click(function (e) {
+            skillService.getJobSkillsPatchDocument(patch);
             skillService.patchSkill(id, patch, success, fail);
 
             $("#submitChanges").hide();
@@ -82,6 +83,7 @@
         var disablePatchDoc = skillService.getSkillDisablePatchDocument();
 
         $("#disableSkill").click(function (e) {
+            skillService.getJobSkillsPatchDocument(disablePatchDoc);
             skillService.patchSkill(id, disablePatchDoc, disableSuccess, disableFail);
             e.preventDefault();
         });
@@ -102,6 +104,7 @@
         var enablePatchDoc = skillService.getSkillEnablePatchDocument();
 
         $("#enableSkill").click(function (e) {
+            skillService.getJobSkillsPatchDocument(enablePatchDoc);
             skillService.patchSkill(id, enablePatchDoc, enableSuccess, enableFail);
             e.preventDefault();
         });

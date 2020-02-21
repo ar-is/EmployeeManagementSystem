@@ -61,17 +61,27 @@
                 patch.push(descriptionPatch);
         });
 
-        $(".form-check").change(function () {
-            var jobIds = [];
-            $(".form-check input:checkbox:checked").map(function () {
-                jobIds.push({ jobId: $(this).data('id') });
-            });
+        var jobIds = [];
+        $(".form-check input:checkbox:checked").map(function () {
+            jobIds.push({ jobId: $(this).data('id') });
+        });
 
-            var jobsPatch = { "op": "replace", "path": "/jobSkills", "value": jobIds };
+        var jobsPatch = { "op": "replace", "path": "/jobSkills", "value": jobIds };
 
-            if (!patch.find(p => p === jobsPatch))
-                patch.push(jobsPatch);
-        });     
+        if (!patch.find(p => p === jobsPatch))
+            patch.push(jobsPatch);   
+    };
+
+    var getJobSkillsPatchDocument = function (patch) {
+        var jobIds = [];
+        $(".form-check input:checkbox:checked").map(function () {
+            jobIds.push({ jobId: $(this).data('id') });
+        });
+
+        var jobsPatch = { "op": "replace", "path": "/jobSkills", "value": jobIds };
+
+        if (!patch.find(p => p === jobsPatch))
+            patch.push(jobsPatch);
     };
 
     var getSkillDisablePatchDocument = function () {
@@ -133,6 +143,7 @@
         getSkillPatchDocument: getSkillPatchDocument,
         getSkillDisablePatchDocument: getSkillDisablePatchDocument,
         getSkillEnablePatchDocument: getSkillEnablePatchDocument,
+        getJobSkillsPatchDocument: getJobSkillsPatchDocument,
         patchSkill: patchSkill,
         postSkill: postSkill,
         deleteSkill: deleteSkill
