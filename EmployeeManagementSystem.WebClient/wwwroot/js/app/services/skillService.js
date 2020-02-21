@@ -115,7 +115,7 @@
             name: $("#postName").val(),
             description: $("#postDescription").val(),
             isEnabled: true,
-            jobSkills: JSON.stringify(jobIds)
+            jobSkills: jobIds
         };
 
         $.ajax({
