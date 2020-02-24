@@ -39,6 +39,7 @@ namespace EmployeeManagementSystem.API.Helpers.Extension_Methods
             services.AddScoped<IJobRepository, JobRepository>();
             services.AddScoped<IJobSkillRepository, JobSkillRepository>();
             services.AddScoped<ISkillRepository, SkillRepository>();
+            services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddScoped<IPaginationService<Skill>, SkillPaginationService>();
             services.AddScoped<IRootPaginationService, RootPaginationService>();

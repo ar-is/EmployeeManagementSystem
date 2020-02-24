@@ -10,6 +10,7 @@ namespace EmployeeManagementSystem.API.Core.Interfaces.Services
         IJobRepository Jobs { get; }
         IJobSkillRepository JobSkills { get; }
         ISkillRepository Skills { get; }
+        IEmployeeRepository Employees { get; }
 
         void Complete();
         void Dispose();

@@ -22,5 +22,7 @@ namespace EmployeeManagementSystem.API.Core.Entities
 
         public ICollection<Employee> Employees { get; set; }
             = new Collection<Employee>();
+
+        public string FullTitle => $"{SeniorityLevel} {Title}";
     }
 }

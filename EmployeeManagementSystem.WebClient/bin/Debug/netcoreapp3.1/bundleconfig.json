@@ -17,8 +17,10 @@
       "wwwroot/js/app/helpers/pageElementHelpers.js",
       "wwwroot/js/app/services/jobService.js",
       "wwwroot/js/app/services/skillService.js",
+      "wwwroot/js/app/services/employeeService.js",
       "wwwroot/js/app/controllers/skillsController.js",
       "wwwroot/js/app/controllers/skillDetailsController.js",
+      "wwwroot/js/app/controllers/employeesController.js",
       "wwwroot/js/site.js"
     ],
     "minify": {

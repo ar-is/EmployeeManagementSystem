@@ -11,22 +11,20 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementSystem.WebClient.Controllers
 {
+    [Authorize(Roles = "Scheduler")]
     public class SkillsController : Controller
     {
-        [Authorize(Roles = "Scheduler")]
         public ViewResult AllSkills(string type, string status)
         {
             return View(new AllSkillsViewModel { Type = type, Status = status });
         }
 
         [HttpPost]
-        [Authorize(Roles = "Scheduler")]
         public RedirectToActionResult AllSkills(AllSkillsViewModel viewModel)
         {
             return RedirectToAction("AllSkills", new { type = viewModel.Type, status = viewModel.Status });
         }
 
-        [Authorize(Roles = "Scheduler")]
         public ViewResult Skills(Guid jobId)
         {
             if (jobId == Guid.Empty)
@@ -36,13 +34,11 @@ namespace EmployeeManagementSystem.WebClient.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Scheduler")]
         public RedirectToActionResult Skills(JobSkillViewModel viewModel)
         {
             return RedirectToAction("Skills", new { jobId = viewModel.JobId });
         }
 
-        [Authorize(Roles = "Scheduler")]
         [Route("Skills/SkillDetails/{id:guid}")]
         public ViewResult SkillDetails(Guid id)
         {
@@ -65,7 +61,16 @@ namespace EmployeeManagementSystem.WebClient.Controllers
 
             using var client = new HttpClient();
 
-            HttpResponseMessage result = await client.GetAsync(u);
+            HttpResponseMessage result = null;
+
+            try
+            {
+                result = await client.GetAsync(u);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
             if (result.IsSuccessStatusCode)
                 response = await result.Content.ReadAsStringAsync();
@@ -73,7 +78,6 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             return response;
         }
 
-        [Authorize(Roles = "Scheduler")]
         public ViewResult CreateSkill()
         {
             var t = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/jobs/")));

@@ -17,6 +17,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services
         public IJobRepository Jobs { get; private set; }
         public IJobSkillRepository JobSkills { get; private set; }
         public ISkillRepository Skills { get; private set; }
+        public IEmployeeRepository Employees { get; private set; }
 
         public UnitOfWork(EMSDbContext context, IPropertyMappingService propertyMappingService)
         {
@@ -24,6 +25,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services
             Jobs = new JobRepository(context);
             JobSkills = new JobSkillRepository(context);
             Skills = new SkillRepository(context, propertyMappingService);
+            Employees = new EmployeeRepository(context);
         }
 
         public void Complete()
