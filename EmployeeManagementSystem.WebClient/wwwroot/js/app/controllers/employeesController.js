@@ -11,10 +11,10 @@
                     data: "surname"
                 },
                 {
-                    data: "hiringDate"
-                    //render: function (data, type, row) {
-                    //    return moment(data).format('M/D/YYYY hh:mm:ss a');
-                    //}
+                    data: "hiringDate",
+                    render: function (data, type, row) {
+                        return moment(data).format('dddd, MMMM Do, YYYY');
+                    }
                 },
                 {
                     data: "job"
@@ -25,20 +25,7 @@
                         return '<a href="' + employeeDetailsAction + "/" + row.id + '">Details</a>';
                     }
                 }
-            ],
-            columnDefs:
-            {
-                targets: 2,
-                render: function (data, type, full, meta) {
-                    if (type == 'display') {
-                        if (data) {
-                            var mDate = moment(data);
-                            data = (mDate && mDate.isValid()) ? mDate.format("dddd, MMMM Do YYYY, h:mm:ss a") : '';
-                        }
-                    }
-                    return data;
-                }
-            }
+            ]
         });
     };
 
