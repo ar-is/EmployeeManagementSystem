@@ -9,5 +9,6 @@ namespace EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories
     {
         bool EmployeeExists(Guid employeeId);
         IEnumerable<Employee> GetEmployees();
+        IEnumerable<Employee> GetEmployees(IEnumerable<Guid> employeeIds);
     }
 }

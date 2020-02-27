@@ -32,5 +32,29 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .Include(e => e.Job)
                 .ToList();
         }
+
+        public void DeleteEmployee(Employee employee)
+        {
+            if (employee == null)
+                throw new ArgumentNullException(nameof(employee));
+
+            _context.Employees.Remove(employee);
+        }
+
+        public IEnumerable<Employee> GetEmployees(IEnumerable<Guid> employeeIds)
+        {
+            return _context.Employees
+                .Where(d => employeeIds.Contains(d.Guid))
+                .ToList();
+        }
+
+        public void DeleteEmployees(IEnumerable<Guid> employeeIds)
+        {
+            foreach (var employee in GetEmployees(employeeIds))
+            {
+                var employeeInDb = _context.Employees.FirstOrDefault(e => e.Id == employee.Id);
+                _context.Employees.Remove(employeeInDb);
+            }
+        }
     }
 }
