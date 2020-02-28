@@ -46,6 +46,20 @@
     <Compile Remove="Migrations\20200214084259_AddIsDeletedToSkill.Designer.cs" />
     <Compile Remove="Migrations\20200214084400_AddIsDeletedToSkill.cs" />
     <Compile Remove="Migrations\20200214084400_AddIsDeletedToSkill.Designer.cs" />
+    <Compile Remove="Migrations\20200228085426_ConfigureCascadeOptionsOnDeletEmployee.cs" />
+    <Compile Remove="Migrations\20200228085426_ConfigureCascadeOptionsOnDeletEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200228085826_ConfigureCascadeOptionsOnDeletEmployee.cs" />
+    <Compile Remove="Migrations\20200228085826_ConfigureCascadeOptionsOnDeletEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200228090432_ConfigureCascadeOptionsOnDeleteEmployee.cs" />
+    <Compile Remove="Migrations\20200228090432_ConfigureCascadeOptionsOnDeleteEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200228090517_ConfigureCascadeOptionsOnDeletEmployee.cs" />
+    <Compile Remove="Migrations\20200228090517_ConfigureCascadeOptionsOnDeletEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200228090615_ConfigureCascadeOptionsOnDeletEmployee.cs" />
+    <Compile Remove="Migrations\20200228090615_ConfigureCascadeOptionsOnDeletEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200228090747_ConfigureCascadeOptionsOnDeletEmployee.cs" />
+    <Compile Remove="Migrations\20200228090747_ConfigureCascadeOptionsOnDeletEmployee.Designer.cs" />
+    <Compile Remove="Migrations\20200228092037_ConfigureCascadeOptionsOnDeletEmployee.cs" />
+    <Compile Remove="Migrations\20200228092037_ConfigureCascadeOptionsOnDeletEmployee.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

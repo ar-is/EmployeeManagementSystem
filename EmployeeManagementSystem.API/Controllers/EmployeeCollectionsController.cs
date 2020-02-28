@@ -15,36 +15,18 @@ namespace EmployeeManagementSystem.API.Controllers
     public class EmployeeCollectionsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
 
-        public EmployeeCollectionsController(IUnitOfWork unitOfWork, IMapper mapper)
+        public EmployeeCollectionsController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet("({ids})", Name = "GetEmployeeCollection")]
-        public IActionResult GetEmployeeCollection(
-            [FromRoute]
-            [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
-        {
-            if (!ids.Any())
-                return BadRequest();
-
-            var employeeEntities = _unitOfWork.Employees.GetEmployees(ids);
-
-            if (ids.Count() != employeeEntities.Count())
-                return NotFound();
-
-            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(employeeEntities));
-        }
-
-        [HttpDelete("({ids})", Name = "DeleteEmployeeCollection")]
+        [HttpDelete(Name = "DeleteEmployeeCollection")]
         public IActionResult DeleteEmployeeCollection(
-            [FromRoute]
+            [FromQuery]
             [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
         {
-            if (!ids.Any())
+            if (ids == null || !ids.Any())
                 return BadRequest();
 
             var employeeEntities = _unitOfWork.Employees.GetEmployees(ids);
@@ -52,9 +34,10 @@ namespace EmployeeManagementSystem.API.Controllers
             if (ids.Count() != employeeEntities.Count())
                 return NotFound();
 
-            _unitOfWork.e
+            _unitOfWork.Employees.DeleteEmployees(employeeEntities);
+            _unitOfWork.Complete();
 
-            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(employeeEntities));
+            return NoContent();
         }
     }
 }

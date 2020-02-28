@@ -5,6 +5,14 @@
             ajax: employeeService.getAllEmployeesDatatable(),
             columns: [
                 {
+                    data: null
+                    //className: "empCheckbox",
+                    //data: "id",
+                    //render: function (data, type, row) {
+                    //    return '<input class="emp" type="checkbox" data-id=' + row.id + ' /> ';
+                    //}
+                },
+                {
                     data: "name"
                 },
                 {
@@ -23,6 +31,15 @@
                     data: "id",
                     render: function (data, type, row) {
                         return '<a href="' + employeeDetailsAction + "/" + row.id + '">Details</a>';
+                    }
+                }
+            ],
+            columnDefs: [
+                {
+                    targets: [0],
+                    orderable: false,
+                    render: function (data, type, row) {
+                        return '<input class="emp" type="checkbox" data-id=' + row.id + ' /> ';
                     }
                 }
             ]

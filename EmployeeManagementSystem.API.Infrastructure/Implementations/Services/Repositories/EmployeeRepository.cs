@@ -48,12 +48,16 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .ToList();
         }
 
-        public void DeleteEmployees(IEnumerable<Guid> employeeIds)
+        public void DeleteEmployees(IEnumerable<Employee> employees)
         {
-            foreach (var employee in GetEmployees(employeeIds))
+            foreach (var employee in employees)
             {
-                var employeeInDb = _context.Employees.FirstOrDefault(e => e.Id == employee.Id);
-                _context.Employees.Remove(employeeInDb);
+                _context.Employees.Remove(employee);
+
+                var department = _context.Departments.SingleOrDefault(d => d.ManagerId == employee.Id);
+
+               if (department != null)
+                    department.ManagerId = null;
             }
         }
     }
