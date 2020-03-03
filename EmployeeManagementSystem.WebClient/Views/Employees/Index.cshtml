@@ -1,0 +1,33 @@
+﻿@model EmployeeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/app/views/employeeDetails.css" />
+</head>
+
+<h2>Employee Details</h2>
+<br />
+
+<div class="card border-success mb-3" style="max-width: 20rem;">
+    <div class="card-header">
+        <span id="employeeName">@Model.FullName</span>
+        <span class="d-inline-block float-right">
+            <i id="nameEdit" class="far fa-edit"></i>
+        </span>
+        <input type="text" id="inputName" style="display:none;">
+    </div>
+    <div class="card-body">
+        <div class="card-title">
+            <span id="employeeJob">@Model.Job.SeniorityLevel @Model.Job.Title</span>
+            <span class="d-inline-block float-right">
+                <i id="jobEdit" class="far fa-edit"></i>
+            </span>
+            <input type="text" id="inputJob" style="display:none;">
+        </div>
+    </div>
+</div>
+

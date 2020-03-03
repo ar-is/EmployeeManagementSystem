@@ -33,6 +33,18 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .ToList();
         }
 
+        public Employee GetEmployee(Guid employeeId)
+        {
+            if (employeeId == Guid.Empty)
+                throw new ArgumentNullException(nameof(employeeId));
+
+            return _context.Employees
+                .Include(e => e.Job)
+                .Include(e => e.EmployeeSkills)
+                    .ThenInclude(es => es.Skill)
+                .FirstOrDefault(e => e.Guid == employeeId);
+        }
+
         public void DeleteEmployee(Employee employee)
         {
             if (employee == null)

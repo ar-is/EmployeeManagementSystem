@@ -80,10 +80,10 @@ namespace EmployeeManagementSystem.WebClient.Controllers
 
         public ViewResult CreateSkill()
         {
-            var t = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/jobs/")));
-            t.Wait();
+            var jobsTask = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/jobs/")));
+            jobsTask.Wait();
 
-            var jobs = JsonConvert.DeserializeObject<ICollection<JobViewModel>>(t.Result);
+            var jobs = JsonConvert.DeserializeObject<ICollection<JobViewModel>>(jobsTask.Result);
 
             return View("SkillForm", new SkillViewModel() { Jobs = jobs });
         }

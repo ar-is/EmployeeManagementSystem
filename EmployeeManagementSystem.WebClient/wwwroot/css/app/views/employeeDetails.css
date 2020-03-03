@@ -1,0 +1,13 @@
+﻿.fa-edit {
+    cursor: pointer;
+}
+
+#employeeJob {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#employeeName {
+    font-size: 28px;
+    font-weight: 700;
+}

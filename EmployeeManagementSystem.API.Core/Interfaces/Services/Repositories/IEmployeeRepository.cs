@@ -7,6 +7,7 @@ namespace EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories
 {
     public interface IEmployeeRepository
     {
+        Employee GetEmployee(Guid employeeId);
         bool EmployeeExists(Guid employeeId);
         IEnumerable<Employee> GetEmployees();
         IEnumerable<Employee> GetEmployees(IEnumerable<Guid> employeeIds);

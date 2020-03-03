@@ -34,7 +34,7 @@
     <script>
         $(document).ready(function () {
             $.fn.dataTable.moment('dddd, MMMM Do, YYYY');
-            var employeeDetailsAction = '@Url.Action("EmployeeDetails", "Employees")';
+            var employeeDetailsAction = '@Url.Action("Index", "Employees")';
 
             var table = EmployeesController.allEmployeesInit("#allEmployees", employeeDetailsAction);
             EmployeesController.animations(table);
