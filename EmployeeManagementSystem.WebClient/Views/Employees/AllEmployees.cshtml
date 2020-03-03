@@ -2,18 +2,21 @@
     ViewData["Title"] = "AllEmployees";
 }
 
+<head>
+    <link rel="stylesheet" href="~/lib/datatables/dist/css//select.dataTables.min.css" />
+</head>
+
 <h1>AllEmployees</h1>
 
 <a class="btn btn-outline-success" asp-area="" asp-controller="Employees" asp-action="CreateEmployee">Add Employee</a>
 <button id="deleteEmployees" type="button" class="btn btn-danger">Delete</button>
-@*<input class="emp" type="checkbox" />*@
 <br />
 <br />
 
 <table id="allEmployees" class="table table-responsive table-hover table-bordered">
     <thead>
         <tr>
-            <th></th>
+            <th style="text-align: center"><input type="checkbox" id="select_all" /></th>
             <th>NAME</th>
             <th>SURNAME</th>
             <th>HIRING DATE</th>
@@ -25,23 +28,17 @@
 
 <br />
 
-@section Scripts {
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-    <script src="https://cdn.datatables.net/plug-ins/1.10.20/sorting/datetime-moment.js"></script>
+@section Scripts { 
+    <script src="~/lib/moment/dist/js/moment-with-locales.js"></script>
+    <script src="~/lib/moment/dist/js/datetime-moment.js"></script>
     <script>
         $(document).ready(function () {
             $.fn.dataTable.moment('dddd, MMMM Do, YYYY');
             var employeeDetailsAction = '@Url.Action("EmployeeDetails", "Employees")';
 
-            EmployeesController.allEmployeesInit("#allEmployees", employeeDetailsAction);
-
-            $("#deleteEmployees").css('display', 'none');
-
-            // this works because we have dynamically loaded content
-            $(document.body).on('click', '.emp', function () {
-                $("#deleteEmployees").toggle($(".emp:checked").length > 0);
-                $("#deleteEmployees").text(($(".emp:checked").length > 1) ? 'Delete All' : 'Delete');
-            });
+            var table = EmployeesController.allEmployeesInit("#allEmployees", employeeDetailsAction);
+            EmployeesController.animations(table);
+            EmployeesController.deleteMultipleEmployees(table);
         });
     </script>
 }

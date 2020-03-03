@@ -97,7 +97,7 @@
             setTimeout(function () {
                 window.location.href = "https://localhost:44375/Skills/AllSkills"
             }, 2500);
-        });     
+        });
     };
 
     return {
