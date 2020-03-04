@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EmployeeManagementSystem.API.Core.Dtos.Jobs;
 using EmployeeManagementSystem.API.Core.Dtos.Skills;
 using EmployeeManagementSystem.API.Core.Entities;
 using System;

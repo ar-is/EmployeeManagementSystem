@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EmployeeManagementSystem.API.Core.Dtos.Employees;
 using EmployeeManagementSystem.API.Core.Dtos.Skills;
 using EmployeeManagementSystem.API.Core.Entities;
 using System;
@@ -41,6 +42,18 @@ namespace EmployeeManagementSystem.API.Core.Helpers.MappingProfiles
                     )
                 .ForMember(
                     dest => dest.Skills,
+                    opt => opt.Ignore()
+                    );
+
+            CreateMap<EmployeeForUpdateDto, Employee>()
+                .ForMember(
+                    dest => dest.EmployeeSkills,
+                    opt => opt.Ignore()
+                    );
+
+            CreateMap<Employee, EmployeeForUpdateDto>()
+                .ForMember(
+                    dest => dest.EmployeeSkills,
                     opt => opt.Ignore()
                     );
         }

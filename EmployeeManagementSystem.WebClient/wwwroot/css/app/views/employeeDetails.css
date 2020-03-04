@@ -7,7 +7,27 @@
     font-weight: 700;
 }
 
-#employeeName {
+#employeeName, #employeeSurname {
     font-size: 28px;
     font-weight: 700;
 }
+
+.fa-edit,
+#submitEmpChanges,
+#discardEmpChanges {
+    display: none;
+}
+
+/*#employeePhone {
+    margin-bottom: 0;
+}
+
+.phone:after {
+    content: '.';
+    visibility: hidden;
+}
+
+#inputEmpPhone {
+    width: 100%;
+    height: 100px;
+}*/

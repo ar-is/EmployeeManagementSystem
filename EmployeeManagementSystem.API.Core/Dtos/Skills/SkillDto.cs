@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EmployeeManagementSystem.API.Core.Dtos.Jobs;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;

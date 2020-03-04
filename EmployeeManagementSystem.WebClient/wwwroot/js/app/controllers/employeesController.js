@@ -1,18 +1,32 @@
 ﻿var EmployeesController = function (pageElementHelpers, employeeService) {
 
-    var animations = function (table) {
+    var animations = function (table, employeeDetailsAction) {
         $("#deleteEmployees").css('display', 'none');
+        $("#editEmployee").css('display', 'none');
 
         table.on('select deselect', function (e, dt, type, indexes) {
             var count = table.rows({ selected: true }).count();
 
             if (count > 0) {
                 $("#deleteEmployees").show();
-                $("#deleteEmployees").text((count > 1) ? 'Delete All' : 'Delete');
+                $("#deleteEmployees").text((count > 1) ? 'Delete Selected' : 'Delete');
+
+                if (count == 1)
+                    $("#editEmployee").show();
+                else
+                    $("#editEmployee").hide();
+
             } else {
                 $("#deleteEmployees").hide();
             }
         });
+
+        $("#editEmployee").click(function () {
+            $("#allEmployees").dataTable().$("tr.selected").each(function () {
+                var data = table.row(this).data();
+                location.href = employeeDetailsAction + "/" + data.id;
+            });
+        });      
     };
 
     var allEmployeesInit = function (container, employeeDetailsAction) {
@@ -67,26 +81,34 @@
         });	
 
         return table;
-    };
+    };   
 
     var deleteMultipleEmployees = function (table) {
 
         var deleteMultipleEmployeesSuccess = function () {
-            PageElementHelpers.toggleModal("green", "Employee(s) successfully deleted!");
+            PageElementHelpers.toggleModal("green", "Employees successfully deleted!");
+            reload();
+        };
 
+        var deleteMultipleEmployeesFail = function (xhr, textStatus, errorThrown) {
+            pageElementHelpers.toggleModal("red", "Employees not deleted!" + errorThrown);
+            reload();
+        };
+
+        var reload = function () {
             setTimeout(function () {
                 window.location.href = "https://localhost:44375/Employees/AllEmployees"
             }, 2500);
         };
 
-        var deleteMultipleEmployeesFail = function (xhr, textStatus, errorThrown) {
-            pageElementHelpers.toggleModal("red", "Employee(s) not deleted!" + errorThrown);
-        };
-
-        $("#deleteEmployees").click(function () {
+        var deleteCallback = function () {
             var employeeIds = employeeService.getSelectedEmployeesIds(table);
 
             employeeService.deleteEmployeesCollection(employeeIds, deleteMultipleEmployeesSuccess, deleteMultipleEmployeesFail);
+        };
+
+        $("#deleteEmployees").click(function () {
+            pageElementHelpers.deleteToggleModal("these employees", deleteCallback);
         });
     };
 

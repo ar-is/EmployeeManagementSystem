@@ -9,25 +9,83 @@
     <link rel="stylesheet" href="~/css/app/views/employeeDetails.css" />
 </head>
 
-<h2>Employee Details</h2>
 <br />
 
-<div class="card border-success mb-3" style="max-width: 20rem;">
+<div class="card border-success mb-3" style="max-width: 25rem;">
     <div class="card-header">
-        <span id="employeeName">@Model.FullName</span>
+        <span id="employeeName">@Model.Name</span>
+        <span id="employeeSurname">@Model.Surname</span>
         <span class="d-inline-block float-right">
-            <i id="nameEdit" class="far fa-edit"></i>
+            <i id="nameEmpEdit" class="far fa-edit"></i>
         </span>
-        <input type="text" id="inputName" style="display:none;">
+        <input type="text" id="inputEmpName" style="display:none;">
+        <input type="text" id="inputEmpSurname" style="display:none;">
     </div>
     <div class="card-body">
         <div class="card-title">
             <span id="employeeJob">@Model.Job.SeniorityLevel @Model.Job.Title</span>
             <span class="d-inline-block float-right">
-                <i id="jobEdit" class="far fa-edit"></i>
+                <i id="jobEmpEdit" class="far fa-edit"></i>
             </span>
-            <input type="text" id="inputJob" style="display:none;">
+            <input type="text" id="inputEmpJob" style="display:none;">
         </div>
+        <div class="card-text phone">
+            <b>Phone: </b><span id="employeePhone">@Model.PhoneNumber</span>
+            <span class="d-inline-block float-right">
+                <i id="phoneEmpEdit" class="far fa-edit"></i>
+            </span>
+            <input type="tel" id="inputEmpPhone" style="display:none;" />
+        </div>
+        <div class="card-text email">
+            <b>Email: </b><span id="employeeEmail">@Model.Email</span>
+            <span class="d-inline-block float-right">
+                <i id="emailEmpEdit" class="far fa-edit"></i>
+            </span>
+            <input type="email" id="inputEmpEmail" style="display:none;" />
+        </div>
+        <div class="card-text">
+            <p><b>Hiring Date: </b>@Model.HiringDate.ToString("dddd, dd MMMM yyyy")</p>
+        </div>
+        <br />
+        <b>Skills:</b>
+        <div class="form-check">
+            <i class="fas fa-caret-right"></i><u>Soft Skills</u> <br />
+            @foreach (var skill in Model.AllSkills.Where(s => s.Type == "Soft"))
+            {
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" data-id="@skill.Id" @(Model.Skills.Any(s => s.Id == skill.Id) ? "checked='checked'" : string.Empty)>
+                    @skill.Name
+                    <br />
+                </label>
+                <br />
+            }
+            <br />
+            <i class="fas fa-caret-right"></i><u>Technical Skills</u> <br />
+            @foreach (var skill in Model.AllSkills.Where(s => s.Type == "Technical"))
+            {
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" data-id="@skill.Id" @(Model.Skills.Any(s => s.Id == skill.Id) ? "checked='checked'" : string.Empty)>
+                    @skill.Name
+                    <br />
+                </label>
+                <br />
+            }
+        </div>
+        <br />
     </div>
 </div>
 
+<button id="submitEmpChanges" type="button" class="btn btn-success">Save Changes</button>
+<button id="discardEmpChanges" type="button" class="btn btn-warning">Discard Changes</button>
+<button id="deleteEmployee" type="button" class="btn btn-danger">Delete</button>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var id = '@Model.Id';
+            EmployeeDetailsController.animations();
+            EmployeeDetailsController.updateEmployee(id);
+            EmployeeDetailsController.deleteEmployee(id);
+        });
+    </script>
+}

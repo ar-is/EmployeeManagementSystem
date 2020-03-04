@@ -20,3 +20,11 @@
     width: 100%;
     height: 100px;
 }
+
+.fa-edit,
+#submitChanges,
+#discardChanges,
+#enableSkill,
+#disableSkill {
+    display: none;
+}

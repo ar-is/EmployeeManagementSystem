@@ -21,6 +21,7 @@
       "wwwroot/js/app/controllers/skillsController.js",
       "wwwroot/js/app/controllers/skillDetailsController.js",
       "wwwroot/js/app/controllers/employeesController.js",
+      "wwwroot/js/app/controllers/employeeDetailsController.js",
       "wwwroot/js/site.js"
     ],
     "minify": {

@@ -23,6 +23,9 @@ namespace EmployeeManagementSystem.WebClient.Core.ViewModels
         public ICollection<SkillViewModel> Skills { get; set; }
             = new Collection<SkillViewModel>();
 
+        public ICollection<SkillViewModel> AllSkills { get; set; }
+            = new Collection<SkillViewModel>();
+
         public string FullName => $"{Name} {Surname}";
     }
 }

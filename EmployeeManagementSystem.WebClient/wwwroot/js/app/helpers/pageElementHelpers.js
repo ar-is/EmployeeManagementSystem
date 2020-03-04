@@ -46,11 +46,35 @@
         }, 2000);
     };
 
+    var deleteToggleModal = function (element, deleteCallback) {
+        var dialog = bootbox.dialog({
+            centerVertical: true,
+            title: '! Delete !',
+            message: "<p>After deletion, " + element + " will not be available. Do you still want to delete? </p>",
+            size: 'large',
+            buttons: {
+                cancel: {
+                    label: "Cancel",
+                    className: 'btn-info',
+                    callback: function () { }
+                },
+                ok: {
+                    label: "Delete",
+                    className: 'btn-danger',
+                    callback: deleteCallback
+                }
+            }
+        });
+
+        return dialog;
+    };
+
     return {
         toggleEditIcon: toggleEditIcon,
         onClickEditIcon: onClickEditIcon,
         onEditUnfocus: onEditUnfocus,
         onInputChange: onInputChange,
-        toggleModal: toggleModal
+        toggleModal: toggleModal,
+        deleteToggleModal: deleteToggleModal
     }
 }();

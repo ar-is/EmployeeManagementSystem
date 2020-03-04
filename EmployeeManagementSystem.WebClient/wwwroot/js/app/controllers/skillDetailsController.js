@@ -1,7 +1,7 @@
 ﻿var SkillDetailsController = function (pageElementHelpers, skillService) {
 
     var animations = function (isEnabled) {
-        $(".fa-edit").hide();
+        //$(".fa-edit").hide();
         typeAnimations();
         nameAnimations();
         descriptionAnimations();
@@ -27,8 +27,6 @@
     };
 
     var buttonAnimations = function (isEnabled) {
-        $("#submitChanges").hide();
-        $("#discardChanges").hide();
 
         if (isEnabled)
             $("#disableSkill").show();
@@ -118,18 +116,26 @@
     var deleteSkill = function (id) {
         var deleteSuccess = function () {
             pageElementHelpers.toggleModal("green", "Skill deleted");
+            reload();
         };
 
-        var deleteFail = function () {
+        var deleteFail = function (xhr, textStatus, errorThrown) {
             pageElementHelpers.toggleModal("red", "Skill not deleted!" + errorThrown);
+            reload();
         };
 
-        $("#deleteSkill").click(function () {
-            skillService.deleteSkill(id, deleteSuccess, deleteFail);
-
+        var reload = function () {
             setTimeout(function () {
                 window.location.href = "https://localhost:44375/Skills/AllSkills"
             }, 2500);
+        };
+
+        var deleteCallback = function () {
+            skillService.deleteSkill(id, deleteSuccess, deleteFail);
+        };
+
+        $("#deleteSkill").click(function () {
+            pageElementHelpers.deleteToggleModal("this skill", deleteCallback)
         });
     };
 

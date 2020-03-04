@@ -24,6 +24,11 @@ namespace EmployeeManagementSystem.WebClient.Controllers
 
             var employee = JsonConvert.DeserializeObject<EmployeeViewModel>(employeeTask.Result);
 
+            var skillsTask = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/skills/")));
+            skillsTask.Wait();
+
+            employee.AllSkills = JsonConvert.DeserializeObject<ICollection<SkillViewModel>>(skillsTask.Result);
+
             return View(employee);
         }
 

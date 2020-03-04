@@ -60,6 +60,11 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .ToList();
         }
 
+        public void UpdateEmployee(Employee employee)
+        {
+
+        }
+
         public void DeleteEmployees(IEnumerable<Employee> employees)
         {
             foreach (var employee in employees)
