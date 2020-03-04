@@ -19,6 +19,7 @@ namespace EmployeeManagementSystem.API.Core.Dtos.Employees
         public string LatestSkillsetUpdate { get; set; }
         public string LatestUpdate { get; set; }
 
+        public string Department { get; set; }
         public string Job { get; set; }
 
         public ICollection<SkillDto> Skills { get; set; }

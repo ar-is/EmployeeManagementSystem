@@ -1,8 +1,6 @@
 ﻿var EmployeesController = function (pageElementHelpers, employeeService) {
 
     var animations = function (table, employeeDetailsAction) {
-        $("#deleteEmployees").css('display', 'none');
-        $("#editEmployee").css('display', 'none');
 
         table.on('select deselect', function (e, dt, type, indexes) {
             var count = table.rows({ selected: true }).count();
@@ -17,6 +15,7 @@
                     $("#editEmployee").hide();
 
             } else {
+                $("#editEmployee").hide();
                 $("#deleteEmployees").hide();
             }
         });
@@ -57,10 +56,14 @@
                 },
                 {
                     targets: 4,
-                    data: "job"
+                    data:  "department"
                 },
                 {
                     targets: 5,
+                    data: "job"
+                },
+                {
+                    targets: 6,
                     data: "id",
                     render: function (data, type, row) {
                         return '<a href="' + employeeDetailsAction + "/" + row.id + '">Details</a>';

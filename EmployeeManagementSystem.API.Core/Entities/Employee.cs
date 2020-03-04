@@ -25,5 +25,10 @@ namespace EmployeeManagementSystem.API.Core.Entities
 
         public ICollection<EmployeeSkill> EmployeeSkills { get; set; }
             = new Collection<EmployeeSkill>();
+
+        public void UpdateSkillsetDate()
+        {
+            LatestSkillsetUpdate = DateTimeOffset.UtcNow;
+        }
     }
 }

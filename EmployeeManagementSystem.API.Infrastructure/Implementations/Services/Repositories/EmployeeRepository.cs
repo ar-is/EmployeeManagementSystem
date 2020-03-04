@@ -30,6 +30,7 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
         {
             return _context.Employees
                 .Include(e => e.Job)
+                    .ThenInclude(j => j.Department)
                 .ToList();
         }
 

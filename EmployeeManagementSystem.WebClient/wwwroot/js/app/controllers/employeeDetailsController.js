@@ -71,6 +71,10 @@
 
         var updateSuccess = function () {
             pageElementHelpers.toggleModal("green", "Employee updated");
+
+            setTimeout(function () {
+                location.reload();
+            }, 2500);
         };
 
         var updateFail = function (xhr, textStatus, errorThrown) {

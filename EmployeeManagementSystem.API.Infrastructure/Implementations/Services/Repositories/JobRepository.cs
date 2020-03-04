@@ -1,6 +1,7 @@
 ﻿using EmployeeManagementSystem.API.Core.Entities;
 using EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories;
 using EmployeeManagementSystem.API.Infrastructure.DbContexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,8 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
 
         public Job GetJob(Guid jobId)
         {
-            return _context.Jobs.FirstOrDefault(j => j.Guid == jobId);
+            return _context.Jobs
+                .FirstOrDefault(j => j.Guid == jobId);
         }
     }
 }

@@ -16,6 +16,8 @@ namespace EmployeeManagementSystem.API.Core.Dtos.Employees
 
         public string Email { get; set; }
 
+        public DateTimeOffset LatestSkillsetUpdate { get; set; }
+
         public ICollection<EmployeeSkillForUpdateDto> EmployeeSkills { get; set; }
             = new Collection<EmployeeSkillForUpdateDto>();
     }

@@ -46,10 +46,10 @@
         <div class="card-text">
             <p><b>Hiring Date: </b>@Model.HiringDate.ToString("dddd, dd MMMM yyyy")</p>
         </div>
-        <br />
+
         <b>Skills:</b>
         <div class="form-check">
-            <i class="fas fa-caret-right"></i><u>Soft Skills</u> <br />
+            <i class="fas fa-caret-right"></i><u> Soft Skills</u> <br />
             @foreach (var skill in Model.AllSkills.Where(s => s.Type == "Soft"))
             {
                 <label class="form-check-label">
@@ -60,7 +60,7 @@
                 <br />
             }
             <br />
-            <i class="fas fa-caret-right"></i><u>Technical Skills</u> <br />
+            <i class="fas fa-caret-right"></i><u> Technical Skills</u> <br />
             @foreach (var skill in Model.AllSkills.Where(s => s.Type == "Technical"))
             {
                 <label class="form-check-label">
@@ -72,6 +72,10 @@
             }
         </div>
         <br />
+        <div class="card-text">
+            <b>Latest Skillset Change:</b>
+            <p>@Model.LatestSkillsetUpdate.ToString("dddd, dd MMMM yyyy HH:mm:ss")</p>
+        </div>
     </div>
 </div>
 

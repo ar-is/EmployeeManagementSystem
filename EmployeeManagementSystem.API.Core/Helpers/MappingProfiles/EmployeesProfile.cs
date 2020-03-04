@@ -33,6 +33,10 @@ namespace EmployeeManagementSystem.API.Core.Helpers.MappingProfiles
                 .ForMember(
                     dest => dest.Job,
                     opt => opt.MapFrom(src => src.Job.FullTitle)
+                    )
+                .ForMember(
+                    dest => dest.Department,
+                    opt => opt.MapFrom(src => src.Job.Department.Name)
                     );
 
             CreateMap<Employee, EmployeeFullDto>()

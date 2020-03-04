@@ -87,6 +87,8 @@ namespace EmployeeManagementSystem.API.Controllers
 
                 foreach (var employeeSkill in mappedEmployeeSkills)
                     employeeFromDb.EmployeeSkills.Add(employeeSkill);
+
+                employeeFromDb.UpdateSkillsetDate();
             }
         }
 
