@@ -41,26 +41,39 @@
         <b>Skills:</b>
         <div class="form-check">
             <i class="fas fa-caret-right"></i><u> Soft Skills</u> <br />
-            @foreach (var skill in Model.Skills.Where(s => s.Type == "Soft"))
-            {
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" data-id="@skill.Id">
-                    @skill.Name
+            <div class="soft">
+                @foreach (var skill in Model.Skills.Where(s => s.Type == "Soft"))
+                {
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" data-id="@skill.Id">
+                        @skill.Name
+                        <br />
+                    </label>
                     <br />
-                </label>
-                <br />
-            }
+                }
+            </div>
+            <input id="newSoftSkill" type="text" placeholder="Add New Soft Skill" autocomplete="off">
+            <span class="d-inline-block">
+                <i class="fas fa-plus softPlus"></i>
+            </span>
+            <br />
             <br />
             <i class="fas fa-caret-right"></i><u> Technical Skills</u> <br />
-            @foreach (var skill in Model.Skills.Where(s => s.Type == "Technical"))
-            {
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" data-id="@skill.Id">
-                    @skill.Name
+            <div class="technical">
+                @foreach (var skill in Model.Skills.Where(s => s.Type == "Technical"))
+                {
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" data-id="@skill.Id">
+                        @skill.Name
+                        <br />
+                    </label>
                     <br />
-                </label>
-                <br />
-            }
+                }
+            </div>
+            <input id="newTechnicalSkill" type="text" placeholder="Add New Technical Skill" autocomplete="off">
+            <span class="d-inline-block">
+                <i class="fas fa-plus technicalPlus"></i>
+            </span>
         </div>
     </div>
 </div>
@@ -71,7 +84,6 @@
     <script src="~/lib/jquery-ui/dist/js/jquery-ui.js"></script>
     <script>
         $(document).ready(function () {
-
             $(function() { 
                 $("#postHiringDate").datepicker({
                     dateFormat: 'd MM, yy',
@@ -84,6 +96,25 @@
             });
 
             EmployeesController.createEmployee();
+
+            var softSkills = [];
+            var technicalSkills = [];
+
+            $(".softPlus").click(function () {
+                if ($("#newSoftSkill").val()) {
+                    $(".soft").append('<input class="form-check-input" type="checkbox" checked="checked">' + $("#newSoftSkill").val() + '</br>');
+
+                    softSkills.push({ name: $("#newSoftSkill").val(), type: "Soft", isEnabled: true });
+                }
+            });
+
+            $(".technicalPlus").click(function () {
+                if ($("#newTechnicalSkill").val()) {
+                    $(".technical").append('<input class="form-check-input" type="checkbox" checked="checked">' + $("#newTechnicalSkill").val() + '</br>');
+
+                    technicalSkills.push({ name: $("#newTechnicalSkill").val(), type: "Technical", isEnabled: true });
+                }
+            });
         });
     </script>
 }
