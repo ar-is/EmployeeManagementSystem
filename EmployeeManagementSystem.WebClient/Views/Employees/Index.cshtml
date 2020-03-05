@@ -74,7 +74,7 @@
         <br />
         <div class="card-text">
             <b>Latest Skillset Change:</b>
-            <p>@Model.LatestSkillsetUpdate.ToString("dddd, dd MMMM yyyy HH:mm:ss")</p>
+            <p>@Model.LatestSkillsetUpdate.ToLocalTime().ToString("dddd, dd MMMM yyyy HH:mm:ss")</p>
         </div>
     </div>
 </div>

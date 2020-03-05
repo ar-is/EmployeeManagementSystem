@@ -47,6 +47,38 @@ namespace EmployeeManagementSystem.API.Controllers
             return employeeDtoToReturn;
         }
 
+
+        [HttpPost(Name = "CreateEmployee")]
+        public IActionResult CreateEmployee(EmployeeForCreationDto employee)
+        {
+            var employeeEntity = MapRelatedCollectionOnCreation(employee);
+
+            if (_unitOfWork.Employees.EmployeeExists(employeeEntity))
+                return Conflict(new { message = $"This Employee already exists in the database!" });
+
+            _unitOfWork.Employees.AddEmployee(employeeEntity);
+            _unitOfWork.Complete();
+
+            var employeeToReturn = _mapper.Map<EmployeeFullDto>(employeeEntity);
+
+            return CreatedAtRoute("GetEmployee",
+                                  new { employeeId = employeeToReturn.Id },
+                                        employeeToReturn);
+        }
+
+        private Employee MapRelatedCollectionOnCreation(EmployeeForCreationDto employee)
+        {
+            var employeeEntity = _mapper.Map<Employee>(employee);
+            var mappedEmployeeSkills = new List<EmployeeSkill>();
+            employee.EmployeeSkills.ToList().ForEach(es => mappedEmployeeSkills.Add(new EmployeeSkill() { SkillId = _unitOfWork.Skills.GetSkill(es.SkillId).Id }));
+            mappedEmployeeSkills.ForEach(es => employeeEntity.EmployeeSkills.Add(es));
+
+            var jobId = _unitOfWork.Jobs.GetJob(employee.JobId).Id;
+            employeeEntity.JobId = jobId;
+
+            return employeeEntity;
+        }
+
         [HttpPatch("{employeeId}", Name = "PartiallyUpdateEmployee")]
         public IActionResult PartiallyUpdateEmployee(Guid employeeId,
            JsonPatchDocument<EmployeeForUpdateDto> patchDocument)

@@ -21,20 +21,19 @@
             $("#inputEmpName").focus();
             $("#inputEmpName").val($("#employeeName").html());
             $("#inputEmpSurname").val($("#employeeSurname").html());
-        });
 
-        $("#inputEmpName").focusout(function () {
-            $("#inputEmpSurname").focus();
-        });
+            $(document).mouseup(function (e) {
+                if (!$(".card-header").is(e.target) && $(".card-header").has(e.target).length === 0) {
 
-        $("#inputEmpSurname").focusout(function () {
-            $("#employeeName").html($("#inputEmpName").val());
-            $("#inputEmpName").css({ 'display': 'none' });
-            $("#employeeName").css({ 'display': "inline-block", "margin-top": "2px" });
-            $("#employeeSurname").html($("#inputEmpSurname").val());
-            $("#inputEmpSurname").css({ 'display': 'none' });
-            $("#employeeSurname").css({ 'display': "inline-block", "margin-top": "2px" });
-        });
+                    $("#employeeName").html($("#inputEmpName").val());
+                    $("#inputEmpName").css({ 'display': 'none' });
+                    $("#employeeName").css({ 'display': "inline-block", "margin-top": "2px" });
+                    $("#employeeSurname").html($("#inputEmpSurname").val());
+                    $("#inputEmpSurname").css({ 'display': 'none' });
+                    $("#employeeSurname").css({ 'display': "inline-block", "margin-top": "2px" });
+                }
+            });
+        });  
     };
 
     var jobAnimations = function () {

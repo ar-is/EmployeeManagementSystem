@@ -84,7 +84,25 @@
         });	
 
         return table;
-    };   
+    };
+
+    var createEmployee = function () {
+        var postSuccess = function () {
+            pageElementHelpers.toggleModal("green", "Employee created");
+        };
+
+        var postFail = function (xhr, textStatus, errorThrown) {
+            pageElementHelpers.toggleModal("red", "Employee not created!" + errorThrown);
+        };
+
+        $("#submitEmployeeForm").click(function () {
+            employeeService.postEmployee(postSuccess, postFail)
+
+            setTimeout(function () {
+                window.location.href = "https://localhost:44375/Employees/AllEmployees"
+            }, 2500);
+        });
+    };
 
     var deleteMultipleEmployees = function (table) {
 
@@ -118,6 +136,7 @@
     return {
         animations: animations,
         allEmployeesInit: allEmployeesInit,
+        createEmployee: createEmployee,
         deleteMultipleEmployees: deleteMultipleEmployees
     }
 

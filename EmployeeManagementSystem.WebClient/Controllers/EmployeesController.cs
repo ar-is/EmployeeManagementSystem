@@ -59,5 +59,22 @@ namespace EmployeeManagementSystem.WebClient.Controllers
 
             return response;
         }
+
+        public ViewResult CreateEmployee()
+        {
+            var employeeViewModel = new EmployeeViewModel();
+
+            var skillsTask = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/skills/")));
+            skillsTask.Wait();
+
+            employeeViewModel.Skills = JsonConvert.DeserializeObject<ICollection<SkillViewModel>>(skillsTask.Result);
+
+            var jobsTask = Task.Run(() => GetURI(new Uri("http://localhost:5001/api/jobs/")));
+            jobsTask.Wait();
+
+            employeeViewModel.AllJobs = JsonConvert.DeserializeObject<ICollection<JobViewModel>>(jobsTask.Result);
+
+            return View("EmployeeForm", employeeViewModel);
+        }
     }
 }

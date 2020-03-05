@@ -26,6 +26,15 @@ namespace EmployeeManagementSystem.WebClient.Core.ViewModels
         public ICollection<SkillViewModel> AllSkills { get; set; }
             = new Collection<SkillViewModel>();
 
+        public ICollection<JobViewModel> AllJobs { get; set; }
+            = new Collection<JobViewModel>();
+
         public string FullName => $"{Name} {Surname}";
+
+        public string NamePlaceholder => "Name";
+        public string SurnamePlaceholder => "Surname";
+        public string PhonePlaceholder => "Phone Number";
+        public string EmailPlaceholder => "Email";
+        public string HiringDatePlaceholder => "Hiring Date";
     }
 }

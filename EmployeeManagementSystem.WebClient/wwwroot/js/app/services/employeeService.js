@@ -18,6 +18,32 @@
         return employeeIds.join();
     };
 
+    var postEmployee = function (success, fail) {
+
+        var skillIds = [];
+        $(".form-check input:checkbox:checked").map(function () {
+            skillIds.push({ skillId: $(this).data('id') });
+        });
+
+        var employeeToCreate = {
+            name: $("#postEmpName").val(),
+            surname: $("#postEmpSurname").val(),
+            jobId: $("#postEmpJob").find(':selected').data('id'),
+            hiringDate: $("#postHiringDate").val(),
+            phoneNumber: $("#postEmpPhone").val(),
+            email: $("#postEmpEmail").val(),
+            employeeSkills: skillIds
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:5001/api/employees/",
+            data: JSON.stringify(employeeToCreate),
+            contentType: 'application/json'
+        })
+            .then(success, fail);
+    };
+
     var getEmployeePatchDocument = function (patch) {
 
         $("#inputEmpName").change(function () {
@@ -106,6 +132,7 @@
     return {
         getAllEmployeesDatatable: getAllEmployeesDatatable,
         getSelectedEmployeesIds: getSelectedEmployeesIds,
+        postEmployee: postEmployee,
         getEmployeePatchDocument: getEmployeePatchDocument,
         getEmployeeSkillsPatchDocument: getEmployeeSkillsPatchDocument,
         patchEmployee: patchEmployee,

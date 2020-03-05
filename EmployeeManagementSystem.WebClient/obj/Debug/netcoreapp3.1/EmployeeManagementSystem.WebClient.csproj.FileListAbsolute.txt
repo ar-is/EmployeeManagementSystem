@@ -419,3 +419,4 @@ C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.W
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Skills\SkillForm.cshtml.g.cs
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Employees\AllEmployees.cshtml.g.cs
 C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Employees\Index.cshtml.g.cs
+C:\Users\e62824\source\repos\EmployeeManagementSystem\EmployeeManagementSystem.WebClient\obj\Debug\netcoreapp3.1\Razor\Views\Employees\EmployeeForm.cshtml.g.cs

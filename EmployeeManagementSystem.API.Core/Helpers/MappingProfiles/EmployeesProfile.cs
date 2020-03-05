@@ -49,6 +49,16 @@ namespace EmployeeManagementSystem.API.Core.Helpers.MappingProfiles
                     opt => opt.Ignore()
                     );
 
+            CreateMap<EmployeeForCreationDto, Employee>()
+                .ForMember(
+                    dest => dest.EmployeeSkills,
+                    opt => opt.Ignore()
+                    )
+                .ForMember(
+                    dest => dest.JobId,
+                    opt => opt.Ignore()
+                    );
+
             CreateMap<EmployeeForUpdateDto, Employee>()
                 .ForMember(
                     dest => dest.EmployeeSkills,

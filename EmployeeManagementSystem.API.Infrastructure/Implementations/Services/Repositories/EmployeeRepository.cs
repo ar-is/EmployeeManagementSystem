@@ -26,6 +26,13 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             return _context.Employees.Any(e => e.Guid == employeeId);
         }
 
+        public bool EmployeeExists(Employee employee)
+        {
+            return _context.Employees.Any(e => e.Name == employee.Name &&
+                                            e.Surname == employee.Surname &&
+                                            e.Email == employee.Email);
+        }
+
         public IEnumerable<Employee> GetEmployees()
         {
             return _context.Employees
@@ -46,6 +53,32 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .FirstOrDefault(e => e.Guid == employeeId);
         }
 
+        public IEnumerable<Employee> GetEmployees(IEnumerable<Guid> employeeIds)
+        {
+            if (!employeeIds.Any())
+                throw new ArgumentNullException(nameof(employeeIds));
+
+            return _context.Employees
+                .Where(d => employeeIds.Contains(d.Guid))
+                .ToList();
+        }
+
+        public void AddEmployee(Employee employee)
+        {
+            if (employee == null)
+                throw new ArgumentNullException(nameof(employee));
+
+            if (employee.Guid == Guid.Empty)
+                employee.Guid = Guid.NewGuid();
+
+            _context.Employees.Add(employee);
+        }
+
+        public void UpdateEmployee(Employee employee)
+        {
+
+        }
+
         public void DeleteEmployee(Employee employee)
         {
             if (employee == null)
@@ -54,20 +87,11 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             _context.Employees.Remove(employee);
         }
 
-        public IEnumerable<Employee> GetEmployees(IEnumerable<Guid> employeeIds)
-        {
-            return _context.Employees
-                .Where(d => employeeIds.Contains(d.Guid))
-                .ToList();
-        }
-
-        public void UpdateEmployee(Employee employee)
-        {
-
-        }
-
         public void DeleteEmployees(IEnumerable<Employee> employees)
         {
+            if (!employees.Any())
+                throw new ArgumentNullException(nameof(employees));
+
             foreach (var employee in employees)
             {
                 _context.Employees.Remove(employee);
