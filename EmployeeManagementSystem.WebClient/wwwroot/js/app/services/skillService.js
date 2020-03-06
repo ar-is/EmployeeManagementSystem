@@ -26,6 +26,15 @@
         };
     };
 
+    var getSkillsByName = function (skillNames, success, fail) {
+        $.ajax({
+            url: "http://localhost:5001/api/skillsByName/?skillNames=" + skillNames,
+            method: "GET"
+        })
+            .then(success)
+            .fail(fail);
+    };
+
     var getSkill = function (skillId, success, fail) {
         $.ajax({
             url: "http://localhost:5001/api/skills/" + skillId,
@@ -127,6 +136,16 @@
             .then(success, fail);
     };
 
+    var postSkillCollection = function (allNewSkills, success, fail) {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:5001/api/skillcollections/",
+            data: JSON.stringify(allNewSkills),
+            contentType: 'application/json'
+        })
+            .then(success, fail);
+    }
+
     var deleteSkill = function (id, success, fail) {
         $.ajax({
             type: "DELETE",
@@ -139,6 +158,7 @@
         //getSkillsForJob: getSkillsForJob
         getAllSkillsDatatable: getAllSkillsDatatable,
         getSkillsForJobDatatable: getSkillsForJobDatatable,
+        getSkillsByName: getSkillsByName,
         getSkill: getSkill,
         getSkillPatchDocument: getSkillPatchDocument,
         getSkillDisablePatchDocument: getSkillDisablePatchDocument,
@@ -146,6 +166,7 @@
         getJobSkillsPatchDocument: getJobSkillsPatchDocument,
         patchSkill: patchSkill,
         postSkill: postSkill,
+        postSkillCollection: postSkillCollection,
         deleteSkill: deleteSkill
     }
 }();

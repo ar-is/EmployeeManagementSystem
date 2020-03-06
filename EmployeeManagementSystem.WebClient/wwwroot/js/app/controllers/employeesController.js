@@ -1,4 +1,4 @@
-﻿var EmployeesController = function (pageElementHelpers, employeeService) {
+﻿var EmployeesController = function (pageElementHelpers, skillService, employeeService) {
 
     var animations = function (table, employeeDetailsAction) {
 
@@ -86,17 +86,118 @@
         return table;
     };
 
-    var createEmployee = function () {
-        var postSuccess = function () {
-            pageElementHelpers.toggleModal("green", "Employee created");
+    var createEmployee = function (allNewSkills) {
+
+        var postSkillCollectionSuccess = function () {
+
+            var getSkillsByNameSuccess = function (data) {
+                var skillsIds = [];
+
+                $.each(data, function (i, item) {
+                    skillsIds.push({ skillId: data[i].id });
+                });
+
+                var postEmpSuccess = function () {
+                    pageElementHelpers.toggleModal("green", "Employee created");
+                };
+
+                var postEmpFail = function (xhr, textStatus, errorThrown) {
+                    pageElementHelpers.toggleModal("red", "Employee not created!" + errorThrown);
+                };
+
+                EmployeeService.postEmployee(skillsIds, postEmpSuccess, postEmpFail);
+
+                //var skillIds = [];
+                //$(".form-check input:checkbox:checked").map(function () {
+                //    if (typeof $(this).data('id') !== 'undefined') {
+                //        skillsIds.push({ skillId: $(this).data('id') });
+                //    }
+                //});
+
+                //var asd = [...skillIds, ...newSkillIds];
+
+                //var employeeToCreate = {
+                //    name: $("#postEmpName").val(),
+                //    surname: $("#postEmpSurname").val(),
+                //    jobId: $("#postEmpJob").find(':selected').data('id'),
+                //    hiringDate: $("#postHiringDate").val(),
+                //    phoneNumber: $("#postEmpPhone").val(),
+                //    email: $("#postEmpEmail").val(),
+                //    employeeSkills: skillsIds
+                //};
+
+                //$.ajax({
+                //    type: "POST",
+                //    url: "http://localhost:5001/api/employees/",
+                //    data: JSON.stringify(employeeToCreate),
+                //    contentType: 'application/json'
+                //})
+                //    .then(postEmpSuccess, postEmpFail);
+            };
+
+            var getSkillsByNameFail = function (xhr, textStatus, errorThrown) {
+                pageElementHelpers.toggleModal("red", "Could not get new skills!" + errorThrown);
+            };
+
+            var skillNames = allNewSkills.map(s => s.name);
+            var skillNamesString = skillNames.toString();
+
+            //$.ajax({
+            //    url: "http://localhost:5001/api/skillsByName/?skillNames=" + skillNamesString,
+            //    method: "GET"
+            //})
+            //    .then(getSkillsByNameSuccess)
+            //    .fail(getSkillsByNameFail);
+
+            //var skillNames = allNewSkills.map(s => s.name);
+
+            //var getSkillsByNameSuccess = function (data) {
+            //    var newSkillsIds = [];
+
+            //    $.each(data, function (i, item) {
+            //        newSkillsIds.push(data[i].id);
+            //    });
+
+            //    employeeService.postEmployee(newSkillsIds, postEmpSuccess, postEmpFail);
+            //};
+
+            //var getSkillsByNameFail = function (xhr, textStatus, errorThrown) {
+            //    pageElementHelpers.toggleModal("red", "Could not get new skills!" + errorThrown);
+            //};
+
+            skillService.getSkillsByName(skillNamesString, getSkillsByNameSuccess, getSkillsByNameFail);
         };
 
-        var postFail = function (xhr, textStatus, errorThrown) {
-            pageElementHelpers.toggleModal("red", "Employee not created!" + errorThrown);
+        var postSkillCollectionFail = function (xhr, textStatus, errorThrown) {
+            pageElementHelpers.toggleModal("red", "New Skills not created!" + errorThrown);
         };
+
+        //var postEmpSuccess = function () {
+        //    pageElementHelpers.toggleModal("green", "Employee created");
+        //};
+
+        //var postEmpFail = function (xhr, textStatus, errorThrown) {
+        //    pageElementHelpers.toggleModal("red", "Employee not created!" + errorThrown);
+        //};
 
         $("#submitEmployeeForm").click(function () {
-            employeeService.postEmployee(postSuccess, postFail)
+
+            if ($('.soft').has('.newSkills').length || $(".technical").has('.newSkills').length) {
+                skillService.postSkillCollection(allNewSkills, postSkillCollectionSuccess, postSkillCollectionFail);
+            }
+            else {
+                var skillsIds = [];
+
+                var postEmpSuccess = function () {
+                    pageElementHelpers.toggleModal("green", "Employee created");
+                };
+
+                var postEmpFail = function (xhr, textStatus, errorThrown) {
+                    pageElementHelpers.toggleModal("red", "Employee not created!" + errorThrown);
+                };
+
+                EmployeeService.postEmployee(skillsIds, postEmpSuccess, postEmpFail);
+            }
 
             setTimeout(function () {
                 window.location.href = "https://localhost:44375/Employees/AllEmployees"
@@ -140,4 +241,4 @@
         deleteMultipleEmployees: deleteMultipleEmployees
     }
 
-}(PageElementHelpers, EmployeeService);
+}(PageElementHelpers, SkillService, EmployeeService);

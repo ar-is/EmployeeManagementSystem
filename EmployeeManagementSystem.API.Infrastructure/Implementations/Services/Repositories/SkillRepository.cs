@@ -26,6 +26,20 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                ?? throw new ArgumentNullException(nameof(propertyMappingService));
         }
 
+        public IEnumerable<Skill> GetSkills(string skillNames)
+        {
+            var skillNamesArray = skillNames.Split(",");
+            var skillIds = new HashSet<short>();
+
+            foreach (var name in skillNamesArray)
+            {
+                skillIds.Add(_context.Skills.FirstOrDefault(s => s.Name.ToLower() == name.ToLower()).Id);
+            }
+
+            return _context.Skills
+                .Where(s => skillIds.Contains(s.Id));
+        }
+
         public IEnumerable<Skill> GetSkills(string type, string status)
         {
             var skills = _context.Skills.AsQueryable();
@@ -33,6 +47,16 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             GetSkillsFilteredByStatus(status, ref skills);
             
             return skills.ToList();
+        }
+
+        public IEnumerable<Skill> GetSkills(IEnumerable<Guid> skillIds)
+        {
+            if (!skillIds.Any())
+                throw new ArgumentNullException(nameof(skillIds));
+
+            return _context.Skills
+                .Where(s => skillIds.Contains(s.Guid))
+                .ToList();
         }
 
         private void GetSkillsFilteredByType(string type, ref IQueryable<Skill> skills)
@@ -183,6 +207,13 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
         {
             return _context.Skills.Any(s => s.Name == skill.Name &&
                                             s.Type == skill.Type);
+        }
+
+        public bool ContainsDuplicates(IEnumerable<Skill> skillCollection)
+        {
+            return skillCollection.GroupBy(s => new { s.Name, s.Type })
+                                     .Where(g => g.Skip(1).Any())
+                                     .Any();
         }
 
         public void DeleteSkill(Skill skill)

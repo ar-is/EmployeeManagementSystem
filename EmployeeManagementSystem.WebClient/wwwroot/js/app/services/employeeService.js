@@ -18,12 +18,16 @@
         return employeeIds.join();
     };
 
-    var postEmployee = function (success, fail) {
+    var postEmployee = function (skillsIds, success, fail) {
 
-        var skillIds = [];
+        //var skillIds = [];
         $(".form-check input:checkbox:checked").map(function () {
-            skillIds.push({ skillId: $(this).data('id') });
+            if (typeof $(this).data('id') !== 'undefined') {
+                skillsIds.push({ skillId: $(this).data('id') });
+            }
         });
+
+        //var asd = [...skillIds, ...newSkillIds];
 
         var employeeToCreate = {
             name: $("#postEmpName").val(),
@@ -32,7 +36,7 @@
             hiringDate: $("#postHiringDate").val(),
             phoneNumber: $("#postEmpPhone").val(),
             email: $("#postEmpEmail").val(),
-            employeeSkills: skillIds
+            employeeSkills: skillsIds
         };
 
         $.ajax({

@@ -95,26 +95,120 @@
                 });
             });
 
-            EmployeesController.createEmployee();
+            
+
+            //$("#submitEmployeeForm").click(function () {
+            //    var success = function () {
+
+            //        var success1 = function (data) {
+            //            var skillsIds = [];
+
+            //            $.each(data, function (i, item) {
+            //                skillsIds.push({ skillId: data[i].id });
+            //            });
+
+            //            var success2 = function () {
+            //                PageElementHelpers.toggleModal("green", "Employee created");
+            //            };
+
+            //            var fail2 = function () {
+            //                alert("fail2");
+            //            };
+
+            //            //EmployeeService.postEmployee(newSkillsIds, success2, fail2);
+
+            //            //var skillIds = [];
+            //            $(".form-check input:checkbox:checked").map(function () {
+            //                if (typeof $(this).data('id') !== 'undefined') {
+            //                    skillsIds.push({ skillId: $(this).data('id') });
+            //                }
+                                
+            //            });
+
+            //            //var asd = [...skillIds, ...newSkillIds];
+
+            //            var employeeToCreate = {
+            //                name: $("#postEmpName").val(),
+            //                surname: $("#postEmpSurname").val(),
+            //                jobId: $("#postEmpJob").find(':selected').data('id'),
+            //                hiringDate: $("#postHiringDate").val(),
+            //                phoneNumber: $("#postEmpPhone").val(),
+            //                email: $("#postEmpEmail").val(),
+            //                employeeSkills: skillsIds
+            //            };
+
+            //            $.ajax({
+            //                type: "POST",
+            //                url: "http://localhost:5001/api/employees/",
+            //                data: JSON.stringify(employeeToCreate),
+            //                contentType: 'application/json'
+            //            })
+            //                .then(success2, fail2);
+            //        }; 
+
+            //        var fail1 = function () {
+            //            alert("fail1");
+            //        };
+
+            //        var skillNames = allNewSkills.map(s => s.name);
+            //        var str = skillNames.toString();
+
+            //        $.ajax({
+            //            url: "http://localhost:5001/api/skillsByName/?skillNames=" + str,
+            //            method: "GET"
+            //        })
+            //            .then(success1)
+            //            .fail(fail1);
+
+            //        //SkillService.getSkillsByName(skillNames, success1, fail1);
+            //    };
+
+            //    var fail = function () {
+            //        alert("fail");
+            //    };
+
+            //    SkillService.postSkillCollection(allNewSkills, success, fail);
+            //});
+
+            var allSkillsInDb = [];
+
+            $('.form-check-label').each(function () {
+                allSkillsInDb.push($(this).text().trim());
+            });
 
             var softSkills = [];
             var technicalSkills = [];
+            var allNewSkills = [];
 
             $(".softPlus").click(function () {
                 if ($("#newSoftSkill").val()) {
-                    $(".soft").append('<input class="form-check-input" type="checkbox" checked="checked">' + $("#newSoftSkill").val() + '</br>');
 
-                    softSkills.push({ name: $("#newSoftSkill").val(), type: "Soft", isEnabled: true });
+                    if (!allNewSkills.find(s => s.name.toLowerCase() === $("#newSoftSkill").val().toLowerCase()) &&
+                        !allSkillsInDb.find(s => s.toLowerCase() === $("#newSoftSkill").val().toLowerCase())) {
+
+                        $(".soft").append('<input class="form-check-input newSkills" type="checkbox" checked="checked">' + $("#newSoftSkill").val() + '</br>');
+                        softSkills.push({ name: $("#newSoftSkill").val(), type: "Soft", description: "", isEnabled: true });
+                        allNewSkills.push({ name: $("#newSoftSkill").val(), type: "Soft", description: "", isEnabled: true });
+                        console.log(allNewSkills);
+                    }
                 }
             });
 
             $(".technicalPlus").click(function () {
                 if ($("#newTechnicalSkill").val()) {
-                    $(".technical").append('<input class="form-check-input" type="checkbox" checked="checked">' + $("#newTechnicalSkill").val() + '</br>');
 
-                    technicalSkills.push({ name: $("#newTechnicalSkill").val(), type: "Technical", isEnabled: true });
+                    if (!allNewSkills.find(s => s.name.toLowerCase() === $("#newTechnicalSkill").val().toLowerCase()) &&
+                        !allSkillsInDb.find(s => s.toLowerCase() === $("#newTechnicalSkill").val().toLowerCase())) {
+
+                        $(".technical").append('<input class="form-check-input newSkills" type="checkbox" checked="checked">' + $("#newTechnicalSkill").val() + '</br>');
+                        technicalSkills.push({ name: $("#newTechnicalSkill").val(), type: "Technical", description: "", isEnabled: true });
+                        allNewSkills.push({ name: $("#newTechnicalSkill").val(), type: "Technical", description: "", isEnabled: true });
+                        console.log(allNewSkills);
+                    }
                 }
             });
+
+            EmployeesController.createEmployee(allNewSkills);
         });
     </script>
 }
