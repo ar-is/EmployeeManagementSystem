@@ -42,13 +42,13 @@
 <br />
 
 @section Scripts {
+    <script src="~/lib/datatables/dist/js/jszip.min.js"></script>
+    <script src="~/lib/datatables/dist/js/pdfmake.min.js"></script>
+    <script src="~/lib/datatables/dist/js/vfs_fonts.js"></script>
     <script>
         var type = '@Model.Type';
         var status = '@Model.Status';
         var skillDetailsAction = '@Url.Action("SkillDetails", "Skills")';
-        //var table = $("#allSkills").DataTable();
-
-        //SkillsController.allSkillsInit(table, skillDetailsAction, type, status);
 
         SkillsController.allSkillsInit("#allSkills", skillDetailsAction, type, status);
 
@@ -60,7 +60,7 @@
 
         $("#selectSkillStatus").change(function () {
             $("#skillOption").click();
-        }); 
+        });
     </script>
 }
 

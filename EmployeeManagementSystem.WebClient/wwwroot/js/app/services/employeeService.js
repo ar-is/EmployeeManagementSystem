@@ -20,14 +20,11 @@
 
     var postEmployee = function (skillsIds, success, fail) {
 
-        //var skillIds = [];
         $(".form-check input:checkbox:checked").map(function () {
             if (typeof $(this).data('id') !== 'undefined') {
                 skillsIds.push({ skillId: $(this).data('id') });
             }
         });
-
-        //var asd = [...skillIds, ...newSkillIds];
 
         var employeeToCreate = {
             name: $("#postEmpName").val(),
