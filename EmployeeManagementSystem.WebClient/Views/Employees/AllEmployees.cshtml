@@ -1,10 +1,13 @@
-﻿@{
+﻿@model AllEmployeesViewModel
+
+@{
     ViewData["Title"] = "AllEmployees";
 }
 
-<head>
-    <link rel="stylesheet" href="~/lib/datatables/dist/css//select.dataTables.min.css" />
-</head>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+        <link rel="stylesheet" href="~/lib/datatables/dist/css//select.dataTables.min.css" />
+    </head>
 
 <h1>AllEmployees</h1>
 
@@ -13,6 +16,20 @@
 <button id="deleteEmployees" type="button" class="btn btn-danger" style="display: none;">Delete</button>
 <br />
 <br />
+
+<div>
+    <div class="form-group row" style="padding-left: 15px;">
+        Skill Filter
+
+        <div class="col-sm-10">
+            <select name="skillsId" id="skillFilter" multiple="multiple">
+                <optgroup id="softSkills" label="Soft"></optgroup>
+                <option disabled value=""></option>
+                <optgroup id="techSkills" label="Technical"></optgroup>
+            </select>
+        </div>
+    </div>
+</div>
 
 <table id="allEmployees" class="table table-responsive table-hover table-bordered">
     <thead>
@@ -30,17 +47,155 @@
 
 <br />
 
+<button id="skillIds" type="submit" value="Submit" style="display: none;">Submit</button>
+@*<form asp-controller="Employees" asp-action="AllEmployees">
+    <button id="skillIds" type="submit" value="Submit" style="display: none;">Submit</button>
+</form>*@
+
 @section Scripts { 
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
     <script src="~/lib/moment/dist/js/moment-with-locales.js"></script>
     <script src="~/lib/moment/dist/js/datetime-moment.js"></script>
     <script>
         $(document).ready(function () {
+            
+            var skillIds = '@Model.SkillIds';
+            console.log(skillIds);
+
             $.fn.dataTable.moment('dddd, MMMM Do, YYYY');
             var employeeDetailsAction = '@Url.Action("Index", "Employees")';
 
-            var table = EmployeesController.allEmployeesInit("#allEmployees", employeeDetailsAction);
+            $.ajax({
+                url: "http://localhost:5001/api/skills/?type=Soft",
+                method: "GET",
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        //$('<option />', { value: "test", text: data[i].name }).appendTo("#softSkills");
+                        $("#softSkills").append('<option value="'+ data[i].id +'" data-id="'+ data[i].id + '">' + data[i].name +'</option>')
+                    });
+
+                    $('#skillFilter').multipleSelect('refresh');
+
+                    
+                }
+            });
+
+            $.ajax({
+                url: "http://localhost:5001/api/skills/?type=Technical",
+                method: "GET",
+                success: function (data) {
+                    $.each(data, function (i, item) {
+                        //$('<option />', { value: "test", text: data[i].name }).appendTo("#techSkills");
+                        $("#techSkills").append('<option data-id="'+ data[i].id + '">' + data[i].name +'</option>')
+                    });
+
+                    $('#skillFilter').multipleSelect('refresh');
+                }
+            });
+
+            $('#skillFilter').val(skillIds.split(","));
+
+            $(function () {
+                $('#skillFilter').multipleSelect({
+                    multiple: true,
+                    multipleWidth: 200
+                });
+            });
+
+            var str = '';
+
+            $("#skillIds").on('click', function () {
+                    window.location.href = '@Url.Action("AllEmployees", "Employees")?skillIds=' + str;
+            });
+
+            console.log(str);
+             
+            $('#skillFilter').on('change', function () {
+                var selected = $(this).find('option:selected', this);
+
+                selected.each(function (index, element) {
+
+                    thisVal = $(this).val();
+                    if(parseInt(thisVal) !== 0) {
+                        
+                        if (index === (length - 1)) {
+                            str += $(this).data('id')
+                        }
+                        else {
+                            str += $(this).data('id') + ",";
+                        }
+                    }
+
+                    //var $this = $(this);
+                    //if ($this[0] === selected.last()[0]) {
+                    //    str += $(this).data('id')
+                    //}
+                    //else {
+                    //    str += $(this).data('id') + ",";
+                    //}
+
+                    //if ((index !== (selected.length - 1)))
+                    //    str += $(this).data('id') + ",";
+                    //else
+                    //    str += $(this).data('id');
+
+
+                    //str += $(this).data('id') + ",";
+                    //s.push($(this).data('id'));
+                });
+
+                //console.log($('#skillFilter').val());
+                $("#skillIds").click();
+
+                @*$("#skillIds").click(function(){
+                    $.ajax({
+                        url: '@Url.Action("AllEmployees", "Employees")',
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify({ skillIds: str }),
+                        success: function (data) {
+                            location.reload(true);
+                            //if (data) {  // check if data is defined
+                            //    $("body").html(data);
+                            //   //$("#order-summary-panel").html(data);
+                            //}
+                        }
+                    });
+                });*@
+
+                @*$.ajax({
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    url: '@Url.Action("AllEmployees", "Employees")',
+                    data: JSON.stringify({ skillIds: str })
+                });*@
+            });
+
+            
+
+            var table = EmployeesController.allEmployeesInit("#allEmployees", skillIds, employeeDetailsAction);
             EmployeesController.animations(table, employeeDetailsAction);
             EmployeesController.deleteMultipleEmployees(table);
-        });
+
+            
+
+            //var softSkillsSuccess = function (data) {
+            //    $.each(data, function (i, item) {
+            //        $("#softSkills").append('<option data-id="'+ data[i].id + '">' + data[i].name +'</option>')
+            //    });
+            //};
+
+            //var fail = function () {
+            //    alert("Fail");
+            //};
+
+            //SkillService.getSkills("Soft", softSkillsSuccess, fail);
+
+            
+
+            //$("#softSkills").append('<option>hjghsdgfsdhgf</option>')
+
+            //$("#skillFilter").find('optgroup[label="Soft"]').append("<option value='"+'test!'+"'>" + 'test!' + "</option>");
+    });
     </script>
 }

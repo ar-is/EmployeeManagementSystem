@@ -63,6 +63,32 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
                 .ToList();
         }
 
+        public IEnumerable<Employee> GetEmployeesBySkills(IEnumerable<Guid> skillGuids)
+        {
+            if (!skillGuids.Any())
+                throw new ArgumentNullException(nameof(skillGuids));
+
+            var skillPks = new HashSet<short>();
+
+            foreach (var skillGuid in skillGuids)
+            {
+                var skill = _context.Skills.FirstOrDefault(s => s.Guid == skillGuid);
+
+                if (skill == null)
+                    throw new ArgumentNullException(nameof(skill));
+
+                skillPks.Add(skill.Id);
+            }
+
+            return _context.EmployeeSkills
+                .Include(es => es.Employee)
+                .Where(es => skillPks.Contains(es.SkillId))
+                .Select(es => es.Employee)
+                //.Include(e => e.Job)
+                //    .ThenInclude(j => j.Department)
+                .ToList();
+        }
+
         public void AddEmployee(Employee employee)
         {
             if (employee == null)

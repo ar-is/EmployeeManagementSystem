@@ -28,9 +28,9 @@
         });      
     };
 
-    var allEmployeesInit = function (container, employeeDetailsAction) {
+    var allEmployeesInit = function (container, skillIds, employeeDetailsAction) {
         var table = $(container).DataTable({
-            ajax: employeeService.getAllEmployeesDatatable(),
+            ajax: employeeService.getAllEmployeesDatatable(skillIds),
             columnDefs: [
                 {
                     targets: 0,

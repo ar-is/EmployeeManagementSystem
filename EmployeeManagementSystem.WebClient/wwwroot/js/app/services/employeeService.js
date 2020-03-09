@@ -1,8 +1,8 @@
 ﻿var EmployeeService = function () {
 
-    var getAllEmployeesDatatable = function () {
+    var getAllEmployeesDatatable = function (skillIds) {
         return {
-            url: "http://localhost:5001/api/employees",
+            url: "http://localhost:5001/api/employees?skillguids=" + skillIds,
             dataSrc: ""
         };
     };

@@ -12,6 +12,7 @@ namespace EmployeeManagementSystem.API.Core.Interfaces.Services.Repositories
         bool EmployeeExists(Employee employee);
         IEnumerable<Employee> GetEmployees();
         IEnumerable<Employee> GetEmployees(IEnumerable<Guid> employeeIds);
+        IEnumerable<Employee> GetEmployeesBySkills(IEnumerable<Guid> skillGuids);
         void AddEmployee(Employee employee);
         void UpdateEmployee(Employee employee);
         void DeleteEmployees(IEnumerable<Employee> employees);

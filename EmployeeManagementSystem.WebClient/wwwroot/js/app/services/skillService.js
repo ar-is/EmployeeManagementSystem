@@ -9,6 +9,15 @@
     //        .fail(fail);
     //};
 
+    var getSkills = function (type, success, fail) {
+        $.ajax({
+            url: "http://localhost:5001/api/skills/?type=" + type,
+            method: "GET"
+        })
+            .then(success)
+            .fail(fail);
+    };
+
     var getAllSkillsDatatable = function (type, status) {
         return {
             url: "http://localhost:5001/api/skills/?type=" + type + "&status=" + status,
@@ -156,6 +165,7 @@
 
     return {
         //getSkillsForJob: getSkillsForJob
+        getSkills: getSkills,
         getAllSkillsDatatable: getAllSkillsDatatable,
         getSkillsForJobDatatable: getSkillsForJobDatatable,
         getSkillsByName: getSkillsByName,

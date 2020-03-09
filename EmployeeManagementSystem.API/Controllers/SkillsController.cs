@@ -99,10 +99,7 @@ namespace EmployeeManagementSystem.API.Controllers
         [HttpGet("/api/skillsByName", Name = "GetSkillsByName")]
         public ActionResult<IEnumerable<SkillDto>> GetSkills([FromQuery] string skillNames)
         {
-            var sdsd = _mapper.Map<IEnumerable<SkillDto>>(_unitOfWork.Skills.GetSkills(skillNames));
-            return Ok(sdsd);
-
-            //return Ok(_mapper.Map<IEnumerable<SkillDto>>(_unitOfWork.Skills.GetSkills(skillNames)));
+            return Ok(_mapper.Map<IEnumerable<SkillDto>>(_unitOfWork.Skills.GetSkills(skillNames)));
         }
 
         [HttpGet("/api/skills/{skillId}", Name = "GetSkill")]

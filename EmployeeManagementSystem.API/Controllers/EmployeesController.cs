@@ -3,6 +3,7 @@ using EmployeeManagementSystem.API.Core.Dtos.Employees;
 using EmployeeManagementSystem.API.Core.Dtos.Skills;
 using EmployeeManagementSystem.API.Core.Entities;
 using EmployeeManagementSystem.API.Core.Interfaces.Services;
+using EmployeeManagementSystem.API.Utils.CustomModelBinders;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -25,10 +26,21 @@ namespace EmployeeManagementSystem.API.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        //[HttpGet(Name = "GetEmployees")]
+        //public ActionResult<IEnumerable<EmployeeDto>> GetEmployees()
+        //{
+        //    return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(_unitOfWork.Employees.GetEmployees()));
+        //}
+
         [HttpGet(Name = "GetEmployees")]
-        public ActionResult<IEnumerable<EmployeeDto>> GetEmployees()
+        public ActionResult<IEnumerable<EmployeeDto>> GetEmployees(
+            [FromQuery]
+            [ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> skillGuids)
         {
-            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(_unitOfWork.Employees.GetEmployees()));
+            if (skillGuids == null || !skillGuids.Any())
+                return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(_unitOfWork.Employees.GetEmployees()));
+
+            return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(_unitOfWork.Employees.GetEmployeesBySkills(skillGuids)));
         }
 
         [HttpGet("{employeeId}", Name = "GetEmployee")]
@@ -46,7 +58,6 @@ namespace EmployeeManagementSystem.API.Controllers
 
             return employeeDtoToReturn;
         }
-
 
         [HttpPost(Name = "CreateEmployee")]
         public IActionResult CreateEmployee(EmployeeForCreationDto employee)
