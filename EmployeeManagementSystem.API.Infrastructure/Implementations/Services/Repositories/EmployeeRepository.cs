@@ -68,25 +68,31 @@ namespace EmployeeManagementSystem.API.Infrastructure.Implementations.Services.R
             if (!skillGuids.Any())
                 throw new ArgumentNullException(nameof(skillGuids));
 
-            var skillPks = new HashSet<short>();
+            var employeeIds = GetEmployeeIdsThatMatchSkills(skillGuids);
 
-            foreach (var skillGuid in skillGuids)
+            return _context.Employees
+                .Include(e => e.Job)
+                    .ThenInclude(j => j.Department)
+                .Where(e => employeeIds.Contains(e.Id))
+                .ToList();
+        }
+
+        private HashSet<int> GetEmployeeIdsThatMatchSkills(IEnumerable<Guid> skillGuids)
+        {
+            var employeeIds = new HashSet<int>();
+
+            foreach (var employee in _context.Employees.Include(e => e.EmployeeSkills).ThenInclude(es => es.Skill))
             {
-                var skill = _context.Skills.FirstOrDefault(s => s.Guid == skillGuid);
+                var skillIds = new HashSet<Guid>();
 
-                if (skill == null)
-                    throw new ArgumentNullException(nameof(skill));
+                foreach (var employeeSkill in employee.EmployeeSkills)
+                    skillIds.Add(employeeSkill.Skill.Guid);
 
-                skillPks.Add(skill.Id);
+                if (skillGuids.All(pk => skillIds.Any(id => pk == id)))
+                    employeeIds.Add(employee.Id);
             }
 
-            return _context.EmployeeSkills
-                .Include(es => es.Employee)
-                .Where(es => skillPks.Contains(es.SkillId))
-                .Select(es => es.Employee)
-                //.Include(e => e.Job)
-                //    .ThenInclude(j => j.Department)
-                .ToList();
+            return employeeIds;
         }
 
         public void AddEmployee(Employee employee)

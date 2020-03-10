@@ -26,12 +26,6 @@ namespace EmployeeManagementSystem.API.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        //[HttpGet(Name = "GetEmployees")]
-        //public ActionResult<IEnumerable<EmployeeDto>> GetEmployees()
-        //{
-        //    return Ok(_mapper.Map<IEnumerable<EmployeeDto>>(_unitOfWork.Employees.GetEmployees()));
-        //}
-
         [HttpGet(Name = "GetEmployees")]
         public ActionResult<IEnumerable<EmployeeDto>> GetEmployees(
             [FromQuery]

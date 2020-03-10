@@ -1,12 +1,20 @@
-﻿@model AllEmployeesViewModel
-
-@{
+﻿@{
     ViewData["Title"] = "AllEmployees";
 }
 
     <head>
-        <link rel="stylesheet" href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" />
         <link rel="stylesheet" href="~/lib/datatables/dist/css//select.dataTables.min.css" />
+
+        <style>
+            .multiselect {
+                border: 1px solid #808080;
+            }
+
+            #skillIds {
+                display: none;
+            }
+        </style>
     </head>
 
 <h1>AllEmployees</h1>
@@ -18,13 +26,10 @@
 <br />
 
 <div>
-    <div class="form-group row" style="padding-left: 15px;">
-        Skill Filter
-
+    <div class="form-group row">
         <div class="col-sm-10">
             <select name="skillsId" id="skillFilter" multiple="multiple">
                 <optgroup id="softSkills" label="Soft"></optgroup>
-                <option disabled value=""></option>
                 <optgroup id="techSkills" label="Technical"></optgroup>
             </select>
         </div>
@@ -47,155 +52,73 @@
 
 <br />
 
-<button id="skillIds" type="submit" value="Submit" style="display: none;">Submit</button>
-@*<form asp-controller="Employees" asp-action="AllEmployees">
-    <button id="skillIds" type="submit" value="Submit" style="display: none;">Submit</button>
-</form>*@
+<button id="skillIds" type="submit" value="Submit">Submit</button>
 
 @section Scripts { 
-    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>    
     <script src="~/lib/moment/dist/js/moment-with-locales.js"></script>
     <script src="~/lib/moment/dist/js/datetime-moment.js"></script>
     <script>
-        $(document).ready(function () {
-            
-            var skillIds = '@Model.SkillIds';
-            console.log(skillIds);
-
+        $(document).ready(function () {    
             $.fn.dataTable.moment('dddd, MMMM Do, YYYY');
             var employeeDetailsAction = '@Url.Action("Index", "Employees")';
 
-            $.ajax({
-                url: "http://localhost:5001/api/skills/?type=Soft",
+            $('#skillFilter').multiselect({
+                enableClickableOptGroups: true,
+                includeSelectAllOption: true,
+                buttonWidth: '30%',
+                nonSelectedText:'Filter by Skill(s)'
+            });
+
+             $.ajax({
+                url: "http://localhost:5001/api/skills/",
                 method: "GET",
                 success: function (data) {
                     $.each(data, function (i, item) {
-                        //$('<option />', { value: "test", text: data[i].name }).appendTo("#softSkills");
-                        $("#softSkills").append('<option value="'+ data[i].id +'" data-id="'+ data[i].id + '">' + data[i].name +'</option>')
+                        if (data[i].type === "Soft") {
+                            $("#softSkills").append('<option value="' + data[i].id + '" data-id="' + data[i].id + '">' + data[i].name + '</option>');
+                        }
+                        else if (data[i].type === "Technical") {
+                            $("#techSkills").append('<option value="' + data[i].id + '" data-id="' + data[i].id + '">' + data[i].name + '</option>');
+                        }
+
+                        $('#skillFilter').multiselect('rebuild');
                     });
-
-                    $('#skillFilter').multipleSelect('refresh');
-
-                    
                 }
-            });
+             });
 
-            $.ajax({
-                url: "http://localhost:5001/api/skills/?type=Technical",
-                method: "GET",
-                success: function (data) {
-                    $.each(data, function (i, item) {
-                        //$('<option />', { value: "test", text: data[i].name }).appendTo("#techSkills");
-                        $("#techSkills").append('<option data-id="'+ data[i].id + '">' + data[i].name +'</option>')
-                    });
-
-                    $('#skillFilter').multipleSelect('refresh');
-                }
-            });
-
-            $('#skillFilter').val(skillIds.split(","));
-
-            $(function () {
-                $('#skillFilter').multipleSelect({
-                    multiple: true,
-                    multipleWidth: 200
-                });
-            });
-
-            var str = '';
-
-            $("#skillIds").on('click', function () {
-                    window.location.href = '@Url.Action("AllEmployees", "Employees")?skillIds=' + str;
-            });
-
-            console.log(str);
+            var table = EmployeesController.allEmployeesInit("#allEmployees", '', employeeDetailsAction);
              
             $('#skillFilter').on('change', function () {
                 var selected = $(this).find('option:selected', this);
+                var skillIds = [];
 
                 selected.each(function (index, element) {
 
                     thisVal = $(this).val();
-                    if(parseInt(thisVal) !== 0) {
-                        
-                        if (index === (length - 1)) {
-                            str += $(this).data('id')
-                        }
-                        else {
-                            str += $(this).data('id') + ",";
-                        }
-                    }
 
-                    //var $this = $(this);
-                    //if ($this[0] === selected.last()[0]) {
-                    //    str += $(this).data('id')
-                    //}
-                    //else {
-                    //    str += $(this).data('id') + ",";
-                    //}
-
-                    //if ((index !== (selected.length - 1)))
-                    //    str += $(this).data('id') + ",";
-                    //else
-                    //    str += $(this).data('id');
-
-
-                    //str += $(this).data('id') + ",";
-                    //s.push($(this).data('id'));
+                    if (!skillIds.find(s => s === $(this).data('id')))
+                        skillIds.push($(this).data('id'));
                 });
 
-                //console.log($('#skillFilter').val());
-                $("#skillIds").click();
-
-                @*$("#skillIds").click(function(){
-                    $.ajax({
-                        url: '@Url.Action("AllEmployees", "Employees")',
-                        type: 'POST',
-                        contentType: 'application/json; charset=utf-8',
-                        data: JSON.stringify({ skillIds: str }),
-                        success: function (data) {
-                            location.reload(true);
-                            //if (data) {  // check if data is defined
-                            //    $("body").html(data);
-                            //   //$("#order-summary-panel").html(data);
-                            //}
-                        }
-                    });
-                });*@
-
-                @*$.ajax({
-                    type: 'POST',
-                    contentType: 'application/json; charset=utf-8',
-                    url: '@Url.Action("AllEmployees", "Employees")',
-                    data: JSON.stringify({ skillIds: str })
-                });*@
+                var skillIdsString = skillIds.join(',');
+                table.destroy();
+                table = EmployeesController.allEmployeesInit("#allEmployees", skillIdsString, employeeDetailsAction);
             });
 
             
-
-            var table = EmployeesController.allEmployeesInit("#allEmployees", skillIds, employeeDetailsAction);
             EmployeesController.animations(table, employeeDetailsAction);
             EmployeesController.deleteMultipleEmployees(table);
 
-            
+            // convert from c# array to javascript string with arr.split(',')
+            // convert from javascript array to javascript string with arr.join(',')
 
-            //var softSkillsSuccess = function (data) {
-            //    $.each(data, function (i, item) {
-            //        $("#softSkills").append('<option data-id="'+ data[i].id + '">' + data[i].name +'</option>')
-            //    });
-            //};
+            // to hold value on multiselect checkboxes on reload
+            //$('#skillFilter').val(skillIds.split(","));
+            //$('#skillFilter').multiselect('refresh');
 
-            //var fail = function () {
-            //    alert("Fail");
-            //};
-
-            //SkillService.getSkills("Soft", softSkillsSuccess, fail);
-
-            
-
-            //$("#softSkills").append('<option>hjghsdgfsdhgf</option>')
-
-            //$("#skillFilter").find('optgroup[label="Soft"]').append("<option value='"+'test!'+"'>" + 'test!' + "</option>");
+            @*to redirect event use
+            window.location.href = '@Url.Action("AllEmployees", "Employees")?skillIds=' + str.join(',');*@
     });
     </script>
 }

@@ -32,15 +32,9 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             return View(employee);
         }
 
-        public ViewResult AllEmployees(string skillIds)
+        public ViewResult AllEmployees()
         {
-            return View(new AllEmployeesViewModel { SkillIds = skillIds });
-        }
-
-        [HttpPost]
-        public RedirectToActionResult AllEmployees(AllEmployeesViewModel viewModel)
-        {
-            return RedirectToAction("AllEmployees", new { skillIds = viewModel.SkillIds });
+            return View();
         }
 
         static async Task<string> GetURI(Uri u)
