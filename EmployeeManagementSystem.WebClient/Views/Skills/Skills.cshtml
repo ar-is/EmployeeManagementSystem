@@ -1,20 +1,13 @@
-﻿@model JobSkillViewModel
-
+﻿
 @{
     ViewData["Title"] = "Skills";
 }
 
 <h1>Skills</h1>
 
-<form asp-controller="Skills" asp-action="Skills">
-    <select name="jobId" id="searchJob"
-            @*asp-for="JobId"
-            asp-items="@(new SelectList(Model.Jobs, "Id", "Title"))"*@>
-        <option>Please select a job</option>
-    </select>
-
-    <button id="jobId" type="submit" value="Submit">Submit</button>
-</form>
+<div class="aras">
+    <select name="jobId" id="searchJob"></select>
+</div>
 
 <br />
 
@@ -31,17 +24,16 @@
 @section Scripts {
     <script>
         $(document).ready(function () {
-            var jobId = '@Model.JobId';
             var skillDetailsAction = '@Url.Action("SkillDetails", "Skills")';
 
-            SkillsController.jobsInit("#searchJob", jobId);
-            SkillsController.skillsInit("#skills", jobId, skillDetailsAction);
+            SkillsController.jobsInit("#searchJob");
 
-            $("#jobId").css('display', 'none');
+            $(document).on('DOMNodeInserted', '#searchJob > option:first-child', function () {
 
-            $("#searchJob").change(function () {
-                $("#jobId").click();
-            });
+                var firstJobId = this.value;
+                var table = SkillsController.skillsInit("#skills", firstJobId, skillDetailsAction);
+                SkillsController.jobsDropdownOnChange(table, skillDetailsAction);
+            })
         });
     </script>
 }

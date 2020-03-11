@@ -21,11 +21,60 @@
         });
 
         $("#editEmployee").click(function () {
-            $("#allEmployees").dataTable().$("tr.selected").each(function () {
+            table.$("tr.selected").each(function () {
                 var data = table.row(this).data();
                 location.href = employeeDetailsAction + "/" + data.id;
             });
         });      
+    };
+
+    var skillsFilterCheckboxesInit = function () {
+        var getSkillsCheckboxesSuccess = function (data) {
+            $.each(data, function (i, item) {
+                if (data[i].type === "Soft") {
+                    $("#softSkills").append('<option value="' + data[i].id + '" data-id="' + data[i].id + '">' + data[i].name + '</option>');
+                }
+                else if (data[i].type === "Technical") {
+                    $("#techSkills").append('<option value="' + data[i].id + '" data-id="' + data[i].id + '">' + data[i].name + '</option>');
+                }
+
+                $('#skillFilter').multiselect('rebuild');
+            });
+        };
+
+        var getSkillsCheckboxesFail = function (xhr, textStatus, errorThrown) {
+            pageElementHelpers.toggleModal("red", "Skills Filter not rendered! " + errorThrown);
+        };
+
+        $('#skillFilter').multiselect({
+            enableClickableOptGroups: true,
+            includeSelectAllOption: true,
+            buttonWidth: '30%',
+            nonSelectedText: 'Filter by Skill(s)'
+        });
+
+        skillService.getSkills(getSkillsCheckboxesSuccess, getSkillsCheckboxesFail);
+    };
+
+    var skillsFilterCheckboxesOnChange = function (table, employeeDetailsAction) {
+        $('#skillFilter').on('change', function () {
+            var selected = $(this).find('option:selected', this);
+            var skillIds = [];
+
+            selected.each(function (index, element) {
+
+                thisVal = $(this).val();
+
+                if (!skillIds.find(s => s === $(this).data('id')))
+                    skillIds.push($(this).data('id'));
+            });
+
+            var skillIdsString = skillIds.join(',');
+            table.destroy();
+            table = EmployeesController.allEmployeesInit("#allEmployees", skillIdsString, employeeDetailsAction);
+            EmployeesController.animations(table, employeeDetailsAction);
+            EmployeesController.deleteMultipleEmployees(table);
+        });
     };
 
     var allEmployeesInit = function (container, skillIds, employeeDetailsAction) {
@@ -178,6 +227,8 @@
 
     return {
         animations: animations,
+        skillsFilterCheckboxesInit: skillsFilterCheckboxesInit,
+        skillsFilterCheckboxesOnChange: skillsFilterCheckboxesOnChange,
         allEmployeesInit: allEmployeesInit,
         createEmployee: createEmployee,
         deleteMultipleEmployees: deleteMultipleEmployees

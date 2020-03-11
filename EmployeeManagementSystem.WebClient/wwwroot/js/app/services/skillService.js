@@ -9,9 +9,9 @@
     //        .fail(fail);
     //};
 
-    var getSkills = function (type, success, fail) {
+    var getSkills = function (success, fail) {
         $.ajax({
-            url: "http://localhost:5001/api/skills/?type=" + type,
+            url: "http://localhost:5001/api/skills/",
             method: "GET"
         })
             .then(success)

@@ -197,6 +197,16 @@
         "dist/bootbox.min.js",
         "bootbox.js"
       ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap-multiselect@0.9.15",
+      "destination": "wwwroot/lib/bootstrap-multiselect/",
+      "files": [
+        "dist/css/bootstrap-multiselect.css",
+        "dist/js/bootstrap-multiselect.js",
+        "dist/js/bootstrap-multiselect.min.js"
+      ]
     }
   ]
 }

@@ -1,22 +1,31 @@
 ﻿var SkillsController = function (pageElementHelpers, jobService, skillService) {
 
-    var jobsInit = function (container, jobId) {
+    var jobsInit = function (container) {
+
         var success = function (data) {
             var option = "";
-
+            
             $.each(data, function (i) {
                 option += '<option value="' + data[i].id + '">' + data[i].seniorityLevel + " " + data[i].title + '</option>';
             });
 
             $(container).html(option);
-            $(container).val(jobId);
         };
 
         var fail = function () {
             alert('Something failed!');
         };
-
+      
         jobService.getJobs(success, fail);
+    };
+
+    var jobsDropdownOnChange = function (table, skillDetailsAction) {
+        $('#searchJob').on('change', function () {
+            var selectedJobId = $('#searchJob option:selected').attr('value');
+
+            table.destroy();
+            table = SkillsController.skillsInit("#skills", selectedJobId, skillDetailsAction);
+        });
     };
 
     var allSkillsInit = function (container, skillDetailsAction, type, status) {
@@ -53,7 +62,7 @@
     };
 
     var skillsInit = function (container, jobId, skillDetailsAction) {
-        $(container).DataTable({
+        var table = $(container).DataTable({
             ajax: skillService.getSkillsForJobDatatable(jobId),
             columns: [
                 {
@@ -70,6 +79,8 @@
                 }
             ]
         });
+
+        return table;
     };
 
     var skillInit = function (skillTypeContainer, skillNameContainer,
@@ -109,6 +120,7 @@
 
     return {
         jobsInit: jobsInit,
+        jobsDropdownOnChange: jobsDropdownOnChange,
         allSkillsInit: allSkillsInit,
         skillsInit: skillsInit,
         skillInit: skillInit,

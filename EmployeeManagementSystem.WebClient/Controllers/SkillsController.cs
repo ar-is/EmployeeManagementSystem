@@ -25,19 +25,21 @@ namespace EmployeeManagementSystem.WebClient.Controllers
             return RedirectToAction("AllSkills", new { type = viewModel.Type, status = viewModel.Status });
         }
 
-        public ViewResult Skills(Guid jobId)
+        public ViewResult Skills()
         {
-            if (jobId == Guid.Empty)
-                jobId = Guid.Parse("7b75a444-994d-4936-96bf-9c3c0804e42d");
+            //if (jobId == Guid.Empty)
+            //    jobId = Guid.Parse("7b75a444-994d-4936-96bf-9c3c0804e42d");
 
-            return View(new JobSkillViewModel { JobId = jobId });
+            //return View(new JobSkillViewModel { JobId = jobId });
+
+            return View();
         }
 
-        [HttpPost]
-        public RedirectToActionResult Skills(JobSkillViewModel viewModel)
-        {
-            return RedirectToAction("Skills", new { jobId = viewModel.JobId });
-        }
+        //[HttpPost]
+        //public RedirectToActionResult Skills(JobSkillViewModel viewModel)
+        //{
+        //    return RedirectToAction("Skills", new { jobId = viewModel.JobId });
+        //}
 
         [Route("Skills/SkillDetails/{id:guid}")]
         public ViewResult SkillDetails(Guid id)

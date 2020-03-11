@@ -3,7 +3,7 @@
 }
 
     <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" />
         <link rel="stylesheet" href="~/lib/datatables/dist/css//select.dataTables.min.css" />
 
         <style>
@@ -55,58 +55,19 @@
 <button id="skillIds" type="submit" value="Submit">Submit</button>
 
 @section Scripts { 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js"></script>    
+    <script src="~/lib/bootstrap-multiselect/dist/js/bootstrap-multiselect.min.js"></script>   
     <script src="~/lib/moment/dist/js/moment-with-locales.js"></script>
     <script src="~/lib/moment/dist/js/datetime-moment.js"></script>
     <script>
-        $(document).ready(function () {    
+        $(document).ready(function () {
             $.fn.dataTable.moment('dddd, MMMM Do, YYYY');
             var employeeDetailsAction = '@Url.Action("Index", "Employees")';
 
-            $('#skillFilter').multiselect({
-                enableClickableOptGroups: true,
-                includeSelectAllOption: true,
-                buttonWidth: '30%',
-                nonSelectedText:'Filter by Skill(s)'
-            });
-
-             $.ajax({
-                url: "http://localhost:5001/api/skills/",
-                method: "GET",
-                success: function (data) {
-                    $.each(data, function (i, item) {
-                        if (data[i].type === "Soft") {
-                            $("#softSkills").append('<option value="' + data[i].id + '" data-id="' + data[i].id + '">' + data[i].name + '</option>');
-                        }
-                        else if (data[i].type === "Technical") {
-                            $("#techSkills").append('<option value="' + data[i].id + '" data-id="' + data[i].id + '">' + data[i].name + '</option>');
-                        }
-
-                        $('#skillFilter').multiselect('rebuild');
-                    });
-                }
-             });
+            EmployeesController.skillsFilterCheckboxesInit();
 
             var table = EmployeesController.allEmployeesInit("#allEmployees", '', employeeDetailsAction);
-             
-            $('#skillFilter').on('change', function () {
-                var selected = $(this).find('option:selected', this);
-                var skillIds = [];
 
-                selected.each(function (index, element) {
-
-                    thisVal = $(this).val();
-
-                    if (!skillIds.find(s => s === $(this).data('id')))
-                        skillIds.push($(this).data('id'));
-                });
-
-                var skillIdsString = skillIds.join(',');
-                table.destroy();
-                table = EmployeesController.allEmployeesInit("#allEmployees", skillIdsString, employeeDetailsAction);
-            });
-
-            
+            EmployeesController.skillsFilterCheckboxesOnChange(table, employeeDetailsAction);            
             EmployeesController.animations(table, employeeDetailsAction);
             EmployeesController.deleteMultipleEmployees(table);
 
